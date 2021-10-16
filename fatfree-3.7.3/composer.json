@@ -1,0 +1,6 @@
+{
+    "require": {
+        "bcosca/fatfree-core": "3.5.*",
+        "bcosca/fatfree": "^3.7"
+    }
+}
