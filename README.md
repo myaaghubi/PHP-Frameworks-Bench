@@ -111,35 +111,14 @@ If you want to see current configuration, run `sudo sysctl -a`.
 
 ## References
 
-* [Aura](http://auraphp.com/) ([@auraphp](https://twitter.com/auraphp))
-* [BEAR.Sunday](https://bearsunday.github.io/) ([@BEARSunday](https://twitter.com/BEARSunday))
-* [CakePHP](http://cakephp.org/) ([@cakephp](https://twitter.com/cakephp))
-* [CodeIgniter](http://www.codeigniter.com/) ([@CodeIgniter](https://twitter.com/CodeIgniter))
-* [Cygnite](http://www.cygniteframework.com/) ([@cygnitephp](https://twitter.com/cygnitephp))
 * [FatFree](http://fatfreeframework.com/) ([@phpfatfree](https://twitter.com/phpfatfree))
-* [FuelPHP](http://fuelphp.com/) ([@fuelphp](https://twitter.com/fuelphp))
-* [Ice](http://www.iceframework.org/) ([@iceframework](https://twitter.com/iceframework)) [PHP extension]
-  * See https://github.com/kenjis/php-framework-benchmark/pull/17#issuecomment-98244668
-* [KumbiaPHP](https://github.com/KumbiaPHP/KumbiaPHP) ([@KumbiaPHP](https://twitter.com/KumbiaPHP))
-  * [Install KumbiaPHP](https://github.com/KumbiaPHP/Documentation/blob/master/en/to-install.md#instalar-kumbiaphp)
 * [Laravel](http://laravel.com/) ([@laravelphp](https://twitter.com/laravelphp))
 * [Lumen](http://lumen.laravel.com/)
-* [NoFussFramework](http://www.nofussframework.com/)
-* [Phalcon](http://phalconphp.com/) ([@phalconphp](https://twitter.com/phalconphp)) [PHP extension]
-  * [Installation](https://docs.phalconphp.com/en/latest/reference/install.html)
-* [PHPixie](http://phpixie.com/) ([@phpixie](https://twitter.com/phpixie))
-* [Radar](https://github.com/radarphp/Radar.Project)
-* [Siler](https://github.com/leocavalcante/siler)
 * [Silex](http://silex.sensiolabs.org/)
 * [Slim](http://www.slimframework.com/) ([@slimphp](https://twitter.com/slimphp))
-* [StaticPHP](https://github.com/gintsmurans/staticphp)
 * [Symfony](http://symfony.com/) ([@symfony](https://twitter.com/symfony))
   * [How to Deploy a Symfony Application](http://symfony.com/doc/current/cookbook/deployment/tools.html)
-* [Tipsy](http://tipsy.la)
-* [Flow-Framework](https://flow.neos.io) ([@neoscms](https://twitter.com/neoscms))
 * [Yii](http://www.yiiframework.com/) ([@yiiframework](https://twitter.com/yiiframework))
-* [zend-expressive](https://github.com/zendframework/zend-expressive) ([@zfdevteam](https://twitter.com/zfdevteam))
-* [Zend Framework](http://framework.zend.com/) ([@zfdevteam](https://twitter.com/zfdevteam))
 
 ## Other Benchmarks
 
