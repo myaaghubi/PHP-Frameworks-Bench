@@ -1,7 +1,7 @@
 # PHP Framework Benchmark
 
-Note: This project is based on [
-](https://github.com/kenjis/php-framework-benchmark). It's no longer maintaining, so I decided to create a new repo. 
+Note: This project is based on
+[php-framework-benchmark](https://github.com/kenjis/php-framework-benchmark). It's no longer maintaining, so I decided to split it from origin repo.
 
 This project attempts to measure minimum overhead (minimum bootstrap cost) of PHP frameworks in the real world.
 
