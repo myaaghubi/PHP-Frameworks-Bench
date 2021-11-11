@@ -22,6 +22,7 @@ for fw in `echo $targets`
 do
     if [ -d "$fw" ]; then
         echo "$fw"
+        echo "$fw/_benchmark/hello_world.sh"
         . "$fw/_benchmark/hello_world.sh"
         benchmark "$fw" "$url"
     fi

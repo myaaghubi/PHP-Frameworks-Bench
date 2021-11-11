@@ -1,0 +1,123 @@
+{
+    "packages": [
+        {
+            "name": "leocavalcante/siler",
+            "version": "v1.7.9",
+            "version_normalized": "1.7.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leocavalcante/siler.git",
+                "reference": "e3821ae04e2d5790e86b4a9717fb6fbfdfdec1f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/leocavalcante/siler/zipball/e3821ae04e2d5790e86b4a9717fb6fbfdfdec1f4",
+                "reference": "e3821ae04e2d5790e86b4a9717fb6fbfdfdec1f4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3 || >= 8.0"
+            },
+            "require-dev": {
+                "cboden/ratchet": "^0.4.1",
+                "cocur/slugify": "^4.0",
+                "doctrine/annotations": "^1.10",
+                "doctrine/cache": "^1.10",
+                "gabordemooij/redbean": "^5.5",
+                "google/protobuf": "^3.12",
+                "grpc/grpc": "^1.30",
+                "laminas/laminas-config": "^3.4",
+                "laminas/laminas-config-aggregator": "^1.3",
+                "laminas/laminas-diactoros": "^2.2",
+                "laminas/laminas-httphandlerrunner": "^1.1",
+                "laminas/laminas-stratigility": "^3.2",
+                "monolog/monolog": "^2.1",
+                "phpunit/phpunit": "^9.2",
+                "psr/event-dispatcher": "^1.0",
+                "squizlabs/php_codesniffer": "^3.5",
+                "swiftmailer/swiftmailer": "^6.2",
+                "swoole/ide-helper": "^4.5",
+                "textalk/websocket": "^1.2",
+                "twig/twig": "^3.0",
+                "vimeo/psalm": "^3.12 || ^4.0",
+                "vlucas/phpdotenv": "^5.0",
+                "webonyx/graphql-php": "^14.0"
+            },
+            "time": "2021-01-27T19:18:40+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Siler\\": "src/"
+                },
+                "files": [
+                    "src/Config/Config.php",
+                    "src/Container/Container.php",
+                    "src/Diactoros/Diactoros.php",
+                    "src/Dotenv/Dotenv.php",
+                    "src/Encoder/Json.php",
+                    "src/Env/Env.php",
+                    "src/File/File.php",
+                    "src/Functional/Functional.php",
+                    "src/Functional/Monad/Monad.php",
+                    "src/GraphQL/GraphQL.php",
+                    "src/GraphQL/GraphiQL.php",
+                    "src/Grpc/Grpc.php",
+                    "src/Http/Http.php",
+                    "src/Http/Request.php",
+                    "src/Http/Response.php",
+                    "src/HttpHandlerRunner/HttpHandlerRunner.php",
+                    "src/Mail/SwiftMailer.php",
+                    "src/Monolog/Monolog.php",
+                    "src/Prelude/Arr.php",
+                    "src/Prelude/IO.php",
+                    "src/Prelude/Klass.php",
+                    "src/Prelude/Obj.php",
+                    "src/Prelude/Prelude.php",
+                    "src/Prelude/Str.php",
+                    "src/Prelude/Tuple.php",
+                    "src/Ratchet/Ratchet.php",
+                    "src/Route/Route.php",
+                    "src/Stratigility/Stratigility.php",
+                    "src/Swoole/Swoole.php",
+                    "src/Twig/Twig.php",
+                    "src/Siler.php",
+                    "src/facades.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "leocavalcante",
+                    "email": "lc@leocavalcante.com"
+                }
+            ],
+            "description": "Siler is a set of general purpose high-level abstractions aiming an API for declarative programming in PHP.",
+            "keywords": [
+                "api",
+                "framework",
+                "functional",
+                "graphql",
+                "micro",
+                "router",
+                "swoole"
+            ],
+            "support": {
+                "issues": "https://github.com/leocavalcante/siler/issues",
+                "source": "https://github.com/leocavalcante/siler/tree/v1.7.9"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/leocavalcante",
+                    "type": "github"
+                }
+            ],
+            "install-path": "../leocavalcante/siler"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

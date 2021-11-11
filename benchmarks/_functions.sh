@@ -5,20 +5,26 @@ benchmark ()
     ab_log="output/$fw.ab.log"
     output="output/$fw.output"
 
-    # get rpm
-    echo "ab -c 10 -t 3 $url"
-    ab -c 10 -t 3 "$url" > "$ab_log"
-    rps=`grep "Requests per second:" "$ab_log" | cut -f 7 -d " "`
-
     # get time
     count=10
+
+    # get rpm
+    echo "ab -c $count -t 3 $url"
+    ab -c $count -t 3 "$url" > "$ab_log"
+    rps=`grep "Requests per second:" "$ab_log" | cut -f 7 -d " "`
+
     total=0
-    for ((i=0; i < $count; i++)); do
+    i=0
+    # The for (( expr ; expr ; expr )) syntax is not available in sh, so:
+    while [ $i -lt $count ]
+    do
         curl "$url" > "$output"
         t=`tail -1 "$output" | cut -f 2 -d ':'`
         total=`php ./benchmarks/sum_ms.php $t $total`
+        i=$(( $i + 1 ))
     done
     time=`php ./benchmarks/avg_ms.php $total $count`
+
 
     # get memory and file
     memory=`tail -1 "$output" | cut -f 1 -d ':'`

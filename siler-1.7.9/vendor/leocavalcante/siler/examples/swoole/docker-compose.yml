@@ -1,0 +1,11 @@
+version: '3'
+services:
+  swoole:
+    container_name: siler_swoole
+    image: leocavalcante/dwoole:dev
+    ports:
+      - '9501:9501'
+    volumes:
+      - ../../:/app
+    environment:
+      ENTRY_POINT_FILE: /app/examples/swoole/index.php

@@ -1,0 +1,10 @@
+{
+    "require": {
+        "leocavalcante/siler": "1.7.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "Controllers/"
+        }
+    }
+}

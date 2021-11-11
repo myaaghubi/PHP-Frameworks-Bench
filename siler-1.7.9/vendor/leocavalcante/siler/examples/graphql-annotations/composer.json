@@ -1,0 +1,10 @@
+{
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Siler\\Example\\GraphQL\\Annotation\\": "src/"
+        }
+    }
+}

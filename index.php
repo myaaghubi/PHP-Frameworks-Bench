@@ -39,7 +39,7 @@ list($chart_file, $div_file) = make_graph('file', 'Included Files', 'count');
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>PHP Framework Benchmark</title>
+<title>PHP Frameworks Bench</title>
 <script src="https://www.google.com/jsapi"></script>
 <script>
 <?php
@@ -48,7 +48,7 @@ echo $chart_rpm, $chart_mem, $chart_time, $chart_file;
 </script>
 </head>
 <body>
-<h1>PHP Framework Benchmark</h1>
+<h1>PHP Frameworks Bench</h1>
 <h2>Hello World Benchmark</h2>
 <div>
 <?php
@@ -78,7 +78,7 @@ if (file_exists($url_file)) {
 <hr>
 
 <footer>
-    <p style="text-align: right">This page is a part of <a href="https://github.com/kenjis/php-framework-benchmark">php-framework-benchmark</a>.</p>
+    <p style="text-align: right">This page is a part of <a href="https://github.com/myaghobi/php-frameworks-bench">php-frameworks-bench</a>.</p>
 </footer>
 </body>
 </html>

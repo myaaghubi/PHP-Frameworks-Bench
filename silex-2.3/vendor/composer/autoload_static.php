@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit2e66f9be6c93209367d1da6dda7614a3
+class ComposerStaticInit85b0c59582b801b27008c6e7c439bdc2
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -44,6 +44,10 @@ class ComposerStaticInit2e66f9be6c93209367d1da6dda7614a3
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
+        ),
+        'C' => 
+        array (
+            'Controllers\\' => 12,
         ),
     );
 
@@ -122,11 +126,15 @@ class ComposerStaticInit2e66f9be6c93209367d1da6dda7614a3
         ),
         'Psr\\Log\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+            0 => __DIR__ . '/..' . '/psr/log/src',
         ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Controllers',
         ),
     );
 
@@ -143,6 +151,7 @@ class ComposerStaticInit2e66f9be6c93209367d1da6dda7614a3
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Controllers\\helloworldController' => __DIR__ . '/../..' . '/Controllers/helloworldController.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
         'Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Resources/stubs/Normalizer.php',
         'Pimple\\Container' => __DIR__ . '/..' . '/pimple/pimple/src/Pimple/Container.php',
@@ -166,17 +175,14 @@ class ComposerStaticInit2e66f9be6c93209367d1da6dda7614a3
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
-        'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/AbstractLogger.php',
-        'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/Psr/Log/InvalidArgumentException.php',
-        'Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/Psr/Log/LogLevel.php',
-        'Psr\\Log\\LoggerAwareInterface' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerAwareInterface.php',
-        'Psr\\Log\\LoggerAwareTrait' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerAwareTrait.php',
-        'Psr\\Log\\LoggerInterface' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerInterface.php',
-        'Psr\\Log\\LoggerTrait' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerTrait.php',
-        'Psr\\Log\\NullLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/NullLogger.php',
-        'Psr\\Log\\Test\\DummyTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/DummyTest.php',
-        'Psr\\Log\\Test\\LoggerInterfaceTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
-        'Psr\\Log\\Test\\TestLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/TestLogger.php',
+        'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/src/AbstractLogger.php',
+        'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/src/InvalidArgumentException.php',
+        'Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/src/LogLevel.php',
+        'Psr\\Log\\LoggerAwareInterface' => __DIR__ . '/..' . '/psr/log/src/LoggerAwareInterface.php',
+        'Psr\\Log\\LoggerAwareTrait' => __DIR__ . '/..' . '/psr/log/src/LoggerAwareTrait.php',
+        'Psr\\Log\\LoggerInterface' => __DIR__ . '/..' . '/psr/log/src/LoggerInterface.php',
+        'Psr\\Log\\LoggerTrait' => __DIR__ . '/..' . '/psr/log/src/LoggerTrait.php',
+        'Psr\\Log\\NullLogger' => __DIR__ . '/..' . '/psr/log/src/NullLogger.php',
         'Silex\\Api\\BootableProviderInterface' => __DIR__ . '/..' . '/silex/silex/src/Silex/Api/BootableProviderInterface.php',
         'Silex\\Api\\ControllerProviderInterface' => __DIR__ . '/..' . '/silex/silex/src/Silex/Api/ControllerProviderInterface.php',
         'Silex\\Api\\EventListenerProviderInterface' => __DIR__ . '/..' . '/silex/silex/src/Silex/Api/EventListenerProviderInterface.php',
@@ -735,10 +741,10 @@ class ComposerStaticInit2e66f9be6c93209367d1da6dda7614a3
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit2e66f9be6c93209367d1da6dda7614a3::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit2e66f9be6c93209367d1da6dda7614a3::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit2e66f9be6c93209367d1da6dda7614a3::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit2e66f9be6c93209367d1da6dda7614a3::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit85b0c59582b801b27008c6e7c439bdc2::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit85b0c59582b801b27008c6e7c439bdc2::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit85b0c59582b801b27008c6e7c439bdc2::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit85b0c59582b801b27008c6e7c439bdc2::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -1,0 +1,10 @@
+{
+    "require": {
+        "phroute/phroute": "2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "Controllers/"
+        }
+    }
+}

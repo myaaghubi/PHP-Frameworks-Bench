@@ -1,8 +1,8 @@
 #!/bin/sh
 
-base="http://127.0.0.1/php-framework-benchmark"
+base="http://127.0.0.1/php-frameworks-bench"
 
-cd `dirname $0`
+# cd `dirname $0`#
 
 if [ $# -eq 0 ]; then
     # include framework list
