@@ -1,4 +1,4 @@
-# PHP Framework Benchmark
+# PHP Frameworks Bench v1.1
 
 This project attempts to measure minimum overhead (minimum bootstrap cost) of PHP frameworks in the real world.
 
