@@ -1,17 +1,19 @@
 #!/bin/sh
-
+# Sorted alphabetically
 list="
-no-framework
+cakephp-4.3
+codeigniter-4.1.5
+fastroute-1.3
 fatfree-3.7.3
-slim-4.9
-slim-4.3
+fuelphp-1.8
 laravel-8.6.6
 lumen-8.1.2
+phroute-2.1
+pure-php
+siler-1.7.9
 silex-2.3
+slim-4.9
+slim-4.3
 symfony-5.3
 yii-2.0.14-basic
-cakephp-4.3
-siler-1.7.9
-fastroute-1.3
-phroute-2.1
 "

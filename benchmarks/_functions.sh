@@ -1,17 +1,27 @@
-benchmark ()
-{
+benchmark () {
     fw="$1"
     url="$2"
-    ab_log="output/$fw.ab.log"
+    output_wrk="output/$fw.wrk.log"
     output="output/$fw.output"
 
-    # get time
-    count=10
-
     # get rpm
-    echo "ab -c $count -t 3 $url"
-    ab -c $count -t 3 "$url" > "$ab_log"
-    rps=`grep "Requests per second:" "$ab_log" | cut -f 7 -d " "`
+    # for this version of wrk -R (--rate) is necessary to use
+    # I used a large number to make sure there be no limitation of rate
+    # for a high end server, you can increase first two parameters
+    echo "wrk -t50 -c50 -d10s -R1000g $url"
+    wrk -t50 -c50 -d10s -R1000g "$url" > "$output_wrk"
+
+    rps=""
+    i=4
+    # this loop is helpful to discover small numbers
+    while [ $i -lt 7 ] && [ -z "$rps" ]
+    do
+        rps=`grep "Requests/sec:" "$output_wrk" | cut -f $i -d " "`
+        i=$(( $i + 1 ))
+    done
+
+
+    count=5
 
     total=0
     i=0
@@ -33,17 +43,17 @@ benchmark ()
     echo "$fw: $rps: $memory: $time: $file" >> "$results_file"
 
     echo "$fw" >> "$check_file"
-    grep "Document Length:" "$ab_log" >> "$check_file"
-    grep "Failed requests:" "$ab_log" >> "$check_file"
+    grep "Document Length:" "$output_wrk" >> "$check_file"
+    grep "Failed requests:" "$output_wrk" >> "$check_file"
     grep 'Hello World!' "$output" >> "$check_file"
     echo "---" >> "$check_file"
 
     # check errors
     touch "$error_file"
     error=''
-    x=`grep 'Failed requests:        0' "$ab_log"`
+    x=`grep 'Failed requests:        0' "$output_wrk"`
     if [ "$x" = "" ]; then
-        tmp=`grep "Failed requests:" "$ab_log"`
+        tmp=`grep "Failed requests:" "$output_wrk"`
         error="$error$tmp"
     fi
     x=`grep 'Hello World!' "$output"`

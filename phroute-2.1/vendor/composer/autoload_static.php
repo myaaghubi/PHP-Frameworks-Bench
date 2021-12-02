@@ -30,6 +30,20 @@ class ComposerStaticInit10696150cbe38dd8cfb720677218861a
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Controllers\\helloworldController' => __DIR__ . '/../..' . '/Controllers/helloworldController.php',
+        'Phroute\\Phroute\\Dispatcher' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/Dispatcher.php',
+        'Phroute\\Phroute\\Exception\\BadRouteException' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/Exception/BadRouteException.php',
+        'Phroute\\Phroute\\Exception\\HttpException' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/Exception/HttpException.php',
+        'Phroute\\Phroute\\Exception\\HttpMethodNotAllowedException' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/Exception/HttpMethodNotAllowedException.php',
+        'Phroute\\Phroute\\Exception\\HttpRouteNotFoundException' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/Exception/HttpRouteNotFoundException.php',
+        'Phroute\\Phroute\\HandlerResolver' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/HandlerResolver.php',
+        'Phroute\\Phroute\\HandlerResolverInterface' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/HandlerResolverInterface.php',
+        'Phroute\\Phroute\\Route' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/Route.php',
+        'Phroute\\Phroute\\RouteCollector' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/RouteCollector.php',
+        'Phroute\\Phroute\\RouteDataArray' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/RouteDataArray.php',
+        'Phroute\\Phroute\\RouteDataInterface' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/RouteDataInterface.php',
+        'Phroute\\Phroute\\RouteDataProviderInterface' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/RouteDataProviderInterface.php',
+        'Phroute\\Phroute\\RouteParser' => __DIR__ . '/..' . '/phroute/phroute/src/Phroute/RouteParser.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

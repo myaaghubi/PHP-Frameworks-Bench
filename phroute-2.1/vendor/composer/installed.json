@@ -52,6 +52,6 @@
             "install-path": "../phroute/phroute"
         }
     ],
-    "dev": true,
+    "dev": false,
     "dev-package-names": []
 }

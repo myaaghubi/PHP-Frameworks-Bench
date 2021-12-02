@@ -32,7 +32,7 @@ function parse_results($file)
     }
     
     foreach ($results as $fw => $data) {
-        $results[$fw]['rps_relative']    = $data['rps'] / $min_rps;
+        $results[$fw]['rps_relative']    = $data['rps'] / ($min_rps>0?:1);
         $results[$fw]['memory_relative'] = $data['memory'] / ($min_memory>0?:1);
         $results[$fw]['time_relative'] = $data['time'] / ($min_time>0?:1);
         $results[$fw]['file_relative'] = $data['file'] / ($min_file>0?:1);

@@ -1,0 +1,45 @@
+{
+    "name": "fuel/fuel",
+    "type": "project",
+    "description" : "FuelPHP is a simple, flexible, community driven PHP 5.4+ framework, based on the best ideas of other frameworks, with a fresh start!",
+    "keywords": ["application", "website", "development", "framework", "PHP", "PHP7"],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4",
+        "composer/installers": "~1.0",
+        "fuel/core": "1.8.*",
+        "fuel/auth": "1.8.*",
+        "fuel/email": "1.8.*",
+        "fuel/oil": "1.8.*",
+        "fuel/orm": "1.8.*",
+        "fuel/parser": "1.8.*",
+        "fuelphp/upload": "2.0.6"
+    },
+    "require-dev": {
+        "fuel/docs": "1.8.*"
+    },
+    "suggest": {
+        "dwoo/dwoo" : "Allow Dwoo templating with the Parser package",
+        "mustache/mustache": "Allow Mustache templating with the Parser package",
+        "smarty/smarty": "Allow Smarty templating with the Parser package",
+        "twig/twig": "Allow Twig templating with the Parser package",
+        "pyrocms/lex": "Allow Lex templating with the Parser package",
+        "mthaml/mthaml": "Allow Haml templating with Twig supports with the Parser package",
+        "zordius/lightncandy": "Allow Handlebars templating with an extremely fast PHP implementation of handlebars"
+    },
+    "config": {
+        "vendor-dir": "fuel/vendor"
+    },
+    "extra": {
+        "installer-paths": {
+            "fuel/{$name}": ["fuel/core"],
+            "{$name}": ["fuel/docs"]
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php oil r install"
+        ]
+    },
+    "minimum-stability": "stable"
+}

@@ -54,6 +54,6 @@
             "install-path": "../nikic/fast-route"
         }
     ],
-    "dev": true,
+    "dev": false,
     "dev-package-names": []
 }

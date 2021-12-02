@@ -7,7 +7,7 @@
         'aliases' => array(),
         'reference' => NULL,
         'name' => '__root__',
-        'dev' => true,
+        'dev' => false,
     ),
     'versions' => array(
         '__root__' => array(

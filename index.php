@@ -24,16 +24,16 @@ Load_Theme: {
 }
 
 // RPS Benchmark
-list($chart_rpm, $div_rpm) = make_graph('rps', 'Throughput', 'requests per second');
+list($chart_rpm, $div_rpm) = make_graph('rps', 'Throughput', 'Requests per Second (r/s)');
 
 // Memory Benchmark
-list($chart_mem, $div_mem) = make_graph('memory', 'Memory', 'peak memory (MB)');
+list($chart_mem, $div_mem) = make_graph('memory', 'Memory', 'Peak Memory (MB)');
 
 // Exec Time Benchmark
-list($chart_time, $div_time) = make_graph('time', 'Exec Time', 'ms');
+list($chart_time, $div_time) = make_graph('time', 'ExecTime', 'Execution Time (ms)');
 
 // Included Files
-list($chart_file, $div_file) = make_graph('file', 'Included Files', 'count');
+list($chart_file, $div_file) = make_graph('file', 'Files', 'Included Files (count)');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,6 +61,7 @@ echo $div_rpm, $div_mem, $div_time, $div_file;
 $url_file = __DIR__ . '/output/urls.log';
 if (file_exists($url_file)) {
     $urls = file($url_file);
+    // sort($urls);
     foreach ($urls as $url) {
         $parts = parse_url(trim($url));
         $url = $parts['scheme'] . '://' . $_SERVER['HTTP_HOST'] . $parts['path'];
