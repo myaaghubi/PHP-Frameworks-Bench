@@ -36,9 +36,6 @@ If you find something wrong with my code, please feel free to send Pull Requests
   * Memory 16G 
 
 
-### Hello World Benchmark with OPCache
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/BUcxalvD92U/0.jpg)](http://www.youtube.com/watch?v=BUcxalvD92U "PHP OPCache Benchmarks, a Comparison for Popular Frameworks")
-
 ### Hello World Benchmark
 
 These are my benchmarks, not yours. **I encourage you to run on your (production equivalent) environments.**
@@ -67,6 +64,11 @@ These are my benchmarks, not yours. **I encourage you to run on your (production
 |symfony-5.3        |              96.57|    96.6|       5.49|     5.5|
 |codeigniter-4.1.5  |              75.94|    75.9|       3.37|     3.4|
 |laravel-8.6.6      |              39.96|    40.0|      11.90|    11.9|
+
+
+### Hello World Benchmark with OPCache
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/BUcxalvD92U/0.jpg)](http://www.youtube.com/watch?v=BUcxalvD92U "PHP OPCache Benchmarks, a Comparison for Popular Frameworks")
+
 
 ## How to Benchmark
 
