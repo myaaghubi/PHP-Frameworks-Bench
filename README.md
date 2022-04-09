@@ -49,8 +49,8 @@ If you want to benchmark PHP extension frameworks like Phalcon, you need to inst
 1- Install source code as <http://localhost/php-frameworks-bench/>:
 
 ```
+# you can use --branch vx.x
 $ git clone https://github.com/myaghobi/php-frameworks-bench.git
-# or use git clone https://github.com/myaghobi/php-frameworks-bench.git --branch vx.x
 $ cd php-frameworks-bench
 $ bash setup.sh
 ```
