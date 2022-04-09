@@ -7,7 +7,7 @@ require __DIR__.'/vendor/autoload.php';
 
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-    $r->addRoute('GET', '/index.php/hello/index', ['Controllers\helloworldController', 'getIndex']);
+    $r->addRoute('GET', '/index.php/hello/index', ['Controllers\HelloWorldController', 'getIndex']);
 });
 
 // Fetch method and URI from somewhere

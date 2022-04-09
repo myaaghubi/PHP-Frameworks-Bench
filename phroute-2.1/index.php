@@ -6,7 +6,8 @@ use Phroute\Phroute\RouteCollector;
 
 $router = new RouteCollector();
 
-$router->get('/index.php/hello/index', ['Controllers\helloworldController', 'getIndex']);
+/* *** php-frameworks-bench *** */
+$router->get('/index.php/hello/index', ['Controllers\HelloWorldController', 'getIndex']);
 
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -28,4 +29,5 @@ $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $uri);
 echo $response;
 
 
+/* *** php-frameworks-bench *** */
 require $_SERVER['DOCUMENT_ROOT'].'/php-frameworks-bench/libs/output_data.php';

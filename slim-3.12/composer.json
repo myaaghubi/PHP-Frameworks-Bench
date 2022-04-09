@@ -4,5 +4,10 @@
     },
     "config": {
         "optimize-autoloader": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "Controllers/"
+        }
     }
 }

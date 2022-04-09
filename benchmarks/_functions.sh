@@ -4,22 +4,20 @@ benchmark () {
     output_wrk="output/$fw.wrk.log"
     output="output/$fw.output"
 
-    # get rpm
-    # for this version of wrk -R (--rate) is necessary to use
+    # get rps
+    # for this version of wrk -R (--rate) is necessary to use for wsl
     # I used a large number to make sure there be no limitation of rate
     # for a high end server, you can increase first two parameters
-    echo "wrk -t50 -c50 -d10s -R1000g $url"
-    wrk -t50 -c50 -d10s -R1000g "$url" > "$output_wrk"
+    # is it wsl!?
+    if grep -q Microsoft /proc/version; then
+        echo "wrk -t50 -c1000 -d10s -R1000g $url"
+        wrk -t50 -c1000 -d10s -R1000g "$url" > "$output_wrk"
+    else
+        echo "wrk -t50 -c1000 -d10s $url"
+        wrk -t50 -c1000 -d10s "$url" > "$output_wrk"
+    fi
 
-    rps=""
-    i=4
-    # this loop is helpful to discover small numbers
-    while [ $i -lt 7 ] && [ -z "$rps" ]
-    do
-        rps=`grep "Requests/sec:" "$output_wrk" | cut -f $i -d " "`
-        i=$(( $i + 1 ))
-    done
-
+    rps=`grep "Requests/sec:" "$output_wrk" | tr -dc '0-9.'`
 
     count=5
 

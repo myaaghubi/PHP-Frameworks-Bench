@@ -1,39 +1,42 @@
 <?php
 
-Parse_Results: {
-    require __DIR__ . '/libs/parse_results.php';
-    $results = parse_results(__DIR__ . '/output/results.hello_world.log');
-}
-
-Load_Theme: {
-    $theme = isset($_GET['theme']) ? $_GET['theme'] : 'default';
-    if (! ctype_alnum($theme)) {
-        exit('Invalid theme');
+if (file_exists(__DIR__ . '/output/results.hello_world.log')) {
+    Parse_Results: {
+        require __DIR__ . '/libs/parse_results.php';
+        $results = parse_results(__DIR__ . '/output/results.hello_world.log');
     }
 
-    if ($theme === 'default') {
-        require __DIR__ . '/libs/make_graph.php';
-    } else {
-        $file = __DIR__ . '/libs/' . $theme . '/make_graph.php';
-        if (is_readable($file)) {
-            require $file;
-        } else {
+    Load_Theme: {
+        $theme = isset($_GET['theme']) ? $_GET['theme'] : 'default';
+        if (! ctype_alnum($theme)) {
+            exit('Invalid theme');
+        }
+
+        if ($theme === 'default') {
             require __DIR__ . '/libs/make_graph.php';
+        } else {
+            $file = __DIR__ . '/libs/' . $theme . '/make_graph.php';
+            if (is_readable($file)) {
+                require $file;
+            } else {
+                require __DIR__ . '/libs/make_graph.php';
+            }
         }
     }
+
+    // RPS Benchmark
+    list($chart_rpm, $div_rpm) = make_graph('rps', 'Throughput', 'Requests per Second (r/s)');
+
+    // Memory Benchmark
+    list($chart_mem, $div_mem) = make_graph('memory', 'Memory', 'Peak Memory (MB)');
+
+    // Exec Time Benchmark
+    list($chart_time, $div_time) = make_graph('time', 'ExecTime', 'Execution Time (ms)');
+
+    // Included Files
+    list($chart_file, $div_file) = make_graph('file', 'Files', 'Included Files (count)');
 }
 
-// RPS Benchmark
-list($chart_rpm, $div_rpm) = make_graph('rps', 'Throughput', 'Requests per Second (r/s)');
-
-// Memory Benchmark
-list($chart_mem, $div_mem) = make_graph('memory', 'Memory', 'Peak Memory (MB)');
-
-// Exec Time Benchmark
-list($chart_time, $div_time) = make_graph('time', 'ExecTime', 'Execution Time (ms)');
-
-// Included Files
-list($chart_file, $div_file) = make_graph('file', 'Files', 'Included Files (count)');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +55,12 @@ echo $chart_rpm, $chart_mem, $chart_time, $chart_file;
 <h2>Hello World Benchmark</h2>
 <div>
 <?php
-echo $div_rpm, $div_mem, $div_time, $div_file;
+echo @$div_rpm, @$div_mem, @$div_time, @$div_file;
+
+if (!file_exists(__DIR__ . '/output/results.hello_world.log')) {
+    echo '1. Run the \'bash setup.sh\'<br>';
+    echo '2. Run the \'bash benchmark.sh\'';
+}
 ?>
 </div>
 

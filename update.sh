@@ -1,5 +1,4 @@
 #!/bin/sh
-
 if [ ! `which composer` ]; then
     echo "composer command not found."
     exit 1;
@@ -16,9 +15,9 @@ fi
 for fw in $targets
 do
     if [ -d "$fw" ]; then
-        echo "***** $fw *****"
+        echo "/------- $fw: updating -------/"
         cd "$fw"
-        composer update
+        . "_benchmark/update.sh"
         cd ..
     fi
 done

@@ -21,7 +21,7 @@ mv "$url_file" "$url_file.old"
 for fw in `echo $targets`
 do
     if [ -d "$fw" ]; then
-        echo "$fw"
+        echo "/------- $fw: benchmarking -------/"
         echo "$fw/_benchmark/hello_world.sh"
         . "$fw/_benchmark/hello_world.sh"
         benchmark "$fw" "$url"
