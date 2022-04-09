@@ -1,14 +1,29 @@
-# PHP Frameworks Bench v1.2
+# PHP Frameworks Bench
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/myaghobi/PHP-Frameworks-Bench?color=purpol) ![GitHub](https://img.shields.io/github/license/myaghobi/PHP-Frameworks-Bench?color=green)
 
-This project attempts to measure minimum overhead (minimum bootstrap cost) of PHP frameworks in the real world.
+This project attempts to measure the minimum overhead (minimum bootstrap cost) of PHP frameworks in the real world.
 
-So I think the minimum applications to benchmark should not include:
+So I think the minimum should not include:
 
 * cost of template engine (HTML output)
 * cost of database manipulation
 * cost of debugging information
 
-Components like Template engine or ORM/Database libraries are out of scope in this project.
+Components like Template engines or ORM/Database libraries are out of scope in this project.
+
+
+- [PHP Frameworks Bench](#php-frameworks-bench)
+  - [Benchmarking Policy](#benchmarking-policy)
+  - [How to Benchmark](#how-to-benchmark)
+  - [Commands](#commands)
+  - [Benchmarks](#benchmarks)
+    - [Latest](#latest)
+    - [Old](#old)
+    - [OPCache](#results-with-opcache)
+  - [References](#references)
+  - [License](#license)
+
+
 
 ## Benchmarking Policy
 
@@ -19,16 +34,108 @@ This is `master` branch.
   * Don't remove any components/configurations even if they are not used.
   * With minimum changes to run this benchmark.
 * Set environment production/Turn off debug mode.
-* Run optimization which you normally do in your production environment, like Composer's `--optimize-autoloader`.
-* Use controller or action class if a framework has the functionality.
+* Run the general optimization in your production environment, like `--optimize-autoloader` for the composer.
+* Use controller or action class.
 
-Some people may think using default configuration is not fair. But I think a framework's default configuration is an assertion of what it is. Default configuration is a good starting point to know a framework. And I can't optimize all the frameworks. Some frameworks are optimized, some are not, it is not fair. So I don't remove any components/configurations.
+Some frameworks are optimized, some are not, so some people may think using default configuration is not fair. The dept of optimizing a framework depends on the developer's knowledge & experienced, it's the rabbit hole and there is no point in that for benchmarking. I think the default configuration of frameworks is a good starting point to have the ranking points.
 
-If you find something wrong with my code, please feel free to send Pull Requests. But please note optimizing only for "Hello World" is not acceptable! Building fastest "Hello World" application is not the goal in this project.
+If you find something wrong with my code, please feel free to send Pull Requests. But please note optimizing for the "Hello World" is not acceptable! Building the fastest "Hello World" application is not the goal of this project.
 
-## Results
 
-### Benchmarking Environment
+## How to Benchmark
+
+If you want to benchmark PHP extension frameworks like Phalcon, you need to install the extenstions.
+
+1- Install source code as <http://localhost/php-frameworks-bench/>:
+
+```
+$ git clone https://github.com/myaghobi/php-frameworks-bench.git
+# or use git clone https://github.com/myaghobi/php-frameworks-bench.git --branch vx.x
+$ cd php-frameworks-bench
+$ bash setup.sh
+```
+
+2- Run benchmarks:
+
+```
+$ bash benchmark.sh
+```
+
+3- Check the resuts:
+
+<http://localhost/php-frameworks-bench/>
+
+## Commands
+
+```
+# install | create-project frameworks
+$ bash setup.sh
+
+# run the benchmark
+$ bash benchmark.sh
+
+# composer update
+$ bash update.sh
+
+# to clean them all
+# then you can use setup.sh 
+# trobble? use it with `sudo`
+$ bash clean.sh
+```
+
+To specify the frameworks, put them after each command:
+
+```
+$ bash benchmark.sh laravel-9.1.3/ slim-4.10/ fatfree-3.7.3/
+...
+```
+
+
+## Benchmarks
+
+### Latest
+
+#### Environment
+
+* Ubuntu 20.04 LTS 64bit
+  * PHP 8.1.4 (LAMP)
+  * CPU Core i7 2600K@4Ghz
+  * Memory 16G 
+
+
+#### Results (2022/5/9)
+
+These are my benchmarks, not yours. **I encourage you to run on your (production equivalent) environments.**
+
+![Benchmark Results Graph Throughput](screenshots/php-frameworks-bench-throughput.png)
+![Benchmark Results Graph Memory](screenshots/php-frameworks-bench-memory.png)
+![Benchmark Results Graph Execution Time](screenshots/php-frameworks-bench-exectime.png)
+![Benchmark Results Graph Included Files](screenshots/php-frameworks-bench-includedfiles.png)
+
+PHP 8.1.4 (LAMP)
+|framework          |requests per second|relative|peak memory|relative|
+|-------------------|------------------:|-------:|----------:|-------:|
+|pure-php           |          25,363.33|25,363.3|       0.34|     0.3|
+|phroute-2.1        |          20,871.63|20,871.6|       0.34|     0.3|
+|fastroute-1.3      |          20,692.36|20,692.4|       0.34|     0.3|
+|siler-1.7.9        |          15,140.00|15,140.0|       0.36|     0.4|
+|fatfree-3.8.0      |          13,172.39|13,172.4|       0.39|     0.4|
+|slim-4.10          |          10,863.08|10,863.1|       0.38|     0.4|
+|slim-3.12          |          10,630.10|10,630.1|       0.39|     0.4|
+|yii-2.0-basic      |           8,382.51| 8,382.5|       0.69|     0.7|
+|silex-2.3          |           8,017.40| 8,017.4|       0.39|     0.4|
+|symfony-5.4        |           7,309.46| 7,309.5|       0.46|     0.5|
+|symfony-6.0        |           7,272.85| 7,272.9|       0.45|     0.5|
+|lumen-9.0.0        |           4,990.60| 4,990.6|       0.39|     0.4|
+|cakephp-4.3        |           4,471.16| 4,471.2|       0.43|     0.4|
+|fuelphp-1.9        |           3,728.35| 3,728.4|       0.45|     0.5|
+|codeigniter-4.1.9  |           1,671.15| 1,671.2|       1.46|     1.5|
+|laravel-9.1.3      |             826.64|   826.6|       0.77|     0.8|
+
+
+### Old
+
+#### Environment
 
 * Windows 10 64bit (bash executed on WSL 2)
   * PHP 8.0 (XAMPP x64)
@@ -36,16 +143,7 @@ If you find something wrong with my code, please feel free to send Pull Requests
   * Memory 16G 
 
 
-### Hello World Benchmark
-
-These are my benchmarks, not yours. **I encourage you to run on your (production equivalent) environments.**
-
-(2021/12/01)
-
-![Benchmark Results Graph Throughput](screenshots/php-frameworks-bench-throughput.jpg)
-![Benchmark Results Graph Memory](screenshots/php-frameworks-bench-memory.jpg)
-![Benchmark Results Graph Execution Time](screenshots/php-frameworks-bench-exectime.jpg)
-![Benchmark Results Graph Included Files](screenshots/php-frameworks-bench-includedfiles.jpg)
+#### Results (2021/12/01)
 
 |framework          |requests per second|relative|peak memory|relative|
 |-------------------|------------------:|-------:|----------:|-------:|
@@ -66,67 +164,13 @@ These are my benchmarks, not yours. **I encourage you to run on your (production
 |laravel-8.6.6      |              39.96|    40.0|      11.90|    11.9|
 
 
-### Hello World Benchmark with OPCache
+### Results with OPCache
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/BUcxalvD92U/0.jpg)](http://www.youtube.com/watch?v=BUcxalvD92U "PHP OPCache Benchmarks, a Comparison for Popular Frameworks")
-
-
-## How to Benchmark
-
-If you want to benchmark PHP extension frameworks like Phalcon, you need to install the extenstions.
-
-Install source code as <http://localhost/php-frameworks-bench/>:
-
-~~~
-$ git clone https://github.com/myaghobi/php-frameworks-bench.git
-$ cd php-frameworks-bench
-$ bash setup.sh
-~~~
-
-Run benchmarks:
-
-~~~
-$ bash benchmark.sh
-~~~
-
-See <http://localhost/php-frameworks-bench/>.
-
-If you want to benchmark some frameworks:
-
-~~~
-$ bash setup.sh fatfree-3.7.3/ slim-4.9/
-$ bash benchmark.sh fatfree-3.7.3/ slim-4.9/
-~~~
-
-## Linux Kernel Configuration
-
-I added below in `/etc/sysctl.conf`
-
-~~~
-# Added
-net.netfilter.nf_conntrack_max = 100000
-net.nf_conntrack_max = 100000
-net.ipv4.tcp_max_tw_buckets = 180000
-net.ipv4.tcp_tw_recycle = 1
-net.ipv4.tcp_tw_reuse = 1
-net.ipv4.tcp_fin_timeout = 10
-~~~
-
-and run `sudo sysctl -p`.
-
-If you want to see current configuration, run `sudo sysctl -a`.
-
-## Apache Virtual Host Configuration
-
-~~~
-<VirtualHost *:80>
-  DocumentRoot /home/vagrant/public
-</VirtualHost>
-~~~
 
 
 ## References 
 Note: This project is based on
-[php-framework-benchmark](https://github.com/kenjis/php-framework-benchmark). It was very old and no longer maintained, so I decided to split it from the origin repo and update it separately.
+[php-framework-benchmark](https://github.com/kenjis/php-framework-benchmark). It was very old and abandoned, so I decided to split it from the origin and update it separately.
 
 * [CakePHP](https://github.com/cakephp/cakephp)
 * [CodeIgniter](https://github.com/codeigniter4/CodeIgniter4)
@@ -141,3 +185,10 @@ Note: This project is based on
 * [Slim](https://github.com/slimphp/Slim)
 * [Symfony](https://github.com/symfony/symfony)
 * [Yii](https://github.com/yiisoft/yii2)
+
+
+## License
+
+You are allowed to use this plugin under the terms of the GNU General Public License version 2.
+
+Copyright (C) 2022 Mohammad Yaghobi
