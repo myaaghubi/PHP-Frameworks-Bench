@@ -99,7 +99,7 @@ $ bash benchmark.sh laravel-9.1.3/ slim-4.10/ fatfree-3.7.3/
 
 * Ubuntu 20.04 LTS 64bit
   * PHP 8.1.4 (LAMP)
-  * CPU Core i7 2600K@4Ghz
+  * CPU Core i7 2600K@3.4Ghz
   * Memory 16G 
 
 
@@ -139,7 +139,7 @@ PHP 8.1.4 (LAMP)
 
 * Windows 10 64bit (bash executed on WSL 2)
   * PHP 8.0 (XAMPP x64)
-  * CPU Core i7 2600K@4Ghz
+  * CPU Core i7 2600K@3.4Ghz
   * Memory 16G 
 
 
