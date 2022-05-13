@@ -18,11 +18,16 @@ mv "$check_file" "$check_file.old"
 mv "$error_file" "$error_file.old"
 mv "$url_file" "$url_file.old"
 
+
+phpv=`php -r 'echo phpversion();'`
+echo "/------- PHP $phpv -------/"
+
 for fw in `echo $targets`
 do
     if [ -d "$fw" ]; then
         echo "/------- $fw: benchmarking -------/"
         echo "$fw/_benchmark/hello_world.sh"
+        php ./libs/reset_opcache.php
         . "$fw/_benchmark/hello_world.sh"
         benchmark "$fw" "$url"
     fi

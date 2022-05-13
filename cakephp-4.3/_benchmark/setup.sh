@@ -7,7 +7,7 @@ yes|mv ./_benchmark/temp/{.,}* ./
 # have the route & controller
 yes|cp -r _benchmark/cakephp/* ./
 
-# some enhancement
+# some enhancements
 composer dump-autoload -o
-sudo rm -rf tmp/*
 composer install --no-interaction --no-dev -o
+rm ./webroot/.htaccess

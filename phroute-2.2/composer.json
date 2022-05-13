@@ -1,6 +1,6 @@
 {
     "require": {
-        "bcosca/fatfree-core": "3.8.0"
+        "phroute/phroute": "2.2"
     },
     "autoload": {
         "psr-4": {
