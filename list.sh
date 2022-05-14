@@ -5,8 +5,11 @@ cakephp-4.3
 codeigniter-4.1
 fastroute-1.3
 fatfree-3.8.0
+frameworkx-dev
 fuelphp-1.9
+laminas-2.0.x.dev
 laravel-9.1
+leaf-3.0
 lumen-9.0
 phroute-2.2
 pure-php
