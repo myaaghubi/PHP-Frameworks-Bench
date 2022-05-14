@@ -19,5 +19,6 @@ slim-3.12
 slim-4.10
 symfony-5.4
 symfony-6.0
+ubiquity-2.4.x.dev
 yii-2.0-basic
 "
