@@ -4,23 +4,48 @@ benchmark () {
     output_wrk="output/$fw.wrk.log"
     output="output/$fw.output"
 
-    # get rps
-    # for this version of wrk -R (--rate) is necessary to use for wsl
+    url_output=$(curl -s "$url")
+    reqsubstr="Hello World!"
+
+    # to make sure the appropriate response is reachable
+    # otherwise, there is no point running the benchmark
+    if ! [ -z "${url_output##*$reqsubstr*}" ] ;then
+        tmp=`cat "$output"`
+        error="$error$tmp"
+        echo "error!"
+        echo -e "$fw\n$error" >> "$error_file"
+        echo "---" >> "$error_file"
+
+        echo "$fw: 0: 0: 0: 0" >> "$results_file"
+        return 1
+    fi
+
+    config_wrk="wrk -t50 -c1000 -d10s"
+
+    # is it wsl!?
+    # if you're using wsl, it's necessary to put -R (--rate)
+    # in this version of wrk
     # I used a large number to make sure there be no limitation of rate
     # for a high end server, you can increase first two parameters
-    # is it wsl!?
     if grep -q Microsoft /proc/version; then
-        echo "wrk -t50 -c1000 -d10s -R1000g $url"
-        wrk -t50 -c1000 -d10s -R1000g "$url" > "$output_wrk"
+        config_wrk="$config_wrk -R1000g $url"
     else
-        echo "wrk -t50 -c1000 -d10s $url"
-        wrk -t50 -c1000 -d10s "$url" > "$output_wrk"
+        config_wrk="$config_wrk $url"
     fi
+
+    echo $config_wrk
+
+    config_wrk="$config_wrk '$url' > '$output_wrk'"
+    eval $config_wrk
 
     rps=`grep "Requests/sec:" "$output_wrk" | tr -dc '0-9.'`
 
-    count=5
+    numfmt --g "$rps rps"
 
+    # to make a small gap between the WRK and CURL
+    sleep 1
+
+    count=5
     total=0
     i=0
     # The for (( expr ; expr ; expr )) syntax is not available in sh, so:

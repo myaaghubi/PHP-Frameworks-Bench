@@ -1,0 +1,10 @@
+{
+    "require": {
+        "clue/framework-x": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "Controllers/"
+        }
+    }
+}
