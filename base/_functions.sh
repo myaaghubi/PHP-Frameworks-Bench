@@ -53,10 +53,10 @@ benchmark () {
     do
         curl "$url" > "$output"
         t=`tail -1 "$output" | cut -f 2 -d ':'`
-        total=`php ./benchmarks/sum_ms.php $t $total`
+        total=`php ./base/sum_ms.php $t $total`
         i=$(( $i + 1 ))
     done
-    time=`php ./benchmarks/avg_ms.php $total $count`
+    time=`php ./base/avg_ms.php $total $count`
 
 
     # get memory and file

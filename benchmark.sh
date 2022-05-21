@@ -12,7 +12,7 @@ else
     export targets="${@%/}"
 fi
 
-cd benchmarks
+cd base
 
 sh hello_world.sh "$base"
 
