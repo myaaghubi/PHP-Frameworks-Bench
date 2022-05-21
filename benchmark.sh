@@ -2,8 +2,6 @@
 
 base="http://127.0.0.1/php-frameworks-bench"
 
-# cd `dirname $0`#
-
 if [ $# -eq 0 ]; then
     # include framework list
     . ./list.sh

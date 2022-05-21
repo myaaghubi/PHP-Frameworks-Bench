@@ -4,23 +4,23 @@ benchmark () {
     output_wrk="output/$fw.wrk.log"
     output="output/$fw.output"
 
-    url_output=$(curl -s "$url")
-    reqsubstr="Hello World!"
+    # check out the appropriate response is reachable
+    url_status=$(bash check.sh "$fw")
+    
+    # find 'done'
+    status=${url_status%%done*}
 
-    # to make sure the appropriate response is reachable
-    # otherwise, there is no point running the benchmark
-    if ! [ -z "${url_output##*$reqsubstr*}" ] ;then
-        tmp=`cat "$output"`
-        error="$error$tmp"
-        echo "error!"
-        echo -e "$fw\n$error" >> "$error_file"
-        echo "---" >> "$error_file"
-
+    # if the index of 'done' be equal to 
+    # the length of the url_status then 
+    # the appropriate output (Hello World! ...) not reachable 
+    # and there is no point to run the benchmark
+    if [ ${#status} -eq ${#url_status} ]; then
+        echo "Error! $fw: Hello World! ... not reachable"
         echo "$fw: 0: 0: 0: 0" >> "$results_file"
         return 1
     fi
 
-    config_wrk="wrk -t50 -c1000 -d60s"
+    config_wrk="wrk -t50 -c1000 -d10s"
 
     # is it wsl!?
     # if you're using wsl, it's necessary to put -R (--rate)
