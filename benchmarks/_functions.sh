@@ -20,7 +20,7 @@ benchmark () {
         return 1
     fi
 
-    config_wrk="wrk -t50 -c1000 -d10s"
+    config_wrk="wrk -t50 -c1000 -d60s"
 
     # is it wsl!?
     # if you're using wsl, it's necessary to put -R (--rate)
