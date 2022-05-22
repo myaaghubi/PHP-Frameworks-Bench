@@ -13,15 +13,60 @@ Components like Template engines or ORM/Database libraries are out of scope in t
 
 
 - [PHP Frameworks Bench](#php-frameworks-bench)
+  - [Benchmarks](#benchmarks)
+    - [Latest](#latest)
   - [Benchmarking Policy](#benchmarking-policy)
   - [How to Benchmark](#how-to-benchmark)
   - [Commands](#commands)
-  - [Benchmarks](#benchmarks)
-    - [Latest](#latest)
-    - [OPCache](#results-with-opcache)
   - [References](#references)
   - [License](#license)
 
+
+## Benchmarks
+
+### Latest
+
+#### Environment
+
+* Ubuntu 22.04 LTS 64bit
+  * PHP 8.1.6
+  * OPCache enabled
+  * Apache 2.4.52
+  * CPU Core i7 2600K@4Ghz
+  * Memory 16G 
+
+
+#### Results (2022/5/22)
+
+These are my benchmarks, not yours. **I encourage you to run on your (production equivalent) environments.**
+
+![Benchmark Results Graph Throughput](screenshots/php-frameworks-bench-throughput.png)
+![Benchmark Results Graph Memory](screenshots/php-frameworks-bench-memory.png)
+![Benchmark Results Graph Execution Time](screenshots/php-frameworks-bench-exectime.png)
+![Benchmark Results Graph Included Files](screenshots/php-frameworks-bench-includedfiles.png)
+
+|framework          |requests per second|relative|peak memory|relative|
+|-------------------|------------------:|-------:|----------:|-------:|
+|pure-php           |          42,114.24|    52.1|       0.34|     1.0|
+|phroute-2.2        |          33,424.47|    42.4|       0.34|     1.0|
+|fastroute-1.3      |          33,190.14|    42.1|       0.34|     1.0|
+|siler-1.7.9        |          22,152.74|    28.8|       0.36|     1.1|
+|leaf-3.0           |          20,685.10|    26.3|       0.36|     1.1|
+|fatfree-3.8.0      |          19,282.52|    24.5|       0.39|     1.1|
+|frameworkx-dev     |          18,033.22|    22.9|       0.37|     1.1|
+|slim-4.10          |          14,958.27|    19.0|       0.38|     1.1|
+|slim-3.12          |          14,714.84|    18.7|       0.39|     1.1|
+|yii-2.0-basic      |          11,831.91|    15.0|       0.70|     2.1|
+|ubiquity-2.4.x.dev |          11,669.47|    14.8|       0.38|     1.1|
+|silex-2.3          |          10,415.74|    13.2|       0.39|     1.1|
+|symfony-5.4        |           9,761.44|    12.4|       0.46|     1.4|
+|symfony-6.0        |           9,737.48|    12.4|       0.45|     1.3|
+|lumen-9.0          |           6,205.79|     7.7|       0.39|     1.1|
+|cakephp-4.3        |           5,562.91|     7.0|       0.43|     1.3|
+|laminas-2.0.x.dev  |           5,015.71|     6.4|       0.49|     1.4|
+|fuelphp-1.9        |           4,894.22|     6.2|       0.45|     1.3|
+|codeigniter-4.1    |           1,938.43|     2.5|       1.46|     4.3|
+|laravel-9.1        |             788.76|     1.0|       0.55|     1.6|
 
 
 ## Benchmarking Policy
@@ -47,24 +92,26 @@ If you want to benchmark PHP extension frameworks like Phalcon, you need to inst
 
 1- Download & install the library in your localhost:
 
-```
-# instead you can use --branch vx.x
+```bash
+# you can put --branch vx.x
 $ git clone https://github.com/myaghobi/php-frameworks-bench.git
+
 $ cd php-frameworks-bench
+
 # run the setup & follow the progress
 $ bash setup.sh
 ```
 
 2- To make sure everything is ok:
 
-```
+```bash
 # this is optional
 $ bash check.sh
 ```
 
 3- Run benchmarks:
 
-```
+```bash
 $ bash benchmark.sh
 ```
 
@@ -75,7 +122,7 @@ $ bash benchmark.sh
 
 ## Commands
 
-```
+```bash
 # composer update for each framework
 $ bash update.sh
 
@@ -93,62 +140,10 @@ $ bash show-table.sh
 
 To specify the frameworks, put them after each command:
 
-```
+```bash
 $ bash benchmark.sh laravel-9.1/ slim-4.10/ fatfree-3.8.0/
 ...
 ```
-
-
-## Benchmarks
-
-### Latest
-
-#### Environment
-
-* Ubuntu 22.04 LTS 64bit
-  * PHP 8.1.5
-  * OPCache disabled
-  * Apache 2.4.52
-  * CPU Core i7 2600K@4Ghz
-  * Memory 16G 
-
-
-#### Results (2022/5/15)
-
-These are my benchmarks, not yours. **I encourage you to run on your (production equivalent) environments.**
-
-![Benchmark Results Graph Throughput](screenshots/php-frameworks-bench-throughput.png)
-![Benchmark Results Graph Memory](screenshots/php-frameworks-bench-memory.png)
-![Benchmark Results Graph Execution Time](screenshots/php-frameworks-bench-exectime.png)
-![Benchmark Results Graph Included Files](screenshots/php-frameworks-bench-includedfiles.png)
-
-|framework          |requests per second|relative|peak memory|relative|
-|-------------------|------------------:|-------:|----------:|-------:|
-|pure-php           |          22,427.34|22,427.3|       0.42|     0.4|
-|fastroute-1.3      |           4,224.76| 4,224.8|       0.56|     0.6|
-|phroute-2.2        |           3,901.59| 3,901.6|       0.58|     0.6|
-|leaf-3.0           |           1,539.38| 1,539.4|       1.05|     1.1|
-|fatfree-3.8.0      |           1,414.71| 1,414.7|       1.67|     1.7|
-|siler-1.7.9        |           1,314.15| 1,314.2|       1.17|     1.2|
-|frameworkx-dev     |             972.97|   973.0|       1.41|     1.4|
-|slim-3.12          |             969.54|   969.5|       1.40|     1.4|
-|slim-4.10          |             752.96|   753.0|       1.60|     1.6|
-|yii-2.0-basic      |             510.90|   510.9|       2.72|     2.7|
-|silex-2.3          |             510.51|   510.5|       2.18|     2.2|
-|fuelphp-1.9        |             410.60|   410.6|       2.50|     2.5|
-|ubiquity-2.4.x.dev |             379.51|   379.5|       2.33|     2.3|
-|lumen-9.0          |             329.70|   329.7|       3.39|     3.4|
-|symfony-6.0        |             293.11|   293.1|       3.85|     3.9|
-|symfony-5.4        |             291.41|   291.4|       3.77|     3.8|
-|codeigniter-4.1    |             290.94|   290.9|       3.39|     3.4|
-|laminas-2.0.x.dev  |             284.43|   284.4|       3.52|     3.5|
-|cakephp-4.3        |             232.68|   232.7|       4.45|     4.5|
-|laravel-9.1        |              93.47|    93.5|      11.04|    11.0|
-
-
-
-### Results with OPCache (old version)
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/BUcxalvD92U/0.jpg)](http://www.youtube.com/watch?v=BUcxalvD92U "PHP OPCache Benchmarks, a Comparison for Popular Frameworks")
 
 
 ## References 

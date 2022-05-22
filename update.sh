@@ -1,11 +1,11 @@
 #!/bin/sh
 if [ ! `which composer` ]; then
-    echo "composer command not found."
+    echo "composer not found."
     exit 1;
 fi
 
 if [ $# -eq 0 ]; then
-    # include framework list
+    # include frameworks list
     . ./list.sh
     targets="$list"
 else

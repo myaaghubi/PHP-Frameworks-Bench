@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ $# -eq 0 ]; then
-    # include framework list
+    # include frameworks list
     . ./list.sh
     targets="$list"
 else
