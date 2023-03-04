@@ -1,15 +1,15 @@
 # PHP Frameworks Bench
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/myaghobi/PHP-Frameworks-Bench?color=purpol) ![GitHub](https://img.shields.io/github/license/myaghobi/PHP-Frameworks-Bench?color=green)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/myaaghubi/PHP-Frameworks-Bench?color=purpol) ![GitHub](https://img.shields.io/github/license/myaaghubi/PHP-Frameworks-Bench?color=green)
 
 This project attempts to measure the minimum overhead (minimum bootstrap cost) of PHP frameworks in the real world.
 
 So I think the minimum should not include:
 
-* cost of template engine (HTML output)
+* cost of template engine
 * cost of database manipulation
 * cost of debugging information
 
-Components like Template engines or ORM/Database libraries are out of scope in this project.
+Benchmarking on components like template engines or ORM/Database libraries is out of the scope of this project.
 
 
 - [PHP Frameworks Bench](#php-frameworks-bench)
@@ -75,26 +75,26 @@ This is `master` branch.
 
 * Install a framework via `composer` according to the official documentation.
 * Use the default configuration.
-  * Don't remove any components/configurations even if they are not used.
-  * With minimum changes to run this benchmark.
-* Set environment production/Turn off debug mode.
+  * Consider minimum changes to run the benchmark.
+  * Don't remove any components/configurations even if there be no use for them.
+* Have a `controller` class for the `Hello World`, considering the default template of a controller of your framework.
+* Turn off `debug` mode and set environment to `production` mode.
 * Run the general optimization in your production environment, like `--optimize-autoloader` for the composer.
-* Use controller class.
 
-Some frameworks are optimized, some are not, so some people may think using default configuration is not fair. The dept of optimizing a framework depends on the developer's experienced too, so it's the rabbit hole and there is no point in that for benchmarking. I think the default configuration of frameworks is a good starting point to have the ranking points.
+Some frameworks are optimized more than others, so some people may think using default configuration is not fair. The dept of optimizing a framework depends on the developer's experience too, so it's the rabbit hole and there is no point in it. I think the default configuration of frameworks is a good starting point to get ranking.
 
-If you find something wrong with my code, feel free to send PR. But please note optimizing for the "Hello World" is not acceptable! Building the fastest "Hello World" application is not the goal of this project.
+If you find something wrong in my code, feel free to send a PR. But please note optimizing for the "Hello World" is not acceptable! Building the fastest `Hello World` application is not the goal of this project.
 
 
 ## How to Benchmark
 
-If you want to benchmark PHP extension frameworks like Phalcon, you need to install the extenstions.
+If you want to have benchmarks on `PHP extension frameworks` like Phalcon, you need to install the extension first based on its own documentation.
 
-1- Download & install the library in your localhost:
+1- Download & install the library into your localhost:
 
 ```bash
 # you can put --branch vx.x
-$ git clone https://github.com/myaghobi/php-frameworks-bench.git
+$ git clone https://github.com/myaaghubi/php-frameworks-bench.git
 
 $ cd php-frameworks-bench
 
@@ -141,6 +141,7 @@ $ bash show-table.sh
 To specify the frameworks, put them after each command:
 
 ```bash
+# supported for `setup.sh`, `benchmark.sh`, `update.sh`, `clean.sh`, and `clear-cache.sh`
 $ bash benchmark.sh laravel-9.1/ slim-4.10/ fatfree-3.8.0/
 ...
 ```
@@ -148,8 +149,9 @@ $ bash benchmark.sh laravel-9.1/ slim-4.10/ fatfree-3.8.0/
 
 ## References 
 Note: This project is based on
-[php-framework-benchmark](https://github.com/kenjis/php-framework-benchmark). It was very old and abandoned, so I decided to split it from the origin and update it separately.
+[php-framework-benchmark](https://github.com/kenjis/php-framework-benchmark), thanks to [Kenjis](https://github.com/kenjis). It is very old and abandoned, so I decided to split it from the origin and update it separately.
 
+For frameworks, I considered the official repos:
 * [CakePHP](https://github.com/cakephp/cakephp)
 * [CodeIgniter](https://github.com/codeigniter4/CodeIgniter4)
 * [FastRoute](https://github.com/nikic/FastRoute)
@@ -173,4 +175,4 @@ Note: This project is based on
 
 You are allowed to use this plugin/project under the terms of the GNU General Public License version 2.
 
-Copyright (C) 2022 Mohammad Yaghobi
+Copyright (C) 2023 Mohammad Yaaghubi
