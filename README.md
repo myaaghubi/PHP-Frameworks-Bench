@@ -147,6 +147,13 @@ $ bash benchmark.sh laravel-9.1/ slim-4.10/ fatfree-3.8.0/
 ```
 
 
+## :hamburger: Donate
+Don't forget to donate if you used it :coffee: :beer: :cocktail: :hamburger:
+
+ETH: 0x0ADd51D6855d2DF11BB5F331A3fa345c67a863b2
+
+![Ethereum](screenshots/ethereum.png?raw=true "Ethereum")
+
 ## References 
 Note: This project is based on
 [php-framework-benchmark](https://github.com/kenjis/php-framework-benchmark), thanks to [Kenjis](https://github.com/kenjis). It is very old and abandoned, so I decided to split it from the origin and update it separately.
