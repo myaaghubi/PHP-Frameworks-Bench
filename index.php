@@ -87,7 +87,7 @@ if (file_exists($url_file)) {
 <hr>
 
 <footer>
-    <p style="text-align: right">This page is a part of <a href="https://github.com/myaghobi/php-frameworks-bench">php-frameworks-bench</a>.</p>
+    <p style="text-align: right">This page is a part of <a href="https://github.com/myaaghubi/PHP-Frameworks-Bench">PHP-Frameworks-Bench</a>.</p>
 </footer>
 </body>
 </html>
