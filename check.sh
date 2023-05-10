@@ -1,18 +1,52 @@
 #!/bin/sh
 
-base="http://127.0.0.1/php-frameworks-bench"
-
-# cd `dirname $0`#
-
-if [ $# -eq 0 ]; then
-    # include framework list
-    . ./list.sh
-    export targets="$list"
-else
-    export targets="${@%/}"
+if [ ! `which php` ]; then
+    echo "php not found."
+    exit 1;
 fi
 
-for fw in `echo $targets`
+. ./benchmark.config
+
+function showHelp()
+{
+   cat << HEREDOC
+
+    Usage: bash check.sh [-t pure-php/ slim]
+
+    Optional Arguments:
+        -h, --help                 Show this help message and exit
+        -t, --targets              Specify your target frameworks for benchmarking.
+
+HEREDOC
+} 
+
+. ./list.sh
+export param_targets="$list"
+
+insputs=" ${@%/}"
+IFS=';'
+params=(`php ./libs/strreplace.php " -" ";-" " ${insputs}"`)
+
+for option in "${params[@]}"
+do
+	case "$option" in
+        -t*|--targets*)
+            arg_=${option//--targets /}
+            arg_=${arg_//-t /}
+            param_targets="$arg_"
+            ;;
+        -h|--help)
+            showHelp;
+            ;;
+        " ")
+            ;;
+        *)
+            echo "${option} not available"
+            ;;
+    esac
+done
+
+for fw in `echo $param_targets`
 do
     if [ -d "$fw" ]; then
         echo -n "/------- $fw: checking... "
