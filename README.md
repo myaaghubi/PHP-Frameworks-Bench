@@ -18,6 +18,7 @@ Benchmarking on components like template engines or ORM/Database libraries is ou
   - [Benchmarking Policy](#benchmarking-policy)
   - [How to Benchmark](#how-to-benchmark)
   - [Commands](#commands)
+  - [Donate](#🍔-donate)
   - [References](#references)
   - [License](#license)
 
@@ -71,17 +72,17 @@ These are my benchmarks, not yours. **I encourage you to run on your (production
 
 ## Benchmarking Policy
 
-This is `master` branch.
+This is for the `main` branch.
 
-* Install a framework via `composer` according to the official documentation.
-* Use the default configuration.
-  * Consider minimum changes to run the benchmark.
-  * Don't remove any components/configurations even if there be no use for them.
-* Have a `controller` class for the `Hello World`, considering the default template of a controller of your framework.
-* Turn off `debug` mode and set environment to `production` mode.
-* Run the general optimization in your production environment, like `--optimize-autoloader` for the composer.
+* Frameworks installed via `composer` according to their official documentation.
+* Used the default configuration.
+  * Considering the minimum changes on frameworks to run the benchmark.
+  * Didn't remove any components/configurations even if there is no use for them.
+* We have a `controller` class to get the `Hello World` for each, based on the default template of each framework.
+* Turned off the `debug` mode and set the environment to `production` mode.
+* Considered general optimization for the production environment, like `--optimize-autoloader` for the composer.
 
-Some frameworks are optimized more than others, so some people may think using default configuration is not fair. The dept of optimizing a framework depends on the developer's experience too, so it's the rabbit hole and there is no point in it. I think the default configuration of frameworks is a good starting point to get ranking.
+Some frameworks are optimized more than others, so some people may think using default configuration is not fair. The dept of optimizing a framework depends on the experiences of the developer too, so it's the rabbit hole and there is no point in it. I think the default configuration of frameworks is a good starting point to get ranking.
 
 If you find something wrong in my code, feel free to send a PR. But please note optimizing for the "Hello World" is not acceptable! Building the fastest `Hello World` application is not the goal of this project.
 
@@ -90,23 +91,26 @@ If you find something wrong in my code, feel free to send a PR. But please note 
 
 If you want to have benchmarks on `PHP extension frameworks` like Phalcon, you need to install the extension first based on its own documentation.
 
-1- Download & install the library into your localhost:
+1- Download & Setup:
 
 ```bash
 # you can put --branch vx.x
-$ git clone https://github.com/myaaghubi/php-frameworks-bench.git
+$ git clone https://github.com/myaaghubi/PHP-Frameworks-Bench.git
 
-$ cd php-frameworks-bench
+$ cd PHP-Frameworks-Bench
 
 # run the setup & follow the progress
+# check out benchmark.config
 $ bash setup.sh
 ```
 
-2- To make sure everything is ok:
+2- Make sure everything is ok:
 
 ```bash
 # this is optional
 $ bash check.sh
+# bash check.sh -t pure-php
+# /------- pure-php: checking... done.
 ```
 
 3- Run benchmarks:
@@ -117,42 +121,43 @@ $ bash benchmark.sh
 
 4- Check the resuts:
 
-<http://localhost/php-frameworks-bench/>
+<http://localhost/PHP-Frameworks-Bench/>
 
 
 ## Commands
 
 ```bash
-# composer update for each framework
+# run composer update for frameworks
 $ bash update.sh
 
 # to clean them all
 # trouble? run it then
-# you can use setup.sh 
+# you can use setup.sh again
 $ bash clean.sh
 
 # clear the cache of frameworks
 $ bash clear-cache.sh
 
-# show the table of last benchmark
+# show the results of the last benchmark
 $ bash show-table.sh
 ```
 
-To specify the frameworks, put them after each command:
+To specify the frameworks, put them with `-t ...` after each command:
 
 ```bash
 # supported for `setup.sh`, `benchmark.sh`, `update.sh`, `clean.sh`, and `clear-cache.sh`
-$ bash benchmark.sh laravel-9.1/ slim-4.10/ fatfree-3.8.0/
+# bash benchmarks.sh --help -h
+$ bash benchmark.sh -t laravel-9.1/ slim-4.10/ fatfree-3.8.0/ ...
 ...
 ```
 
 
-## :hamburger: Donate
-Don't forget to donate if you used it :coffee: :beer: :cocktail: :hamburger:
+## 🍔 Donate
+Don't forget to donate if you find it useful ☕ 🍺 🍸 🍔
 
 ETH: 0x0ADd51D6855d2DF11BB5F331A3fa345c67a863b2
 
-![Ethereum](screenshots/ethereum.png?raw=true "Ethereum")
+![Ethereum](screenshots/ethereum.jpg?raw=true "Ethereum")
 
 ## References 
 Note: This project is based on
