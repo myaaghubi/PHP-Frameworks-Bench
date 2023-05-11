@@ -21,10 +21,13 @@ HEREDOC
 
 export param_targets="$frameworks_list"
 
-insputs=" ${@%/}"
 oldIFS="$IFS"
+paramsin="${@%/}"
+IFS='()'
+# ${paramsin%%*( )} not a good idea
+paramsin=(`php ./libs/trim.php "r" "${paramsin}"`)
 IFS=';'
-params=(`php ./libs/strreplace.php " -" ";-" " ${insputs}"`)
+params=(`php ./libs/strreplace.php " -" ";-" " ${paramsin}"`)
 IFS=$oldIFS
 
 for option in "${params[@]}"
@@ -40,7 +43,7 @@ do
         -h|--help)
             showHelp;
             ;;
-        " ")
+        ""|" ")
             ;;
         *)
             echo "\"${option}\" not available"
