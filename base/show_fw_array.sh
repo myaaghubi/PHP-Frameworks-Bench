@@ -3,9 +3,10 @@
 cd `dirname $0`
 cd ..
 
+. ../benchmark.config
+
 # include framework list
-. ./list.sh
-targets="$list"
+targets="$frameworks_list"
 
 echo '['
 

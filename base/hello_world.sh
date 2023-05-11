@@ -13,10 +13,25 @@ url_file="output/urls.log"
 
 cd ..
 
-mv "$results_file" "$results_file.old"
-mv "$check_file" "$check_file.old"
-mv "$error_file" "$error_file.old"
-mv "$url_file" "$url_file.old"
+if [ -f "$results_file" ]; then
+echo "moving 1"
+    mv "$results_file" "$results_file.old"
+fi
+
+if [ -f "$check_file" ]; then
+echo "moving 2"
+    mv "$check_file" "$check_file.old"
+fi
+
+if [ -f "$error_file" ]; then
+echo "moving 3"
+    mv "$error_file" "$error_file.old"
+fi
+
+if [ -f "$url_file" ]; then
+echo "moving 4"
+    mv "$url_file" "$url_file.old"
+fi
 
 
 phpv=`php -r 'echo phpversion();'`

@@ -5,7 +5,7 @@ benchmark () {
     output="output/$fw.output"
 
     # check out the appropriate response is reachable
-    url_status=$(bash check.sh "$fw")
+    url_status=$(bash check.sh -t "$fw")
     
     # find 'done'
     status=${url_status%%done*}
