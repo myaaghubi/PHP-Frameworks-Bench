@@ -5,6 +5,11 @@ if [ ! `which composer` ]; then
     exit 1;
 fi
 
+if [ ! `which php` ]; then
+    echo "php not found."
+    exit 1;
+fi
+
 if [ ! `which wrk` ]; then
     echo "wrk not found."
     exit 1;
@@ -15,15 +20,11 @@ if [ ! `which curl` ]; then
     exit 1;
 fi
 
-if [ $# -eq 0 ]; then
-    # include frameworks list
-    . ./list.sh
-    targets="$list"
-else
-    targets="${@%/}"
-fi
 
-for fw in $targets
+. ./benchmark.config
+. ./base/option_target.sh
+
+for fw in $param_targets
 do
     if [ -d "$fw" ]; then
         echo "/------- $fw: setting up -------/"

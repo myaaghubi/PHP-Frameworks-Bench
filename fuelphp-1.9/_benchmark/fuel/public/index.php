@@ -225,5 +225,5 @@ if (strpos($response->body(), '{exec_time}') !== false or strpos($response->body
 
 $response->send(true);
 
-/* *** php-frameworks-bench *** */
-require $_SERVER['DOCUMENT_ROOT'].'/php-frameworks-bench/libs/output_data.php';
+/* *** PHP-Frameworks-Bench *** */
+require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';

@@ -6,10 +6,10 @@ $app = new \Slim\App();
 
 $container = $app->getContainer();
 
-/* *** php-frameworks-bench *** */
+/* *** PHP-Frameworks-Bench *** */
 $app->get('/hello/index', Controllers\HelloWorldController::class . ':index');
 
 $app->run();
 
-/* *** php-frameworks-bench *** */
-require $_SERVER['DOCUMENT_ROOT'].'/php-frameworks-bench/libs/output_data.php';
+/* *** PHP-Frameworks-Bench *** */
+require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';

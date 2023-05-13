@@ -5,7 +5,7 @@ benchmark () {
     output="output/$fw.output"
 
     # check out the appropriate response is reachable
-    url_status=$(bash check.sh "$fw")
+    url_status=$(bash check.sh -t "$fw")
     
     # find 'done'
     status=${url_status%%done*}
@@ -20,7 +20,7 @@ benchmark () {
         return 1
     fi
 
-    config_wrk="wrk -t50 -c1000 -d60s"
+    config_wrk="wrk -t${threads} -c${connections} -d${duration}s"
 
     # is it wsl!?
     # if you're using wsl, it's necessary to put -R (--rate)
@@ -38,9 +38,10 @@ benchmark () {
     config_wrk="$config_wrk '$url' > '$output_wrk'"
     eval $config_wrk
 
-    rps=`grep "Requests/sec:" "$output_wrk" | tr -dc '0-9.'`
+    rps=`grep "Requests/sec:" "$output_wrk" | tr -cd '0-9.'`
 
-    numfmt --g "$rps rps"
+    echo "rps: "
+    numfmt --g "$rps"
 
     # to make a small gap between the WRK and CURL
     sleep 1
@@ -51,12 +52,12 @@ benchmark () {
     # The for (( expr ; expr ; expr )) syntax is not available in sh, so:
     while [ $i -lt $count ]
     do
-        curl "$url" > "$output"
+        curl -sS "$url" > "$output"
         t=`tail -1 "$output" | cut -f 2 -d ':'`
-        total=`php ./base/sum_ms.php $t $total`
+        total=`php ./libs/sum_ms.php $t $total`
         i=$(( $i + 1 ))
     done
-    time=`php ./base/avg_ms.php $total $count`
+    time=`php ./libs/avg_ms.php $total $count`
 
 
     # get memory and file
@@ -69,7 +70,6 @@ benchmark () {
     grep "Document Length:" "$output_wrk" >> "$check_file"
     grep "Failed requests:" "$output_wrk" >> "$check_file"
     grep 'Hello World!' "$output" >> "$check_file"
-    echo "---" >> "$check_file"
 
     # check errors
     touch "$error_file"

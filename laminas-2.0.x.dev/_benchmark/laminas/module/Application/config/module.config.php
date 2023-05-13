@@ -21,7 +21,7 @@ return [
                     ],
                 ],
             ],
-            /* *** php-frameworks-bench *** */
+            /* *** PHP-Frameworks-Bench *** */
             'hello-world' => [
                 'type'    => Literal::class,
                 'options' => [
@@ -47,7 +47,7 @@ return [
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
-            /* *** php-frameworks-bench *** */
+            /* *** PHP-Frameworks-Bench *** */
             Controller\HelloWorldController::class => InvokableFactory::class,
         ],
     ],

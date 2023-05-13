@@ -1,6 +1,6 @@
 <?php
 /*
-    php-frameworks-bench
+    PHP-Frameworks-Bench
     this is a simple hello world controller to make benchmark
  */
 use App\Kernel;
@@ -16,4 +16,4 @@ $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
 
-require $_SERVER['DOCUMENT_ROOT'].'/php-frameworks-bench/libs/output_data.php';
+require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';

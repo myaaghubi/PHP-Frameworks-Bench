@@ -1,1 +1,1 @@
-php ./bin/show_results_table.php
+php ./libs/show_results_table.php

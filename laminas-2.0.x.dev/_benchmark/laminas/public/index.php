@@ -41,5 +41,5 @@ if (file_exists(__DIR__ . '/../config/development.config.php')) {
 // Run the application!
 Application::init($appConfig)->run();
 
-/* *** php-frameworks-bench *** */
-require $_SERVER['DOCUMENT_ROOT'].'/php-frameworks-bench/libs/output_data.php';
+/* *** PHP-Frameworks-Bench *** */
+require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';

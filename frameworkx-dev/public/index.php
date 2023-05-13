@@ -8,7 +8,7 @@ $app = new FrameworkX\App();
 // so you need to have your prefix first
 // https://github.com/nikic/FastRoute/issues/110#issuecomment-273760186
 // Strip prefix
-$prefix = '/php-frameworks-bench/frameworkx-dev';
+$prefix = '/PHP-Frameworks-Bench/frameworkx-dev';
 // I believe you should fix the prefix issue, Christian, if you care
 
 // a little bit better performance via "controller instances"
@@ -18,5 +18,5 @@ $app->get($prefix.'/public/index.php/hello/index', new Controllers\HelloWorldCon
 $app->run();
 
 
-/* *** php-frameworks-bench *** */
-require $_SERVER['DOCUMENT_ROOT'].'/php-frameworks-bench/libs/output_data.php';
+/* *** PHP-Frameworks-Bench *** */
+require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';

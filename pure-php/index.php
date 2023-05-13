@@ -1,12 +1,12 @@
 <?php
 /*
-    php-frameworks-bench
+    PHP-Frameworks-Bench
     This is enough I think, but you can programm a more complex one or a more simpler one */
 // 
 
 $uri = $_SERVER['REQUEST_URI'];
 
-$prefix = '/php-frameworks-bench/pure-php';
+$prefix = '/PHP-Frameworks-Bench/pure-php';
 
 require_once ('Controllers/HelloWorldController.php');
 
@@ -30,4 +30,4 @@ switch ($uri) {
     break;
 }
 
-require $_SERVER['DOCUMENT_ROOT'].'/php-frameworks-bench/libs/output_data.php';
+require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';

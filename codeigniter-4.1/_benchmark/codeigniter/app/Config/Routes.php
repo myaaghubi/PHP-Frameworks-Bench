@@ -33,7 +33,7 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-/* *** php-frameworks-bench *** */
+/* *** PHP-Frameworks-Bench *** */
 $routes->get('/hello/index', 'HelloWorldController::index');
 
 /*

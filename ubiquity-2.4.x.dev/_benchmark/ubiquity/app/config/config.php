@@ -19,7 +19,7 @@ return array(
 		"debug"=>false,
 		"logger"=>function(){return new \Ubiquity\log\libraries\UMonolog("temp",\Monolog\Logger::INFO);},
 		"di"=>["@exec"=>["jquery"=>function($controller){
-						/* *** php-frameworks-bench *** */
+						/* *** PHP-Frameworks-Bench *** */
 						// return \Ajax\php\ubiquity\JsUtils::diSemantic($controller);
 					}]],
 		"cache"=>["directory"=>"cache/","system"=>"Ubiquity\\cache\\system\\ArrayCache","params"=>[]],

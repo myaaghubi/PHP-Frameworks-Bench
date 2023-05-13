@@ -1,18 +1,9 @@
 #!/bin/sh
 
-base="http://127.0.0.1/php-frameworks-bench"
+. ./benchmark.config
+. ./base/option_target.sh
 
-# cd `dirname $0`#
-
-if [ $# -eq 0 ]; then
-    # include framework list
-    . ./list.sh
-    export targets="$list"
-else
-    export targets="${@%/}"
-fi
-
-for fw in `echo $targets`
+for fw in `echo $param_targets`
 do
     if [ -d "$fw" ]; then
         echo -n "/------- $fw: checking... "

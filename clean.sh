@@ -1,19 +1,14 @@
 #!/bin/sh
 
-if [ $# -eq 0 ]; then
-    # include frameworks list
-    . ./list.sh
-    targets="$list"
-else
-    targets="${@%/}"
-fi
+. ./benchmark.config
+. ./base/option_target.sh
 
 shopt -s extglob
 
-for fw in $targets
+for fw in $param_targets
 do
     if [ -d "$fw" ]; then
-        echo "/------- $fw: cleaning"
+        echo "> cleaning $fw "
         cd "$fw"
         . "_benchmark/clean.sh"
         cd ..

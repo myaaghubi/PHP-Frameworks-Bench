@@ -4,15 +4,10 @@ if [ ! `which composer` ]; then
     exit 1;
 fi
 
-if [ $# -eq 0 ]; then
-    # include frameworks list
-    . ./list.sh
-    targets="$list"
-else
-    targets="${@%/}"
-fi
+. ./benchmark.config
+. ./base/option_target.sh
 
-for fw in $targets
+for fw in $param_targets
 do
     if [ -d "$fw" ]; then
         echo "/------- $fw: updating -------/"

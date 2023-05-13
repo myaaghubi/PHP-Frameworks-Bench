@@ -7,16 +7,16 @@ require __DIR__.'/vendor/autoload.php';
 $app = AppFactory::create();
 
 // xampp
-$app->setBasePath("/php-frameworks-bench/slim-4.10/index.php");
+$app->setBasePath("/PHP-Frameworks-Bench/slim-4.10/index.php");
 
 // Add error middleware
 $app->addErrorMiddleware(false, true, true);
 
-/* *** php-frameworks-bench *** */
+/* *** PHP-Frameworks-Bench *** */
 $app->get('/hello/index', Controllers\HelloWorldController::class . ':index');
 
 $app->run();
 
 
-/* *** php-frameworks-bench *** */
-require $_SERVER['DOCUMENT_ROOT'].'/php-frameworks-bench/libs/output_data.php';
+/* *** PHP-Frameworks-Bench *** */
+require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';
