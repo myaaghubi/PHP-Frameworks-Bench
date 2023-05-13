@@ -2,6 +2,8 @@
 
 function parse_results($file)
 {
+    if (!file_exists($file))
+    return;
     $lines = file($file);
     
     $results = [];
