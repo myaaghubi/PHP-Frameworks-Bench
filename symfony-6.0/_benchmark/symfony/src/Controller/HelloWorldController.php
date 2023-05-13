@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /*
-    php-frameworks-bench
+    PHP-Frameworks-Bench
     this is a simple hello world controller to make benchmark
  */
 namespace App\Controller;

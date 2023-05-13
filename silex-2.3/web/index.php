@@ -5,10 +5,10 @@ require_once __DIR__.'/../vendor/autoload.php';
 $app = new Silex\Application();
 // $app['debug'] = true;
 
-/* *** php-frameworks-bench *** */
+/* *** PHP-Frameworks-Bench *** */
 $app->get('/hello/index', 'Controllers\HelloWorldController::getIndex');
 
 $app->run();
 
-/* *** php-frameworks-bench *** */
-require $_SERVER['DOCUMENT_ROOT'].'/php-frameworks-bench/libs/output_data.php';
+/* *** PHP-Frameworks-Bench *** */
+require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';

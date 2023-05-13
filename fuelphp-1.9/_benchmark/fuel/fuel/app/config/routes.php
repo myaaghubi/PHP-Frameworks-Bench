@@ -12,7 +12,7 @@
 
 return array(
 
-	/* *** php-frameworks-bench *** */
+	/* *** PHP-Frameworks-Bench *** */
 	'helloworld/index' => 'helloworld/index',
 
 	/**

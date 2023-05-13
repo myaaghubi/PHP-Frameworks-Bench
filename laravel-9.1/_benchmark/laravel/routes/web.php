@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 
-/* *** php-frameworks-bench *** */
+/* *** PHP-Frameworks-Bench *** */
 Route::get('/hello/index', [App\Http\Controllers\HelloWorldController::class, 'index']);

@@ -15,7 +15,7 @@ return [
      * Development Mode:
      * true: Errors and warnings shown.
      */
-    /* *** php-frameworks-bench *** */
+    /* *** PHP-Frameworks-Bench *** */
     'debug' => false,
 
     /*

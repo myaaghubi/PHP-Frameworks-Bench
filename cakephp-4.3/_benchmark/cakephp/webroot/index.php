@@ -39,5 +39,5 @@ $server = new Server(new Application(dirname(__DIR__) . '/config'));
 // Run the request/response through the application and emit the response.
 $server->emit($server->run());
 
-/* *** php-frameworks-bench *** */
-require $_SERVER['DOCUMENT_ROOT'].'/php-frameworks-bench/libs/output_data.php';
+/* *** PHP-Frameworks-Bench *** */
+require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';

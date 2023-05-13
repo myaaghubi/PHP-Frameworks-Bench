@@ -22,7 +22,7 @@ $uri = rawurldecode($uri);
 
 // https://github.com/nikic/FastRoute/issues/110#issuecomment-273760186
 // Strip prefix
-$prefix = '/php-frameworks-bench/fastroute-1.3';
+$prefix = '/PHP-Frameworks-Bench/fastroute-1.3';
 if ($prefix !== '' && strpos($uri, $prefix) === 0) {
     $uri = substr($uri, strlen($prefix));
 }
@@ -45,4 +45,4 @@ switch ($routeInfo[0]) {
 }
 
 
-require $_SERVER['DOCUMENT_ROOT'].'/php-frameworks-bench/libs/output_data.php';
+require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';
