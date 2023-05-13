@@ -14,22 +14,22 @@ url_file="output/urls.log"
 cd ..
 
 if [ -f "$results_file" ]; then
-echo "moving 1"
+    echo "moving $results_file to $results_file.old"
     mv "$results_file" "$results_file.old"
 fi
 
 if [ -f "$check_file" ]; then
-echo "moving 2"
+    echo "moving $check_file to $check_file.old"
     mv "$check_file" "$check_file.old"
 fi
 
 if [ -f "$error_file" ]; then
-echo "moving 3"
+    echo "moving $error_file to $error_file.old"
     mv "$error_file" "$error_file.old"
 fi
 
 if [ -f "$url_file" ]; then
-echo "moving 4"
+    echo "moving $url_file to $url_file.old"
     mv "$url_file" "$url_file.old"
 fi
 
