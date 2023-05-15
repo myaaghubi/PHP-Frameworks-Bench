@@ -1,93 +1,92 @@
-<?php
-
-if (file_exists(__DIR__ . '/output/results.hello_world.log')) {
-    Parse_Results: {
-        require __DIR__ . '/libs/parse_results.php';
-        $results = parse_results(__DIR__ . '/output/results.hello_world.log');
-    }
-
-    Load_Theme: {
-        $theme = isset($_GET['theme']) ? $_GET['theme'] : 'default';
-        if (! ctype_alnum($theme)) {
-            exit('Invalid theme');
-        }
-
-        if ($theme === 'default') {
-            require __DIR__ . '/libs/make_graph.php';
-        } else {
-            $file = __DIR__ . '/libs/' . $theme . '/make_graph.php';
-            if (is_readable($file)) {
-                require $file;
-            } else {
-                require __DIR__ . '/libs/make_graph.php';
-            }
-        }
-    }
-
-    // RPS Benchmark
-    list($chart_rpm, $div_rpm) = make_graph('rps', 'Throughput', 'Requests per Second (r/s)');
-
-    // Memory Benchmark
-    list($chart_mem, $div_mem) = make_graph('memory', 'Memory', 'Peak Memory (MB)');
-
-    // Exec Time Benchmark
-    list($chart_time, $div_time) = make_graph('time', 'ExecTime', 'Execution Time (ms)');
-
-    // Included Files
-    list($chart_file, $div_file) = make_graph('file', 'Files', 'Included Files (count)');
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>PHP Frameworks Bench</title>
-<script src="https://www.google.com/jsapi"></script>
-<script>
-<?php
-echo $chart_rpm, $chart_mem, $chart_time, $chart_file;
-?>
-</script>
-</head>
-<body>
-<h1>PHP Frameworks Bench</h1>
-<h2>Hello World Benchmark</h2>
-<div>
-<?php
-echo @$div_rpm, @$div_mem, @$div_time, @$div_file;
+    <meta charset="UTF-8">
+    <title>PHP Frameworks Bench</title>
+    <script>
+        <?php
+        $dataLabels = [];
+        $dataRPS = [];
+        $dataMemory = [];
+        $dataTime = [];
+        $dataFile = [];
 
-if (!file_exists(__DIR__ . '/output/results.hello_world.log')) {
-    echo '1. Run the \'bash setup.sh\'<br>';
-    echo '2. Run the \'bash benchmark.sh\'';
-}
-?>
-</div>
+        $resultsFile = __DIR__ . '/output/results.hello_world.log';
 
-<ul>
-<?php
-$url_file = __DIR__ . '/output/urls.log';
-if (file_exists($url_file)) {
-    $urls = file($url_file);
-    // sort($urls);
-    foreach ($urls as $url) {
-        $parts = parse_url(trim($url));
-        $url = $parts['scheme'] . '://' . $_SERVER['HTTP_HOST'] . $parts['path'];
-        if (isset($parts['query'])) {
-            $url .= '?' . $parts['query'];
+        if (file_exists($resultsFile)) {
+            Parse_Results: {
+                require __DIR__ . '/libs/parse_results.php';
+                $results = parse_results($resultsFile);
+            }
+
+            foreach ($results as $fw => $params) {
+                $dataLabels[] = $fw;
+                $dataRPS[] = $params['rps'];
+                $dataMemory[] = $params['memory'];
+                $dataTime[] = $params['time'];
+                $dataFile[] = $params['file'];
+            }
         }
-        echo '<li><a href="' . htmlspecialchars($url, ENT_QUOTES, 'UTF-8') .
-             '">' . htmlspecialchars($url, ENT_QUOTES, 'UTF-8') .
-             '</a></li>' . "\n";
+
+        echo "
+        const dataLabels = ['".implode("','",$dataLabels)."'];
+        const dataRPS = [".implode(",",$dataRPS)."];
+        const dataMemory = [".implode(",",$dataMemory)."];
+        const dataTime = [".implode(",",$dataTime)."];
+        const dataFile = [".implode(",",$dataFile)."];
+        ";
+        ?>
+    </script>
+</head>
+
+<body style="max-width: 1200px; margin:0 auto; padding: 15px 30px">
+    <h1>PHP Frameworks Bench</h1>
+
+    <?php
+    if (!file_exists($resultsFile)) {
+    ?>
+        <b>output/results.hello_world.log</b> not found!
+        <ul style="list-style-type:decimal">
+            <li>Run <b>bash setup.sh</b></li>
+            <li>Run <b>bash check.sh</b></li>
+            <li>Run <b>bash benchmark.sh</b></li>
+        </ul>
+    <?php
+    } else {
+        echo "<h4>" . date("Y/m/d H:i:s", filemtime($resultsFile)) . "</h4>";
+    ?>
+        <br>
+        <canvas id="rpsChart" height="120"></canvas>
+        <br>
+        <canvas id="memoryChart" height="120"></canvas>
+        <br>
+        <canvas id="timeChart" height="120"></canvas>
+        <br>
+        <canvas id="fileChart" height="120"></canvas>
+    <?php
     }
-}
-?>
-</ul>
+    ?>
 
-<hr>
+    <ul>
+        <?php
+        $urls = file(__DIR__ . '/output/urls.log');
+        foreach ($urls as $url) {
+            $url_array = explode('/', $url);
+            // to make it shorter
+            $url_array = array_slice($url_array,4);
+            echo "<li><a href=\"$url\">.../".implode('/', $url_array)."</a></li>";
+        }
+        ?>
+    </ul>
+    <br>
+    <hr>
 
-<footer>
-    <p style="text-align: right">This page is a part of <a href="https://github.com/myaaghubi/PHP-Frameworks-Bench">PHP-Frameworks-Bench</a>.</p>
-</footer>
+    <footer>
+        <p>This page is a part of <a href="https://github.com/myaaghubi/PHP-Frameworks-Bench">PHP-Frameworks-Bench</a>.</p>
+    </footer>
+    <script src="libs/chart4.3.js"></script>
+    <script src="libs/app.js"></script>
 </body>
+
 </html>
