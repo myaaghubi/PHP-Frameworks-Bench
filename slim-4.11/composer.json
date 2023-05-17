@@ -1,6 +1,8 @@
 {
     "require": {
-        "bcosca/fatfree-core": "3.8.0"
+        "slim/slim": "^4.11",
+        "slim/psr7": "^1.5",
+        "slim/http": "^1.2"
     },
     "autoload": {
         "psr-4": {

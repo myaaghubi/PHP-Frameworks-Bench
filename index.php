@@ -57,13 +57,14 @@
         echo "<h4>" . date("Y/m/d H:i:s", filemtime($resultsFile)) . "</h4>";
     ?>
         <br>
-        <canvas id="rpsChart" height="120"></canvas>
+        <canvas id="rpsChart" height="125"></canvas>
         <br>
-        <canvas id="memoryChart" height="120"></canvas>
         <br>
-        <canvas id="timeChart" height="120"></canvas>
+        <canvas id="memoryChart" height="90"></canvas>
         <br>
-        <canvas id="fileChart" height="120"></canvas>
+        <canvas id="timeChart" height="90"></canvas>
+        <br>
+        <canvas id="fileChart" height="90"></canvas>
     <?php
     }
     ?>

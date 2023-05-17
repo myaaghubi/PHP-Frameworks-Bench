@@ -7,7 +7,7 @@ require __DIR__.'/vendor/autoload.php';
 $app = AppFactory::create();
 
 // xampp
-$app->setBasePath("/PHP-Frameworks-Bench/slim-4.10/index.php");
+$app->setBasePath("/PHP-Frameworks-Bench/slim-4.11/index.php");
 
 // Add error middleware
 $app->addErrorMiddleware(false, true, true);

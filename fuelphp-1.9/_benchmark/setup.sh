@@ -1,7 +1,7 @@
 #!/bin/sh
 # create project
 rm -rf _benchmark/temp
-composer create-project fuel/fuel:1.9.0 --prefer-dist ./_benchmark/temp
+composer create-project fuel/fuel:^1.9.0 --prefer-dist ./_benchmark/temp
 mv ./_benchmark/temp/{.,}* ./
 
 # have the route & controller

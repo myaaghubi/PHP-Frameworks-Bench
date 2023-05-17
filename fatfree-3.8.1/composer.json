@@ -1,6 +1,6 @@
 {
     "require": {
-        "leafs/leaf": "3.0"
+        "bcosca/fatfree-core": "^3.8.1"
     },
     "autoload": {
         "psr-4": {

@@ -1,6 +1,6 @@
 {
     "require": {
-        "slim/slim": "3.12.3"
+        "slim/slim": "^3.12"
     },
     "config": {
         "optimize-autoloader": true
