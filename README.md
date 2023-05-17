@@ -29,15 +29,16 @@ Benchmarking on components like template engines or ORM/Database libraries is ou
 
 #### Environment
 
-* Ubuntu 22.04 LTS 64bit
-  * PHP 8.1.6
-  * OPCache enabled
+* Ubuntu 22.04 LTS x86_64
+  * PHP 8.2.5
+  * OPCache Off
   * Apache 2.4.52
-  * CPU Core i7 2600K@4Ghz
+  * WRK 4.2.0
+  * CPU Core i7-3770K@4.4Ghz
   * Memory 16G 
 
 
-#### Results (2022/5/22)
+#### Results (2023/5/15)
 
 These are my benchmarks, not yours. **I encourage you to run on your (production equivalent) environments.**
 
@@ -46,28 +47,29 @@ These are my benchmarks, not yours. **I encourage you to run on your (production
 ![Benchmark Results Graph Execution Time](screenshots/php-frameworks-bench-exectime.png)
 ![Benchmark Results Graph Included Files](screenshots/php-frameworks-bench-includedfiles.png)
 
-|framework          |requests per second|relative|peak memory|relative|
-|-------------------|------------------:|-------:|----------:|-------:|
-|pure-php           |          42,114.24|    52.1|       0.34|     1.0|
-|phroute-2.2        |          33,424.47|    42.4|       0.34|     1.0|
-|fastroute-1.3      |          33,190.14|    42.1|       0.34|     1.0|
-|siler-1.7.9        |          22,152.74|    28.8|       0.36|     1.1|
-|leaf-3.0           |          20,685.10|    26.3|       0.36|     1.1|
-|fatfree-3.8.0      |          19,282.52|    24.5|       0.39|     1.1|
-|frameworkx-dev     |          18,033.22|    22.9|       0.37|     1.1|
-|slim-4.10          |          14,958.27|    19.0|       0.38|     1.1|
-|slim-3.12          |          14,714.84|    18.7|       0.39|     1.1|
-|yii-2.0-basic      |          11,831.91|    15.0|       0.70|     2.1|
-|ubiquity-2.4.x.dev |          11,669.47|    14.8|       0.38|     1.1|
-|silex-2.3          |          10,415.74|    13.2|       0.39|     1.1|
-|symfony-5.4        |           9,761.44|    12.4|       0.46|     1.4|
-|symfony-6.0        |           9,737.48|    12.4|       0.45|     1.3|
-|lumen-9.0          |           6,205.79|     7.7|       0.39|     1.1|
-|cakephp-4.3        |           5,562.91|     7.0|       0.43|     1.3|
-|laminas-2.0.x.dev  |           5,015.71|     6.4|       0.49|     1.4|
-|fuelphp-1.9        |           4,894.22|     6.2|       0.45|     1.3|
-|codeigniter-4.1    |           1,938.43|     2.5|       1.46|     4.3|
-|laravel-9.1        |             788.76|     1.0|       0.55|     1.6|
+|framework          |requests per second (rps)|relative (rps)|peak memory|relative (mem)|
+|-------------------|------------------------:|-------------:|----------:|-------------:|
+|pure-php           |                27,379.94|      27,379.9|       0.42|           0.4|
+|fastroute-1.3      |                 4,591.01|       4,591.0|       0.56|           0.6|
+|phroute-2.2        |                 4,303.07|       4,303.1|       0.58|           0.6|
+|leaf-3.3           |                 1,576.68|       1,576.7|       1.10|           1.1|
+|fatfree-3.8.1      |                 1,512.30|       1,512.3|       1.67|           1.7|
+|siler-1.7.9        |                 1,416.80|       1,416.8|       1.17|           1.2|
+|slim-3.12          |                 1,061.05|       1,061.1|       1.40|           1.4|
+|frameworkx-dev     |                   994.55|         994.6|       1.45|           1.5|
+|slim-4.11          |                   805.51|         805.5|       1.57|           1.6|
+|ubiquity-2.4.x.dev |                   726.70|         726.7|       1.64|           1.6|
+|silex-2.3          |                   558.07|         558.1|       2.16|           2.2|
+|yii-2.0-basic      |                   508.32|         508.3|       2.57|           2.6|
+|fuelphp-1.9        |                   450.65|         450.7|       2.51|           2.5|
+|lumen-10.0         |                   352.94|         352.9|       3.49|           3.5|
+|codeigniter-4.3    |                   324.27|         324.3|       3.50|           3.5|
+|symfony-5.4        |                   319.55|         319.6|       3.82|           3.8|
+|symfony-6.2        |                   314.21|         314.2|       3.89|           3.9|
+|laminas-2.0        |                   309.30|         309.3|       3.50|           3.5|
+|cakephp-4.4        |                   262.25|         262.3|       4.49|           4.5|
+|laravel-10.0       |                    96.97|          97.0|      11.99|          12.0|
+
 
 
 ## Benchmarking Policy
@@ -94,13 +96,14 @@ If you want to have benchmarks on `PHP extension frameworks` like Phalcon, you n
 1- Download & Setup:
 
 ```bash
-# you can put --branch vx.x
+# ...--branch vx.x
 $ git clone https://github.com/myaaghubi/PHP-Frameworks-Bench.git
 
 $ cd PHP-Frameworks-Bench
 
 # run the setup & follow the progress
 # check out benchmark.config
+# yes | bash setup.sh
 $ bash setup.sh
 ```
 
@@ -120,8 +123,14 @@ $ bash benchmark.sh
 ```
 
 4- Check the resuts:
+- web:
 
-<http://localhost/PHP-Frameworks-Bench/>
+  <http://localhost/PHP-Frameworks-Bench/>
+
+- command:
+  ```
+  bash show-table.sh
+  ```
 
 
 ## Commands
@@ -132,7 +141,7 @@ $ bash update.sh
 
 # to clean them all
 # trouble? run it then
-# you can use setup.sh again
+# you can use `bash setup.sh` again
 $ bash clean.sh
 
 # clear the cache of frameworks
@@ -147,7 +156,7 @@ To specify the frameworks, put them with `-t ...` after each command:
 ```bash
 # supported for `setup.sh`, `benchmark.sh`, `update.sh`, `clean.sh`, and `clear-cache.sh`
 # bash benchmarks.sh --help -h
-$ bash benchmark.sh -t laravel-9.1/ slim-4.10/ fatfree-3.8.0/ ...
+$ bash benchmark.sh -t laravel-10.0/ slim-4.11/ ...
 ...
 ```
 
