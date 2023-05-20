@@ -1,6 +1,6 @@
 {
     "require": {
-        "silex/silex": "2.3"
+        "silex/silex": "^2.3"
     },
     "autoload": {
         "psr-4": {

@@ -1,9 +1,6 @@
 {
     "require": {
-        "slim/slim": "^3.12"
-    },
-    "config": {
-        "optimize-autoloader": true
+        "leafs/leaf": "^3.3"
     },
     "autoload": {
         "psr-4": {

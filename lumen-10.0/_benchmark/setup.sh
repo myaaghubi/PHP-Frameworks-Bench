@@ -1,13 +1,14 @@
 #!/bin/sh
 # create project
 rm -rf _benchmark/temp
-composer create-project fuel/fuel:^1.9.0 --prefer-dist ./_benchmark/temp
+composer create-project --prefer-dist laravel/lumen:^10.0 ./_benchmark/temp
 mv ./_benchmark/temp/{.,}* ./
 
 # have the route & controller
-yes|cp -r _benchmark/fuel/* ./
+yes|cp -rf _benchmark/lumen/. ./
 
 # some enhancements
-composer config allow-plugins.composer/installers true
 composer install --no-dev -o
+chmod o+w storage/*
+chmod o+w storage/framework/*
 rm ./public/.htaccess

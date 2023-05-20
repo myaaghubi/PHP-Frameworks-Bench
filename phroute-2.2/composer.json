@@ -1,6 +1,6 @@
 {
     "require": {
-        "phroute/phroute": "2.2"
+        "phroute/phroute": "^2.2"
     },
     "autoload": {
         "psr-4": {
