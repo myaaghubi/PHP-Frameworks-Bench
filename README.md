@@ -15,6 +15,7 @@ Benchmarking on components like template engines or ORM/Database libraries is ou
 - [PHP Frameworks Bench](#php-frameworks-bench)
   - [Benchmarks](#benchmarks)
     - [Latest](#latest)
+    - [OPCache](#opcache)
   - [Benchmarking Policy](#benchmarking-policy)
   - [How to Benchmark](#how-to-benchmark)
   - [Commands](#commands)
@@ -70,6 +71,9 @@ These are my benchmarks, not yours. **I encourage you to run on your (production
 |cakephp-4.4        |                   262.25|         262.3|       4.49|           4.5|
 |laravel-10.0       |                    96.97|          97.0|      11.99|          12.0|
 
+
+#### OPCache
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/Dk8YHQZ6jfY/0.jpg)](http://www.youtube.com/watch?v=Dk8YHQZ6jfY)
 
 
 ## Benchmarking Policy
