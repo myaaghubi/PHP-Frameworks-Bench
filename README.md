@@ -184,6 +184,7 @@ For frameworks, I considered the official repos:
 * [FatFree](https://github.com/bcosca/fatfree)
 * [FrameworkX](https://github.com/clue/framework-x)
 * [FuelPHP](https://github.com/fuelphp/fuelphp)
+* [KumbiaPHP](https://github.com/KumbiaPHP/KumbiaPHP)
 * [Laminas](https://github.com/laminas)
 * [Laravel](https://github.com/laravel/laravel)
 * [Leaf](https://github.com/leafsphp/leaf)
