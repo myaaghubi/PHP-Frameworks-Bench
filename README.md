@@ -15,7 +15,7 @@ Benchmarking on components like template engines or ORM/Database libraries is ou
 - [PHP Frameworks Bench](#php-frameworks-bench)
   - [Benchmarks](#benchmarks)
     - [Latest](#latest)
-    - [OPCache](#opcache)
+    - [OPCache On/Off](#opcache-on)
   - [Benchmarking Policy](#benchmarking-policy)
   - [How to Benchmark](#how-to-benchmark)
   - [Commands](#commands)
@@ -34,7 +34,7 @@ Benchmarking on components like template engines or ORM/Database libraries is ou
   * PHP 8.2.5
   * OPCache Off
   * Apache 2.4.52
-  * WRK 4.2.0
+  * WRK 4.2.0 (5 min)
   * CPU Core i7-3770K@4.4Ghz
   * Memory 16G 
 
@@ -51,6 +51,7 @@ These are my benchmarks, not yours. **I encourage you to run on your (production
 |framework          |requests per second (rps)|relative (rps)|peak memory|relative (mem)|
 |-------------------|------------------------:|-------------:|----------:|-------------:|
 |pure-php           |                27,379.94|         282.4|       0.42|           1.0|
+|kumbiaphp-1.1      |                 5,862.48|          60.5|       0.54|           1.3|
 |fastroute-1.3      |                 4,591.01|          47.3|       0.56|           1.3|
 |phroute-2.2        |                 4,303.07|          44.4|       0.58|           1.4|
 |leaf-3.3           |                 1,576.68|          16.3|       1.10|           2.6|
@@ -72,8 +73,8 @@ These are my benchmarks, not yours. **I encourage you to run on your (production
 |laravel-10.0       |                    96.97|           1.0|      11.99|          28.5|
 
 
-#### OPCache
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/Dk8YHQZ6jfY/0.jpg)](http://www.youtube.com/watch?v=Dk8YHQZ6jfY)
+#### OPCache On
+[![Results with OPCache On/Off & How to add your framework](http://img.youtube.com/vi/Dk8YHQZ6jfY/0.jpg)](http://www.youtube.com/watch?v=Dk8YHQZ6jfY)
 
 
 ## Benchmarking Policy
@@ -123,7 +124,6 @@ $ bash check.sh
 3- Run benchmarks:
 
 ```bash
-# bash check.sh -t pure-php
 $ bash benchmark.sh
 ```
 
@@ -184,6 +184,7 @@ For frameworks, I considered the official repos:
 * [FatFree](https://github.com/bcosca/fatfree)
 * [FrameworkX](https://github.com/clue/framework-x)
 * [FuelPHP](https://github.com/fuelphp/fuelphp)
+* [KumbiaPHP](https://github.com/KumbiaPHP/KumbiaPHP)
 * [Laminas](https://github.com/laminas)
 * [Laravel](https://github.com/laravel/laravel)
 * [Leaf](https://github.com/leafsphp/leaf)
