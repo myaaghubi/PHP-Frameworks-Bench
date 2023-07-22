@@ -24,6 +24,7 @@ jobs:
 
     - name: Copy files to web root
       run: |
+        mkdir /var/www/html/PHP-Frameworks-Bench
         cp -R ./* /var/www/html/PHP-Frameworks-Bench/
     
     - name: Restart apache server
