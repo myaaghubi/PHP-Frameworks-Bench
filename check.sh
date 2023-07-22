@@ -20,7 +20,7 @@ do
             echo -e "${RED}error: \n$url${NC}"
             echo "$url_output"
         else
-            echo "${GREEN}done.${NC}"
+            echo "${GREEN}done!${NC}"
         fi
     fi
 done
