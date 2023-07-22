@@ -4,7 +4,7 @@
 . ./base/option_target.sh
 
 OK='\U2714'
-FAIL='\U274C'
+ERROR='\U274C'
 
 GREEN='\033[0;32m'
 RED='\033[0;31m'
@@ -21,7 +21,7 @@ do
 
         # expected to get the Hello World! + libs/output_data.php
         if ! [[ "$url_output" =~ ^('Hello World!')(.*)(([0-9]*):(([0-9]+([.][0-9]*)?|[.][0-9]+)):([0-9]*))$ ]]; then
-            echo -e "${RED}${FAIL} $fw ${NC}"
+            echo -e "${RED}${ERROR} $fw ${NC}"
             echo "$url"
             echo "$url_output"
             FAIL=1
