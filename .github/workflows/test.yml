@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Install WRK
-      run: sudo apt-get install wrk
+      run: sudo apt-get install wrk w3m
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
