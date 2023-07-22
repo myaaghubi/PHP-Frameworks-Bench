@@ -3,7 +3,7 @@
 // https://github.com/nikic/FastRoute#usage
 // Here's a basic usage example:
 
-require __DIR__.'/vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
@@ -22,7 +22,7 @@ $uri = rawurldecode($uri);
 
 // https://github.com/nikic/FastRoute/issues/110#issuecomment-273760186
 // Strip prefix
-$prefix = '/PHP-Frameworks-Bench/fastroute-1.3';
+$prefix = '/PHP-Frameworks-Bench/fastroute-1.3/public';
 if ($prefix !== '' && strpos($uri, $prefix) === 0) {
     $uri = substr($uri, strlen($prefix));
 }
