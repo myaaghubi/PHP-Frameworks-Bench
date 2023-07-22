@@ -25,10 +25,10 @@ jobs:
     - name: Copy files to web root
       run: |
         sudo mkdir /var/www/html/PHP-Frameworks-Bench
-        cp -R ./* /var/www/html/PHP-Frameworks-Bench/
+        sudo cp -R ./* /var/www/html/PHP-Frameworks-Bench/
     
     - name: Restart apache server
-      run: service apache2 restart
+      run: sudo service apache2 restart
     
     - name: Check frameworks
       run: bash check.sh
