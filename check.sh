@@ -23,11 +23,13 @@ do
         if ! [[ "$url_output" =~ ^('Hello World!')(.*)(([0-9]*):(([0-9]+([.][0-9]*)?|[.][0-9]+)):([0-9]*))$ ]]; then
             echo -e "${RED}${ERROR} $fw ${NC}"
             echo "$url"
+
             if [ -x "$(command -v w3m)" ]; then
                 echo "$url_output" | w3m -dump -T text/html
             else
                 echo "$url_output"
             fi
+            
             FAIL=1
         else
             echo -e "${GREEN}${OK} $fw ${NC}"
