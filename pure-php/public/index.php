@@ -6,9 +6,9 @@
 
 $uri = $_SERVER['REQUEST_URI'];
 
-$prefix = '/PHP-Frameworks-Bench/pure-php';
+$prefix = '/PHP-Frameworks-Bench/pure-php/public';
 
-require_once ('Controllers/HelloWorldController.php');
+require_once ('../Controllers/HelloWorldController.php');
 
 // Strip query string (?foo=bar) and decode URI
 if (false !== $pos = strpos($uri, '?')) {
