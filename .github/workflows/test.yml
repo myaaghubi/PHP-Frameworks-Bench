@@ -1,0 +1,31 @@
+name: Test PHP benchmark
+on: [ push, pull_request ]
+
+jobs:
+  setup:
+    runs-on: ubuntu-22.04
+    
+    steps:
+    
+    - uses: actions/checkout@v3
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 8.2
+        extensions: dom, curl, libxml, mbstring, zip, pcntl
+        coverage: none
+    
+    - name: Setup frameworks
+      run: bash setup.sh
+
+    - name: Copy files to web root
+      run: |
+        cp -R ./* /var/www/html/PHP-Frameworks-Bench/
+    
+    - name: Restart apache server
+      run: service apache2 restart
+    
+    - name: Check frameworks
+      run: bash check.sh
+    
