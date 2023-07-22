@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__.'/vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 
 use Phroute\Phroute\RouteCollector;
 
@@ -14,7 +14,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 // just same as fastroute:
 // https://github.com/nikic/FastRoute/issues/110#issuecomment-273760186
 // Strip prefix
-$prefix = '/PHP-Frameworks-Bench/phroute-2.2';
+$prefix = '/PHP-Frameworks-Bench/phroute-2.2/public';
 if ($prefix !== '' && strpos($uri, $prefix) === 0) {
     $uri = substr($uri, strlen($prefix));
 }
