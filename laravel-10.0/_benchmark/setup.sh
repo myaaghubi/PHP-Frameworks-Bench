@@ -11,5 +11,5 @@ yes|cp -rf _benchmark/laravel/. ./
 composer install --optimize-autoloader --no-dev
 chmod o+w storage/*
 chmod o+w storage/framework/*
-php artisan optimize
+#php artisan optimize
 rm ./public/.htaccess
