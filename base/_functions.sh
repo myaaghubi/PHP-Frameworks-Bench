@@ -8,7 +8,7 @@ benchmark () {
     url_status=$(bash check.sh -t "$fw")
     
     # find 'done'
-    status=${url_status%%done*}
+    status=${url_status%%✔ ${fw}*}
 
     # if the index of 'done' be equal to 
     # the length of the url_status then 
