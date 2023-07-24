@@ -181,7 +181,6 @@ For frameworks, I considered the official repos:
 * [CodeIgniter](https://github.com/codeigniter4/CodeIgniter4)
 * [FastRoute](https://github.com/nikic/FastRoute)
 * [FatFree](https://github.com/bcosca/fatfree)
-* [FrameworkX](https://github.com/clue/framework-x)
 * [FuelPHP](https://github.com/fuelphp/fuelphp)
 * [KumbiaPHP](https://github.com/KumbiaPHP/KumbiaPHP)
 * [Laminas](https://github.com/laminas)
