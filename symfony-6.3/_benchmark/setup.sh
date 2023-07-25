@@ -9,5 +9,5 @@ yes|cp -r _benchmark/symfony/* ./
 
 # some enhancement
 composer dump-env prod
-APP_ENV=prod APP_DEBUG=1 php bin/console cache:clear
+APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear
 composer install --no-dev --optimize-autoloader
