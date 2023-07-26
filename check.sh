@@ -3,9 +3,7 @@
 . ./benchmark.config
 . ./base/option_target.sh
 
-OK='\U2714'
-ERROR='\U274C'
-
+# Colors
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
@@ -21,7 +19,7 @@ do
 
         # expected to get the Hello World! + libs/output_data.php
         if ! [[ "$url_output" =~ ^('Hello World!')(.*)(([0-9]*):(([0-9]+([.][0-9]*)?|[.][0-9]+)):([0-9]*))$ ]]; then
-            echo -e "${RED}${ERROR} $fw ${NC}"
+            echo -e "${RED}❌ $fw ${NC}"
             echo "$url"
 
             if [ -x "$(command -v w3m)" ]; then
@@ -29,10 +27,10 @@ do
             else
                 echo "$url_output"
             fi
-            
+
             FAIL=1
         else
-            echo -e "${GREEN}${OK} $fw ${NC}"
+            echo -e "${GREEN}✔ $fw ${NC} \t ${#url_output} bytes"
         fi
     fi
 done
