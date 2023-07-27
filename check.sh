@@ -30,7 +30,7 @@ do
 
             FAIL=1
         else
-            printf "%-34b %s bytes   URL: %s\n" "${GREEN}✔ $fw ${NC}" "${#url_output}" "$url"
+            printf "%-34b %4s bytes   URL: %s\n" "${GREEN}✔ $fw ${NC}" "${#url_output}" "$url"
         fi
     fi
 done
