@@ -29,7 +29,7 @@ do
     if [ -d "$fw" ]; then
         echo "/------- $fw: setting up -------/"
         cd "$fw"
-        . "_benchmark/setup.sh"
+        yes|. "_benchmark/setup.sh"
         cd ..
     fi
 done
