@@ -34,11 +34,16 @@ jobs:
       run: |
         sudo mkdir /var/www/html/PHP-Frameworks-Bench
         sudo cp -R ./* /var/www/html/PHP-Frameworks-Bench/
-        sudo chown -R www-data:www-data /var/www/html
+        
     
     - name: Restart apache server
       run: sudo service apache2 restart
     
     - name: Check frameworks
       run: bash check.sh
+
+    - name: Bench PHP frameworks
+      run: |
+        threads & connections
+
     
