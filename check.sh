@@ -30,7 +30,7 @@ do
 
             FAIL=1
         else
-            echo -e "${GREEN}✔ $fw ${NC} \t ${#url_output} bytes"
+            printf "%-34b %4s bytes   %s\n" "${GREEN}✔ $fw ${NC}" "${#url_output}" "$url"
         fi
     fi
 done
