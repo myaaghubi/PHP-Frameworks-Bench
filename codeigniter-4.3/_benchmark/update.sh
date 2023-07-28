@@ -6,5 +6,5 @@ yes|cp -r _benchmark/codeigniter/* ./
 
 # some enhancements
 composer install --no-dev -o
-sudo chown -Rv www-data writable
+chmod -R o+w writable
 rm ./public/.htaccess
