@@ -5,4 +5,8 @@ RUN apt-get update \
 
 RUN mkdir /var/www/html/PHP-Frameworks-Bench
 
+# Need it in a lot of frameworks
 RUN docker-php-ext-install intl
+
+# Optional opcache (recommended)
+#RUN docker-php-ext-install opcache
