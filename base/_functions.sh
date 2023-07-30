@@ -90,6 +90,4 @@ benchmark () {
     fi
 
     echo "$url" >> "$url_file"
-
-    echo
 }

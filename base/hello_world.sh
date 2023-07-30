@@ -33,14 +33,14 @@ if [ -f "$url_file" ]; then
     mv "$url_file" "$url_file.old"
 fi
 
-
-phpv=`php -r 'echo phpversion();'`
-echo "/------- PHP $phpv -------/"
+phpc=`curl -s "$base/libs/php_config.php"`
+echo "/------- PHP Config -------/"
+echo "$phpc"
 
 for fw in `echo $param_targets`
 do
     if [ -d "$fw" ]; then
-        echo "/------- $fw -------/"
+        echo "\n/------- $fw -------/"
 
         # read -p "Continue to $fw (y/n)?" choice
         # case "$choice" in
@@ -67,7 +67,8 @@ do
         # fi
 
         # reset the opcache
-        php ./libs/reset_opcache.php
+        opcacherest=`curl -s "$base/libs/reset_opcache.php"`
+        echo "$opcacherest"
 
         if [ "$param_restart_apache" = true ]; then
             echo 'systemctl restart apache2'

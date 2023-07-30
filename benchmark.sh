@@ -81,4 +81,5 @@ done
 
 sh ./base/hello_world.sh 
 
+echo ''
 php ./libs/show_results_table.php
