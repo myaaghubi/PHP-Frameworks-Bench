@@ -1,6 +1,6 @@
 {
     "require": {
-        "slim/slim": "^3.12"
+        "slim/slim": "dev-fix-php8-incompatibilities as 3.12.5"
     },
     "config": {
         "optimize-autoloader": true
@@ -9,5 +9,11 @@
         "psr-4": {
             "Controllers\\": "Controllers/"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@github.com:barasimumatik/Slim.git"
+        }
+    ]
 }
