@@ -54,7 +54,7 @@ do
 
         if [ "$param_clean" = true ]; then
             bash clean.sh
-            bash setup.sh "$fw"
+            bash setup.sh -t "$fw"
         fi
 
         # read -p "Continue to benchmark (y/n)?" choice
