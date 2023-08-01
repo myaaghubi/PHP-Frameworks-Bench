@@ -63,9 +63,9 @@ These are my benchmarks, not yours. **I encourage you to run on your (production
 |fuelphp-1.9        |                   450.65|           4.6|       2.51|           6.0|
 |lumen-10.0         |                   352.94|           3.6|       3.49|           8.3|
 |codeigniter-4.3    |                   324.27|           3.3|       3.50|           8.3|
-|symfony-5.4        |                   319.55|           3.3|       3.82|           9.1|
-|symfony-6.2        |                   314.21|           3.2|       3.89|           9.2|
+|symfony-5.4        |                   311.74|           3.2|       3.82|           9.1|
 |laminas-2.0        |                   309.30|           3.2|       3.50|           8.3|
+|symfony-6.3        |                   290.69|           3.0|       3.91|           9.3|
 |cakephp-4.4        |                   262.25|           2.7|       4.49|          10.7|
 |laravel-10.0       |                    96.97|           1.0|      11.99|          28.5|
 
