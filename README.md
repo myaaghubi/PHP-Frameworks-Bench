@@ -56,8 +56,6 @@ These are my benchmarks, not yours. **I encourage you to run on your (production
 |phroute-2.2        |                 4,303.07|          44.4|       0.58|           1.4|
 |leaf-3.3           |                 1,576.68|          16.3|       1.10|           2.6|
 |fatfree-3.8.1      |                 1,512.30|          15.6|       1.67|           4.0|
-|siler-1.7.9        |                 1,416.80|          14.6|       1.17|           2.8|
-|slim-3.12          |                 1,061.05|          10.9|       1.40|           3.3|
 |slim-4.11          |                   805.51|           8.3|       1.57|           3.7|
 |ubiquity-2.4.x.dev |                   726.70|           7.5|       1.64|           3.9|
 |silex-2.3          |                   558.07|           5.8|       2.16|           5.1|
@@ -188,7 +186,6 @@ For frameworks, I considered the official repos:
 * [Leaf](https://github.com/leafsphp/leaf)
 * [Lumen](https://github.com/laravel/lumen)
 * [PhRoute](https://github.com/mrjgreen/phroute)
-* [Siler](https://github.com/leocavalcante/siler)
 * [Silex](https://github.com/silexphp/Silex)
 * [Slim](https://github.com/slimphp/Slim)
 * [Symfony](https://github.com/symfony/symfony)
