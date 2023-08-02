@@ -1,4 +1,8 @@
-const COLORS = [
+/*
+    PHP-Frameworks-Bench
+ */
+
+const COLORS_ = [
   "#3273a8",
   "#3a78ac",
   "#437cae",
@@ -21,10 +25,19 @@ const COLORS = [
   "#a87732",
 ];
 
-var rpsChart = document.getElementById('rpsChart');
-var memoryChart = document.getElementById('memoryChart');
-var timeChart = document.getElementById('timeChart');
-var fileChart = document.getElementById('fileChart');
+// For more colors 
+// I'm lazy to regenerate them again
+// so lets have a map to make more
+let COLORS = dataRPS.map(
+  (item, index) =>
+    COLORS_[Math.round(index / (dataRPS.length / COLORS_.length))]
+);
+
+var rpsChart = document.getElementById("rpsChart");
+var memoryChart = document.getElementById("memoryChart");
+var timeChart = document.getElementById("timeChart");
+var fileChart = document.getElementById("fileChart");
+
 new Chart(rpsChart, {
   type: "bar",
   data: {

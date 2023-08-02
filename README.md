@@ -1,5 +1,5 @@
 # PHP Frameworks Bench
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/myaaghubi/PHP-Frameworks-Bench?color=purpol) ![GitHub](https://img.shields.io/github/license/myaaghubi/PHP-Frameworks-Bench?color=green)
+[![Test PHP benchmark](https://github.com/myaaghubi/PHP-Frameworks-Bench/actions/workflows/test.yml/badge.svg)](https://github.com/myaaghubi/PHP-Frameworks-Bench/actions/workflows/test.yml) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/myaaghubi/PHP-Frameworks-Bench?color=purpol) ![GitHub](https://img.shields.io/github/license/myaaghubi/PHP-Frameworks-Bench?color=green)
 
 This project attempts to measure the minimum overhead (minimum bootstrap cost) of PHP frameworks in the real world.
 
@@ -56,8 +56,6 @@ These are my benchmarks, not yours. **I encourage you to run on your (production
 |phroute-2.2        |                 4,303.07|          44.4|       0.58|           1.4|
 |leaf-3.3           |                 1,576.68|          16.3|       1.10|           2.6|
 |fatfree-3.8.1      |                 1,512.30|          15.6|       1.67|           4.0|
-|siler-1.7.9        |                 1,416.80|          14.6|       1.17|           2.8|
-|slim-3.12          |                 1,061.05|          10.9|       1.40|           3.3|
 |slim-4.11          |                   805.51|           8.3|       1.57|           3.7|
 |ubiquity-2.4.x.dev |                   726.70|           7.5|       1.64|           3.9|
 |silex-2.3          |                   558.07|           5.8|       2.16|           5.1|
@@ -65,9 +63,9 @@ These are my benchmarks, not yours. **I encourage you to run on your (production
 |fuelphp-1.9        |                   450.65|           4.6|       2.51|           6.0|
 |lumen-10.0         |                   352.94|           3.6|       3.49|           8.3|
 |codeigniter-4.3    |                   324.27|           3.3|       3.50|           8.3|
-|symfony-5.4        |                   319.55|           3.3|       3.82|           9.1|
-|symfony-6.2        |                   314.21|           3.2|       3.89|           9.2|
+|symfony-5.4        |                   311.74|           3.2|       3.82|           9.1|
 |laminas-2.0        |                   309.30|           3.2|       3.50|           8.3|
+|symfony-6.3        |                   290.69|           3.0|       3.91|           9.3|
 |cakephp-4.4        |                   262.25|           2.7|       4.49|          10.7|
 |laravel-10.0       |                    96.97|           1.0|      11.99|          28.5|
 
@@ -181,7 +179,6 @@ For frameworks, I considered the official repos:
 * [CodeIgniter](https://github.com/codeigniter4/CodeIgniter4)
 * [FastRoute](https://github.com/nikic/FastRoute)
 * [FatFree](https://github.com/bcosca/fatfree)
-* [FrameworkX](https://github.com/clue/framework-x)
 * [FuelPHP](https://github.com/fuelphp/fuelphp)
 * [KumbiaPHP](https://github.com/KumbiaPHP/KumbiaPHP)
 * [Laminas](https://github.com/laminas)
@@ -189,7 +186,6 @@ For frameworks, I considered the official repos:
 * [Leaf](https://github.com/leafsphp/leaf)
 * [Lumen](https://github.com/laravel/lumen)
 * [PhRoute](https://github.com/mrjgreen/phroute)
-* [Siler](https://github.com/leocavalcante/siler)
 * [Silex](https://github.com/silexphp/Silex)
 * [Slim](https://github.com/slimphp/Slim)
 * [Symfony](https://github.com/symfony/symfony)

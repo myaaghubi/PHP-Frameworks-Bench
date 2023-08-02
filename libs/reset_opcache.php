@@ -1,3 +1,3 @@
 <?php 
 
-opcache_reset();
+echo 'opcache_reset: '. (opcache_reset()?'done':'disabled/pending');

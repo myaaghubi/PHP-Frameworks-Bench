@@ -9,6 +9,5 @@ yes|cp -rf _benchmark/lumen/. ./
 
 # some enhancements
 composer install --no-dev -o
-chmod o+w storage/*
-chmod o+w storage/framework/*
+chmod -R o+w storage
 rm ./public/.htaccess
