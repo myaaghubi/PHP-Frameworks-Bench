@@ -54,7 +54,7 @@ do
         #     continue
         # fi
 
-        if [ "$param_clean" = true ]; then
+        if [ "$param_fresh" = true ]; then
             bash clean.sh
             bash setup.sh -t "$fw"
         fi

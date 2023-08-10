@@ -138,6 +138,10 @@ $ bash benchmark.sh
 ## Commands
 
 ```bash
+# some options
+# use bash benchmark.sh --help
+$ bash benchmark.sh -f -rapache -rnginx -t ...
+
 # run composer update for frameworks
 $ bash update.sh
 
@@ -157,6 +161,7 @@ To specify frameworks, put them with `-t ...` after each command:
 
 ```bash
 # supported for `setup.sh`, `benchmark.sh`, `update.sh`, `clean.sh`, and `clear-cache.sh`
+# not required to put / after the name, just use the tab in your terminal 
 # bash benchmarks.sh --help -h
 $ bash benchmark.sh -t laravel-10.0/ slim-4.11/ ...
 ...

@@ -21,10 +21,10 @@ function showHelp()
 {
    cat << HEREDOC
 
-    Usage: bash benchmark.sh [-c] [-rapache] [-t pure-php slim]
+    Usage: bash benchmark.sh [-f] [-rapache] [-t pure-php slim]
 
     Optional Arguments:
-        -c, --clean                 Clean all frameworks and install the target framework -fresh install- before benchmark.
+        -f, --fresh                 Clean all frameworks and install the target framework -fresh install- before benchmark.
         -h, --help                  Show this help message and exit
         -rapache, --restart-apache  Restart apache "sudo systemctl restart apache2" before each benchmark.
         -rnginx, --restart-nginx    Restart apache "sudo systemctl restart nginx" before each benchmark.
@@ -35,7 +35,7 @@ HEREDOC
 } 
 
 export param_targets="$frameworks_list"
-export param_clean=false
+export param_fresh=false
 export param_restart_apache=false
 export param_restart_nginx=false
 
@@ -48,11 +48,12 @@ IFS=';'
 params=(`php ./libs/strreplace.php " -" ";-" " ${paramsin}"`)
 IFS=$oldIFS
 
+init_benchmark=true
 for option in "${params[@]}"
 do
 	case "$option" in
-        -c|--clean)
-            param_clean=true
+        -f|--fresh)
+            param_fresh=true
             ;;
         -rapache|--restart-apache)
             param_restart_apache=true
@@ -68,18 +69,21 @@ do
             fi
             ;;
         -h|--help)
+            init_benchmark=false
             showHelp;
             ;;
         ""|" ")
             ;;
         *)
+            init_benchmark=false
             echo "\"${option}\" not available"
             exit 1
             ;;
     esac
 done
 
-sh ./base/hello_world.sh 
-
-echo ''
-php ./libs/show_results_table.php
+if [ "$init_benchmark" = true ]; then
+    sh ./base/hello_world.sh 
+    echo ''
+    php ./libs/show_results_table.php
+fi
