@@ -77,7 +77,7 @@ define('CORE_PATH', dirname(dirname(APP_PATH)).'/core/');
  *
  *  EN PRODUCCION ESTA CONSTANTE DEBERÍA SER ESTABLECIDA MANUALMENTE
  */
-define('PUBLIC_PATH', substr($_SERVER['SCRIPT_NAME'], 0, -9)); // - index.php string[9]
+//define('PUBLIC_PATH', substr($_SERVER['SCRIPT_NAME'], 0, -9)); // - index.php string[9]
 
 /**
  * En producción descomentar la línea de arriba y usar const
@@ -85,7 +85,7 @@ define('PUBLIC_PATH', substr($_SERVER['SCRIPT_NAME'], 0, -9)); // - index.php st
  * '/carpeta/'  en una carpeta o varias
  * 'https://www.midominio.com/'  usando dominio.
  */
-//const PUBLIC_PATH = '/';
+const PUBLIC_PATH = '/PHP-Frameworks-Bench/kumbia-1.1/default/public/';
 
 /**
  * Obtiene la url usando PATH_INFO.
