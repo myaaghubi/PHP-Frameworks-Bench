@@ -12,7 +12,11 @@
         $dataTime = [];
         $dataFile = [];
 
-        $resultsFile = __DIR__ . '/output/results.hello_world.log';
+        $resultsFiles = glob("./output/results.hello_world.*.log");
+
+        rsort($resultsFiles);
+
+        $resultsFile = @$resultsFiles[0];
 
         if (file_exists($resultsFile)) {
             Parse_Results: {
@@ -30,11 +34,11 @@
         }
 
         echo "
-        const dataLabels = ['".implode("','",$dataLabels)."'];
-        const dataRPS = [".implode(",",$dataRPS)."];
-        const dataMemory = [".implode(",",$dataMemory)."];
-        const dataTime = [".implode(",",$dataTime)."];
-        const dataFile = [".implode(",",$dataFile)."];
+        const dataLabels = ['" . implode("','", $dataLabels) . "'];
+        const dataRPS = [" . implode(",", $dataRPS) . "];
+        const dataMemory = [" . implode(",", $dataMemory) . "];
+        const dataTime = [" . implode(",", $dataTime) . "];
+        const dataFile = [" . implode(",", $dataFile) . "];
         ";
         ?>
     </script>
@@ -54,7 +58,9 @@
         </ul>
     <?php
     } else {
-        echo "<h4>" . date("Y/m/d H:i:s", filemtime($resultsFile)) . "</h4>";
+        if (preg_match("/results.hello_world.(\S+).log/", @$resultsFile, $match)) {
+            echo "<h4>" .  $match[1] . "</h4>";
+        }
     ?>
         <br>
         <canvas id="rpsChart" height="125"></canvas>
@@ -75,8 +81,8 @@
         foreach ($urls as $url) {
             $url_array = explode('/', $url);
             // to make it shorter
-            $url_array = array_slice($url_array,4);
-            echo "<li><a href=\"$url\">.../".implode('/', $url_array)."</a></li>";
+            $url_array = array_slice($url_array, 4);
+            echo "<li><a href=\"$url\">.../" . implode('/', $url_array) . "</a></li>";
         }
         ?>
     </ul>
