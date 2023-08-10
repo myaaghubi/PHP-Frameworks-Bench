@@ -4,11 +4,13 @@ cd `dirname $0`
 . ./_functions.sh
 . ../benchmark.config
 
-bm_name=`basename $0 .sh`
+bn_name=`basename $0 .sh`
 
-results_file="output/results.$bm_name.log"
-check_file="output/check.$bm_name.log"
-error_file="output/error.$bm_name.log"
+file_time=`date +%Y-%m-%dT%H-%M-%S`
+
+results_file="output/results.$bn_name.$file_time.log"
+check_file="output/check.$bn_name.log"
+error_file="output/error.$bn_name.log"
 url_file="output/urls.log"
 
 cd ..
