@@ -9,9 +9,10 @@ function showHelp()
 {
    cat << HEREDOC
 
-    Usage: bash results.sh [-l] [-t 1] [-d 2]
+    Usage: bash results.sh [-t 0] [-c 3]
 
     Optional Arguments:
+        -c [index], --compare [index]   Compare current results with (use --list)
         -d [index], --delete [index]    Delete by index id (use --list)
         -dall, --deleteall              Delete all results
         -h, --help                      Show this help message and exit
@@ -33,11 +34,19 @@ IFS=$oldIFS
 
 results=(`ls ./output/`)
 index=0
+compare_to=1
 for option in "${params[@]}"
 do
 	case "$option" in
         -dall|--deleteall)
             rm -rf ./output/*
+            ;;
+        -c*|--compare*)
+            compare=${option//--compare /}
+            compare=${option//-c /}
+            if [ ${#compare} -ge 0 ]; then
+                compare_to="$compare"
+            fi
             ;;
         -d*|--delete*)
             delete=${option//--delete /}
@@ -66,6 +75,7 @@ do
             top=${option//-t /}
             if [ ${#top} -ge 0 ]; then
                 index="$top"
+                compare_to=$index+1
             fi
             ;;
         -h|--help)
@@ -80,4 +90,4 @@ do
     esac
 done
 
-php ./libs/show_results_table.php $index
+php ./libs/show_results_table.php $index $compare_to
