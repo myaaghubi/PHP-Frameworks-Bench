@@ -85,5 +85,5 @@ done
 if [ "$init_benchmark" = true ]; then
     sh ./base/hello_world.sh 
     echo ''
-    php ./libs/show_results_table.php
+    bash results.sh
 fi
