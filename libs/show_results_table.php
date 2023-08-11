@@ -3,12 +3,14 @@
 require './libs/parse_results.php';
 require './libs/build_table.php';
 
-$files = glob("./output/results.hello_world.*.log");
+$results = glob("./output/*", GLOB_ONLYDIR);
 
-rsort($files);
+rsort($results);
 
-echo @$files[0].PHP_EOL;
+if (preg_match("/output\/(\S+)/", @$results[0], $match)) {
+    echo "Results: ".@$match[1].PHP_EOL;
+}
 
-$results = parse_results(@$files[0]);
+$pr = parse_results(@$results[0].'/results.log');
 
-echo build_table($results);
+echo build_table($pr);

@@ -1,8 +1,8 @@
 benchmark () {
     fw="$1"
     url="$2"
-    output_wrk="output/$fw.wrk.log"
-    output="output/$fw.output"
+    output_wrk="output/$dir_datetime/$fw.wrk.log"
+    output="output/$dir_datetime/$fw.output"
 
     # check out the appropriate response is reachable
     url_status=$(bash check.sh -t "$fw")

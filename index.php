@@ -12,16 +12,16 @@
         $dataTime = [];
         $dataFile = [];
 
-        $resultsFiles = glob("./output/results.hello_world.*.log");
+        $resultsDirs = glob("./output/*", GLOB_ONLYDIR);
 
-        rsort($resultsFiles);
+        rsort($resultsDirs);
+        
+        $resultsDir = @$resultsDirs[0].'/results.log';
 
-        $resultsFile = @$resultsFiles[0];
-
-        if (file_exists($resultsFile)) {
+        if (file_exists($resultsDir)) {
             Parse_Results: {
                 require __DIR__ . '/libs/parse_results.php';
-                $results = parse_results($resultsFile);
+                $results = parse_results($resultsDir);
             }
 
             foreach ($results as $fw => $params) {
@@ -48,9 +48,9 @@
     <h1>PHP Frameworks Bench</h1>
 
     <?php
-    if (!file_exists($resultsFile)) {
+    if (!file_exists($resultsDir)) {
     ?>
-        <b>output/results.hello_world.log</b> not found!
+        <b>Results</b> not found!
         <ul style="list-style-type:decimal">
             <li>Run <b>bash setup.sh</b></li>
             <li>Run <b>bash check.sh</b></li>
@@ -58,8 +58,8 @@
         </ul>
     <?php
     } else {
-        if (preg_match("/results.hello_world.(\S+).log/", @$resultsFile, $match)) {
-            echo "<h4>" .  $match[1] . "</h4>";
+        if (preg_match("/output\/(\S+)\/results.log/", @$resultsDir, $match)) {
+            echo "<h4>" .  @$match[1] . "</h4>";
         }
     ?>
         <br>
