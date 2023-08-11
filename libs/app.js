@@ -40,11 +40,19 @@ var fileChart = document.getElementById("fileChart");
 
 new Chart(rpsChart, {
   type: "bar",
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Requests Per Second (RPS)'
+      },
+    }
+  },
   data: {
     labels: dataLabels,
     datasets: [
       {
-        label: "Requests Per Second (RPS)",
+        label: resultsDatetime,
         data: dataRPS,
         backgroundColor: COLORS,
       },
@@ -54,11 +62,19 @@ new Chart(rpsChart, {
 
 new Chart(memoryChart, {
   type: "bar",
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Memory Peak (MB)'
+      },
+    }
+  },
   data: {
     labels: dataLabels,
     datasets: [
       {
-        label: "Memory Peak (MB)",
+        label: resultsDatetime,
         data: dataMemory,
         backgroundColor: COLORS,
       },
@@ -68,11 +84,19 @@ new Chart(memoryChart, {
 
 new Chart(timeChart, {
   type: "bar",
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Execution Time (ms)'
+      },
+    }
+  },
   data: {
     labels: dataLabels,
     datasets: [
       {
-        label: "Execution Time (ms)",
+        label: resultsDatetime,
         data: dataTime,
         backgroundColor: COLORS,
       },
@@ -82,11 +106,19 @@ new Chart(timeChart, {
 
 new Chart(fileChart, {
   type: "bar",
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Included Files'
+      },
+    }
+  },
   data: {
     labels: dataLabels,
     datasets: [
       {
-        label: "Included Files",
+        label: resultsDatetime,
         data: dataFile,
         backgroundColor: COLORS,
       },
