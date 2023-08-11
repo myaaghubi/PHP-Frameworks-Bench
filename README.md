@@ -131,7 +131,7 @@ $ bash benchmark.sh
 
 - terminal:
   ```
-  bash show-table.sh
+  bash results.sh
   ```
 
 
@@ -154,7 +154,7 @@ $ bash clean.sh
 $ bash clear-cache.sh
 
 # show the results of the last benchmark
-$ bash show-table.sh
+$ bash results.sh
 ```
 
 To specify frameworks, put them with `-t ...` after each command:
