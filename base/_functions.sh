@@ -40,8 +40,7 @@ benchmark () {
 
     rps=`grep "Requests/sec:" "$output_wrk" | tr -cd '0-9.'`
 
-    echo "rps: "
-    numfmt --g "$rps"
+    echo "rps: $rps"
 
     # to make a small gap between the WRK and CURL
     sleep 1
