@@ -6,7 +6,7 @@ if [ ! `which composer` ]; then
 fi
 
 
-. ./benchmark.config
+. ./config
 . ./base/option_target.sh
 
 shopt -s extglob

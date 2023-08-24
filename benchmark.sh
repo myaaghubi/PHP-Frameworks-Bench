@@ -15,7 +15,7 @@ if [ ! `which curl` ]; then
     exit 1;
 fi
 
-. ./benchmark.config
+. ./config
 
 function showHelp()
 {

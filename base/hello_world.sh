@@ -2,7 +2,7 @@
 
 cd `dirname $0`
 . ./_functions.sh
-. ../benchmark.config
+. ../config
 
 bn_name=`basename $0 .sh`
 
