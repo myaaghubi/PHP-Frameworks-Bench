@@ -91,7 +91,7 @@ $ git clone https://github.com/myaaghubi/PHP-Frameworks-Bench.git
 $ cd PHP-Frameworks-Bench
 
 # optional
-$ nano benchmark.config
+$ nano config
 
 # run the setup & follow the progress
 $ yes | bash setup.sh
@@ -128,7 +128,7 @@ $ bash benchmark.sh
 
 Results with docker may not be reliable but in a situation you can use it like:
 
-1- Change the `base` in `benchmark.config` on the right port(`8080` considered):
+1- Change the `base` in `config` on the right port(`8080` considered):
 
 ```ini
 base="http://127.0.0.1:8080/PHP-Frameworks-Bench"
