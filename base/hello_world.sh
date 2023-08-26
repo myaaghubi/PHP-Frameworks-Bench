@@ -2,36 +2,21 @@
 
 cd `dirname $0`
 . ./_functions.sh
-. ../benchmark.config
+. ../config
 
-bm_name=`basename $0 .sh`
-
-results_file="output/results.$bm_name.log"
-check_file="output/check.$bm_name.log"
-error_file="output/error.$bm_name.log"
-url_file="output/urls.log"
+bn_name=`basename $0 .sh`
 
 cd ..
 
-if [ -f "$results_file" ]; then
-    echo "moving $results_file to $results_file.old"
-    mv "$results_file" "$results_file.old"
-fi
+mkdir -p output
 
-if [ -f "$check_file" ]; then
-    echo "moving $check_file to $check_file.old"
-    mv "$check_file" "$check_file.old"
-fi
+export dir_datetime=`date +%y-%m-%dT%H-%M-%S`
+mkdir output/$dir_datetime
 
-if [ -f "$error_file" ]; then
-    echo "moving $error_file to $error_file.old"
-    mv "$error_file" "$error_file.old"
-fi
-
-if [ -f "$url_file" ]; then
-    echo "moving $url_file to $url_file.old"
-    mv "$url_file" "$url_file.old"
-fi
+results_file="output/$dir_datetime/results.log"
+check_file="output/$dir_datetime/check.log"
+error_file="output/$dir_datetime/error.log"
+url_file="output/$dir_datetime/urls.log"
 
 phpc=`curl -s "$base/libs/php_config.php"`
 echo "/------- PHP Config -------/"
@@ -52,7 +37,7 @@ do
         #     continue
         # fi
 
-        if [ "$param_clean" = true ]; then
+        if [ "$param_fresh" = true ]; then
             bash clean.sh
             bash setup.sh -t "$fw"
         fi

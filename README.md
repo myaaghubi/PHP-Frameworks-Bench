@@ -1,6 +1,7 @@
 # PHP Frameworks Bench
 [![Test PHP benchmark](https://github.com/myaaghubi/PHP-Frameworks-Bench/actions/workflows/test.yml/badge.svg)](https://github.com/myaaghubi/PHP-Frameworks-Bench/actions/workflows/test.yml) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/myaaghubi/PHP-Frameworks-Bench?color=purpol) ![GitHub](https://img.shields.io/github/license/myaaghubi/PHP-Frameworks-Bench?color=green)
 
+
 This project attempts to measure the minimum overhead (minimum bootstrap cost) of PHP frameworks in the real world.
 
 So I think the minimum should not include:
@@ -16,9 +17,11 @@ Benchmarking on components like template engines or ORM/Database libraries is ou
   - [Benchmarks](#benchmarks)
     - [Latest](#latest)
     - [OPCache On/Off](#opcache-on)
-  - [Benchmarking Policy](#benchmarking-policy)
   - [How to Benchmark](#how-to-benchmark)
+  - [Docker](#docker)
   - [Commands](#commands)
+  - [Benchmarking Policy](#benchmarking-policy)
+  - [Add Your Framework](#add-your-framework)
   - [Donate](#-donate)
   - [References](#references)
   - [License](#license)
@@ -41,12 +44,12 @@ Benchmarking on components like template engines or ORM/Database libraries is ou
 
 #### Results (2023/5/15)
 
-These are my benchmarks, not yours. **I encourage you to run on your (production equivalent) environments.**
+These are my benchmarks, not yours. **I encourage you to run on your -production equivalent- environments.**
 
-![Benchmark Results Graph Throughput](screenshots/php-frameworks-bench-throughput.png)
-![Benchmark Results Graph Memory](screenshots/php-frameworks-bench-memory.png)
-![Benchmark Results Graph Execution Time](screenshots/php-frameworks-bench-exectime.png)
-![Benchmark Results Graph Included Files](screenshots/php-frameworks-bench-includedfiles.png)
+![Frameworks Benchmark Results Graph Throughput](screenshots/php-frameworks-bench-throughput.png)
+![Frameworks Benchmark Results Graph Memory](screenshots/php-frameworks-bench-memory.png)
+![Frameworks Benchmark Results Graph Execution Time](screenshots/php-frameworks-bench-exectime.png)
+![Frameworks Benchmark Results Graph Included Files](screenshots/php-frameworks-bench-includedfiles.png)
 
 |framework          |requests per second (rps)|relative (rps)|peak memory|relative (mem)|
 |-------------------|------------------------:|-------------:|----------:|-------------:|
@@ -71,29 +74,13 @@ These are my benchmarks, not yours. **I encourage you to run on your (production
 
 
 #### OPCache On
+Check out the video for more information.
 [![Results with OPCache On/Off & How to add your framework](http://img.youtube.com/vi/Dk8YHQZ6jfY/0.jpg)](http://www.youtube.com/watch?v=Dk8YHQZ6jfY)
-
-
-## Benchmarking Policy
-
-This is for the `main` branch.
-
-* Frameworks installed via `composer` according to their official documentation.
-* Used the default configuration.
-  * Considering the minimum changes on frameworks to run the benchmark.
-  * Didn't remove any components/configurations even if there is no use for them.
-* We have a `controller` class to get the `Hello World` for each, based on the default template of each framework.
-* Turned off the `debug` mode and set the environment to `production` mode.
-* Considered general optimization for the production environment, like `--optimize-autoloader` for the composer.
-
-Some frameworks are optimized more than others, so some people may think using default configuration is not fair. The dept of optimizing a framework depends on the experiences of the developer too, so it's the rabbit hole and there is no point in it. I think the default configuration of frameworks is a good starting point to get ranking.
-
-If you find something wrong in my code, feel free to send a PR. But please note optimizing for the "Hello World" is not acceptable! Building the fastest `Hello World` application is not the goal of this project.
 
 
 ## How to Benchmark
 
-If you want to have benchmarks on `PHP extension frameworks` like `Phalcon`, you need to install the extension first based on its own documentation.
+If you want to have benchmarks on `PHP extension frameworks` like `Phalcon`, you need to install the extension first, based on its own documentation.
 
 1- Download & Setup:
 
@@ -104,7 +91,7 @@ $ git clone https://github.com/myaaghubi/PHP-Frameworks-Bench.git
 $ cd PHP-Frameworks-Bench
 
 # optional
-$ nano benchmark.config
+$ nano config
 
 # run the setup & follow the progress
 $ yes | bash setup.sh
@@ -115,29 +102,59 @@ $ yes | bash setup.sh
 ```bash
 $ bash check.sh
 # bash check.sh -t pure-php
-# /------- pure-php: checking... done.
+# ✔ pure-php
 ```
 
 3- Run benchmarks:
 
 ```bash
+# bash benchmark.sh --help
 $ bash benchmark.sh
 ```
 
 4- Check the results:
 - web:
 
-  <http://localhost/PHP-Frameworks-Bench/>
+  <http://127.0.0.1/PHP-Frameworks-Bench/>
 
 - terminal:
+  ```bash
+  # bash results.sh --help
+  bash results.sh
   ```
-  bash show-table.sh
-  ```
+
+
+## Docker
+
+Results with docker may not be reliable but in a situation you can use it like:
+
+1- Change the `base` in `config` on the right port(`8080` considered):
+
+```ini
+base="http://127.0.0.1:8080/PHP-Frameworks-Bench"
+...
+```
+
+2- Run/download the docker:
+
+```bash
+$ bash docker-apache.sh
+```
+
+3- Run the benchmark:
+
+```bash
+# run it in another terminal
+$ bash benchmark.sh
+```
 
 
 ## Commands
 
 ```bash
+# use bash benchmark.sh --help
+$ bash benchmark.sh -f -rapache -t pure-php
+
 # run composer update for frameworks
 $ bash update.sh
 
@@ -149,18 +166,37 @@ $ bash clean.sh
 # clear the cache of frameworks
 $ bash clear-cache.sh
 
-# show the results of the last benchmark
-$ bash show-table.sh
+# show the results table
+$ bash results.sh
 ```
 
 To specify frameworks, put them with `-t ...` after each command:
 
 ```bash
 # supported for `setup.sh`, `benchmark.sh`, `update.sh`, `clean.sh`, and `clear-cache.sh`
-# bash benchmarks.sh --help -h
+# bash benchmarks.sh --help
 $ bash benchmark.sh -t laravel-10.0/ slim-4.11/ ...
 ...
 ```
+
+
+## Add Your Framework
+Check out the [Benchmarking Policy](#benchmarking-policy), to get more information watch the video [OPCache On/Off](#opcache-on).
+
+
+## Benchmarking Policy
+
+* Use `composer` to install frameworks according to their official documentation.
+* Use the default configuration.
+  * Minimum changes on frameworks to have benchmarks.
+  * Don't remove any components/configurations even if there is no use for them.
+* Include a `controller` class to get the `Hello World!` for each, based on the default template of each framework for `controllers`.
+* Turn off the `debug` mode and set the environment to `production` mode.
+* General optimization for the production environment, like `--optimize-autoloader` for the `composer`.
+
+Some frameworks are optimized more than others, so some developers may think using default configuration is not fair. The dept of optimizing a framework depends on the skills/experiences of the developer too, so it's the rabbit hole and nonsense for ranking. Please **note** optimizing for the `Hello World` is not acceptable! Building the fastest `Hello World` application is not the goal of this project. I think the default configuration of frameworks is a good starting point to have a ranking.
+
+If you find something wrong in my code, feel free to send a `PR`. 
 
 
 ## 🍔 Donate
@@ -169,6 +205,7 @@ Don't forget to donate if you find it useful ☕ 🍺 🍸 🍔
 ETH: 0x0ADd51D6855d2DF11BB5F331A3fa345c67a863b2
 
 ![Ethereum](screenshots/ethereum.jpg?raw=true "Ethereum")
+
 
 ## References 
 Note: This project is based on

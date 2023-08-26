@@ -9,7 +9,7 @@ function showHelp()
 {
    cat << HEREDOC
 
-    Usage: bash check.sh [-t pure-php/ slim-*]
+    Usage: bash check.sh [-t pure-php slim-*]
 
     Optional Arguments:
         -h, --help                  Show this help message and exit
@@ -30,6 +30,7 @@ IFS=';'
 params=(`php ./libs/strreplace.php " -" ";-" " ${paramsin}"`)
 IFS=$oldIFS
 
+init_benchmark=true
 for option in "${params[@]}"
 do
 	case "$option" in
@@ -41,13 +42,19 @@ do
             fi
             ;;
         -h|--help)
+            init_benchmark=false
             showHelp;
             ;;
         ""|" ")
             ;;
         *)
+            init_benchmark=false
             echo "\"${option}\" not available"
             exit 1
             ;;
     esac
 done
+
+if [ "$init_benchmark" = false ]; then
+    exit 1
+fi

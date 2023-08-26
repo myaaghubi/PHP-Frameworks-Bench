@@ -3,7 +3,7 @@
 cd `dirname $0`
 cd ..
 
-. ../benchmark.config
+. ../config
 
 # include framework list
 targets="$frameworks_list"

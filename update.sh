@@ -4,7 +4,7 @@ if [ ! `which composer` ]; then
     exit 1;
 fi
 
-. ./benchmark.config
+. ./config
 . ./base/option_target.sh
 
 for fw in $param_targets

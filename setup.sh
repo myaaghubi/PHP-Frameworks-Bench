@@ -21,7 +21,7 @@ if [ ! `which curl` ]; then
 fi
 
 
-. ./benchmark.config
+. ./config
 . ./base/option_target.sh
 
 for fw in $param_targets
