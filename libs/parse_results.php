@@ -34,10 +34,10 @@ function parse_results($file)
     }
     
     foreach ($results as $fw => $data) {
-        $results[$fw]['rps_relative']    = $data['rps'] / ($min_rps);
-        $results[$fw]['memory_relative'] = $data['memory'] / ($min_memory);
-        $results[$fw]['time_relative'] = $data['time'] / ($min_time);
-        $results[$fw]['file_relative'] = $data['file'] / ($min_file);
+        $results[$fw]['rps_relative']    = $min_rps>0?$data['rps'] / ($min_rps): '-';
+        $results[$fw]['memory_relative'] = $min_memory>0?$data['memory'] / ($min_memory): '-';
+        $results[$fw]['time_relative'] = $min_time>0?$data['time'] / ($min_time): '-';
+        $results[$fw]['file_relative'] = $min_file>0?$data['file'] / ($min_file): '-';
     }
     
     array_multisort(array_column($results, 'rps'), SORT_DESC, $results);
