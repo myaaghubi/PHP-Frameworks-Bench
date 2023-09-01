@@ -1,6 +1,6 @@
 {
     "require": {
-        "bcosca/fatfree-core": "^3.8.1"
+        "bcosca/fatfree-core": "3.8.*"
     },
     "autoload": {
         "psr-4": {
