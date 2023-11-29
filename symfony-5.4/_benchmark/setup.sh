@@ -1,7 +1,7 @@
 #!/bin/sh
 # create project
 rm -rf _benchmark/temp
-composer create-project symfony/skeleton:^5.4 ./_benchmark/temp
+composer create-project symfony/skeleton:5.4.* ./_benchmark/temp
 mv ./_benchmark/temp/{.,}* ./
 
 # have the route & controller
