@@ -1,7 +1,7 @@
 #!/bin/sh
 # create project
 rm -rf _benchmark/temp
-composer create-project --prefer-dist laravel/lumen:^10.0 ./_benchmark/temp
+composer create-project --prefer-dist laravel/lumen:10.0.* ./_benchmark/temp
 mv ./_benchmark/temp/{.,}* ./
 
 # have the route & controller
