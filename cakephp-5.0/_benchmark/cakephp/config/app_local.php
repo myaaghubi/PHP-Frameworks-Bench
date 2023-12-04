@@ -16,7 +16,7 @@ return [
      * true: Errors and warnings shown.
      */
     /* *** PHP-Frameworks-Bench *** */
-    'debug' => true,
+    'debug' => false,
 
     /*
      * Security and encryption configuration
