@@ -2,7 +2,7 @@
 [![Test PHP benchmark](https://github.com/myaaghubi/PHP-Frameworks-Bench/actions/workflows/test.yml/badge.svg)](https://github.com/myaaghubi/PHP-Frameworks-Bench/actions/workflows/test.yml) ![GitHub release (latest by date)](https://img.shields.io/github/v/release/myaaghubi/PHP-Frameworks-Bench?color=purpol) ![GitHub](https://img.shields.io/github/license/myaaghubi/PHP-Frameworks-Bench?color=green)
 
 
-This project attempts to measure the minimum overhead (minimum bootstrap cost) of PHP frameworks in the real world.
+📊 This project attempts to measure the minimum overhead (minimum bootstrap cost) of PHP frameworks in the real world.
 
 So I think the minimum should not include:
 
@@ -33,16 +33,18 @@ Benchmarking on components like template engines or ORM/Database libraries is ou
 
 #### Environment
 
+For `PHP 8.2` check out [this link](https://github.com/myaaghubi/PHP-Frameworks-Bench/tree/v2.3.1).
+
 * Ubuntu 22.04 LTS x86_64
-  * PHP 8.2.5
+  * PHP 8.3.0
   * OPCache Off
   * Apache 2.4.52
   * WRK 4.2.0 (5 min)
-  * CPU Core i7-3770K@4.4Ghz
+  * CPU Core i7-3770K/4.4Ghz
   * Memory 16G 
 
 
-#### Results (2023/5/15)
+#### Results (2023/12/1)
 
 These are my benchmarks, not yours. **I encourage you to run on your -production equivalent- environments.**
 
@@ -53,24 +55,23 @@ These are my benchmarks, not yours. **I encourage you to run on your -production
 
 |framework          |requests per second (rps)|relative (rps)|peak memory|relative (mem)|
 |-------------------|------------------------:|-------------:|----------:|-------------:|
-|pure-php           |                27,379.94|         282.4|       0.42|           1.0|
-|kumbiaphp-1.1      |                 5,862.48|          60.5|       0.54|           1.3|
-|fastroute-1.3      |                 4,591.01|          47.3|       0.56|           1.3|
-|phroute-2.2        |                 4,303.07|          44.4|       0.58|           1.4|
-|leaf-3.3           |                 1,576.68|          16.3|       1.10|           2.6|
-|fatfree-3.8.1      |                 1,512.30|          15.6|       1.67|           4.0|
-|slim-4.11          |                   805.51|           8.3|       1.57|           3.7|
-|ubiquity-2.4.x.dev |                   726.70|           7.5|       1.64|           3.9|
-|silex-2.3          |                   558.07|           5.8|       2.16|           5.1|
-|yii-2.0-basic      |                   508.32|           5.2|       2.57|           6.1|
-|fuelphp-1.9        |                   450.65|           4.6|       2.51|           6.0|
-|lumen-10.0         |                   352.94|           3.6|       3.49|           8.3|
-|codeigniter-4.3    |                   324.27|           3.3|       3.50|           8.3|
-|symfony-5.4        |                   311.74|           3.2|       3.82|           9.1|
-|laminas-2.0        |                   309.30|           3.2|       3.50|           8.3|
-|symfony-6.3        |                   290.69|           3.0|       3.91|           9.3|
-|cakephp-4.4        |                   262.25|           2.7|       4.49|          10.7|
-|laravel-10.0       |                    96.97|           1.0|      11.99|          28.5|
+|pure-php           |                27,077.31|         321.6|       0.42|           1.0|
+|kumbia-1.1         |                 5,921.29|          70.3|       0.54|           1.3|
+|fastroute-1.3      |                 4,516.12|          53.6|       0.56|           1.3|
+|phroute-2.2        |                 4,198.83|          49.9|       0.58|           1.4|
+|leaf-3.5           |                 1,487.36|          17.7|       1.11|           2.6|
+|fatfree-3.8        |                 1,453.82|          17.3|       1.72|           4.1|
+|slim-4.12          |                   798.17|           9.5|       1.57|           3.7|
+|ubiquity-2.4.x.dev |                   705.12|           8.4|       1.64|           3.9|
+|silex-2.3          |                   543.66|           6.5|       2.20|           5.2|
+|yii-2.0-basic      |                   503.76|           6.0|       2.56|           6.1|
+|fuelphp-1.9        |                   429.18|           5.1|       2.61|           6.2|
+|lumen-10.0         |                   325.27|           3.9|       3.61|           8.6|
+|symfony-5.4        |                   309.74|           3.7|       3.77|           9.0|
+|codeigniter-4.4    |                   302.21|           3.6|       3.62|           8.6|
+|symfony-6.4        |                   278.58|           3.3|       4.11|           9.8|
+|cakephp-4.5        |                   246.72|           2.9|       4.63|          11.0|
+|laravel-10.2       |                    84.19|           1.0|      13.06|          31.0|
 
 
 #### OPCache On
@@ -126,7 +127,7 @@ $ bash benchmark.sh
 
 ## Docker
 
-Results with docker may not be reliable but in a situation you can use it like:
+Results with docker may or may not be reliable but in a situation you can use it like:
 
 1- Change the `base` in `config` on the right port(`8080` considered):
 
@@ -175,13 +176,15 @@ To specify frameworks, put them with `-t ...` after each command:
 ```bash
 # supported for `setup.sh`, `benchmark.sh`, `update.sh`, `clean.sh`, and `clear-cache.sh`
 # bash benchmarks.sh --help
-$ bash benchmark.sh -t laravel-10.0/ slim-4.11/ ...
+$ bash benchmark.sh -t laravel-10.2/ slim-4.12/ ...
 ...
 ```
 
 
 ## Add Your Framework
-Check out the [Benchmarking Policy](#benchmarking-policy), to get more information watch the video [OPCache On/Off](#opcache-on).
+Check out the [Benchmarking Policy](#benchmarking-policy), to get more information watch the video 
+
+[OPCache On/Off](#opcache-on).
 
 
 ## Benchmarking Policy
@@ -209,9 +212,17 @@ ETH: 0x0ADd51D6855d2DF11BB5F331A3fa345c67a863b2
 
 ## References 
 Note: This project is based on
-[php-framework-benchmark](https://github.com/kenjis/php-framework-benchmark), thanks to [Kenjis](https://github.com/kenjis). It is very old and abandoned, so I decided to split it from the origin and update it separately.
+[php-framework-benchmark](https://github.com/kenjis/php-framework-benchmark), thanks to [Kenjis](https://github.com/kenjis). It is very old and abandoned, so I decided to split it from the origin and change/update it separately.
 
-For frameworks, I considered the official repos:
+🙏 Thanks to contributors: 
+
+- [Joan Miquel](https://github.com/joanhey)
+
+- [Rostunov Sergey](https://github.com/stdex)
+
+
+
+📄 For frameworks, I considered the official repos:
 * [CakePHP](https://github.com/cakephp/cakephp)
 * [CodeIgniter](https://github.com/codeigniter4/CodeIgniter4)
 * [FastRoute](https://github.com/nikic/FastRoute)
@@ -234,4 +245,4 @@ For frameworks, I considered the official repos:
 
 You are allowed to use this plugin/project under the terms of the GNU General Public License version 2.
 
-Copyright (C) 2023 Mohammad Yaaghubi
+Copyright (C) 2024 [Mohammad Yaaghubi](https://github.com/myaaghubi)

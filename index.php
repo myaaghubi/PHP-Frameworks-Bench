@@ -117,10 +117,10 @@
         <?php
         $urls = file($resultsDir . '/urls.log');
         foreach ($urls as $url) {
-            $url_array = explode('/', $url);
+            $urlArray = explode('/', $url);
             // to make it shorter
-            $url_array = array_slice($url_array, 4);
-            echo "<li><a href=\"$url\">.../" . implode('/', $url_array) . "</a></li>";
+            $urlArray_ = array_slice($urlArray, 5);
+            echo "<li><B>" . $urlArray[4] . ": </B><a href=\"$url\">/" . implode('/', $urlArray_) . "</a></li>";
         }
         ?>
     </ul>

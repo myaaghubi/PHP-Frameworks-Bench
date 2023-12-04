@@ -1,0 +1,10 @@
+{
+    "require": {
+        "leafs/leaf": "3.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "Controllers/"
+        }
+    }
+}
