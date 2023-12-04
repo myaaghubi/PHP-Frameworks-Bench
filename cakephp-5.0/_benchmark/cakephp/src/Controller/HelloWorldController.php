@@ -12,7 +12,8 @@ use Cake\Http\Response;
 // such simple controller
 class HelloWorldController extends AppController {
     public $autoRender = false;
-    public function display(string ...$path): ?Response {
+    public function display()
+    {
         return $this->response->withStringBody('Hello World!');
     }
 }
