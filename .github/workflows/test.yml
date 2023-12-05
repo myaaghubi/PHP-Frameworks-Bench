@@ -5,7 +5,7 @@ jobs:
   setup:
     name: Check PHP frameworks
     runs-on: ubuntu-22.04
-    
+
     steps:
     
     - uses: actions/checkout@v3
@@ -16,15 +16,15 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: 8.2
+        php-version: 8.3
         extensions: dom, curl, libxml, mbstring, zip, pcntl, ctype, iconv, intl
         coverage: none
     
     - name: Install Apache mod_php
       run: |
           LC_ALL=C.UTF-8 sudo apt-add-repository http://ppa.launchpad.net/ondrej/php/ubuntu
-          sudo apt install libapache2-mod-php8.2
-          sudo a2enmod php8.2 rewrite
+          sudo apt install libapache2-mod-php8.3
+          sudo a2enmod php8.3 rewrite
       shell: bash
     
     - name: Setup frameworks
