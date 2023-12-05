@@ -5,8 +5,6 @@ jobs:
   setup:
     name: Check PHP frameworks
     runs-on: ubuntu-22.04
-    env:
-      TERM: xterm-color
 
     steps:
     
