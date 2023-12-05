@@ -28,7 +28,7 @@ fi
 for fw in $param_targets
 do
     if [ -d "$fw" ]; then
-        printf "\n\n"
+        echo -e "\n\n"
         echo "/------- $fw: setting up -------/"
         cd "$fw"
         . "_benchmark/setup.sh"
