@@ -28,7 +28,9 @@ jobs:
       shell: bash
     
     - name: Setup frameworks
-      run: bash setup.sh
+      run: |
+        export TERM=xterm-color
+        bash setup.sh
 
     - name: Copy files to web root
       run: |
