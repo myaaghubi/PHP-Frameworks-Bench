@@ -1,10 +1,7 @@
 #!/bin/sh
-# force color output in Github actions
-export TERM=xterm-color
-
 # create project
 rm -rf _benchmark/temp
-composer create-project --prefer-dist cakephp/app:5.0.* ./_benchmark/temp
+composer create-project --ansi --prefer-dist cakephp/app:5.0.* ./_benchmark/temp
 yes|mv ./_benchmark/temp/{.,}* ./
 
 # have the route & controller
