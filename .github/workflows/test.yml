@@ -5,7 +5,9 @@ jobs:
   setup:
     name: Check PHP frameworks
     runs-on: ubuntu-22.04
-    
+    env:
+      TERM: xterm-color
+
     steps:
     
     - uses: actions/checkout@v3
@@ -28,9 +30,7 @@ jobs:
       shell: bash
     
     - name: Setup frameworks
-      run: |
-        export TERM=xterm-color
-        bash setup.sh
+      run: bash setup.sh
 
     - name: Copy files to web root
       run: |
