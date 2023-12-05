@@ -1,4 +1,5 @@
 #!/bin/sh
+export TERM=xterm-color
 
 if [ ! `which composer` ]; then
     echo "composer not found."
