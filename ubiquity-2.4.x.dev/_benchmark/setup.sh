@@ -1,12 +1,12 @@
 #!/bin/sh
 # create project
 rm -rf _benchmark/temp
-composer create-project phpmv/ubiquity-project:2.4.x-dev ./_benchmark/temp
+composer create-project phpmv/ubiquity-project:2.4.x-dev ./_benchmark/temp --ansi
 mv ./_benchmark/temp/{.,}* ./
 
 # have the route & controller
 yes|cp -rf _benchmark/ubiquity/. ./
 
 # some enhancements
-composer install --no-dev --optimize-autoloader
+composer install --no-dev --optimize-autoloader --ansi
 rm ./public/.htaccess

@@ -1,13 +1,13 @@
 #!/bin/sh
 # create project
 rm -rf _benchmark/temp
-composer create-project symfony/skeleton:5.4.* ./_benchmark/temp --ansi
+composer create-project symfony/skeleton:7.0.* ./_benchmark/temp --ansi
 mv ./_benchmark/temp/{.,}* ./
 
 # have the route & controller
 yes|cp -r _benchmark/symfony/* ./
 
-# some enhancements
+# some enhancement
 composer dump-env prod --ansi
 APP_ENV=prod APP_DEBUG=0 bin/console cache:clear
 composer install --no-dev --optimize-autoloader --ansi

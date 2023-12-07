@@ -69,13 +69,16 @@ These are my benchmarks, not yours. **I encourage you to run on your -production
 |lumen-10.0         |                   325.27|           3.9|       3.61|           8.6|
 |symfony-5.4        |                   309.74|           3.7|       3.77|           9.0|
 |codeigniter-4.4    |                   302.21|           3.6|       3.62|           8.6|
-|symfony-6.4        |                   278.58|           3.3|       4.11|           9.8|
+|symfony-7.0        |                   286.46|           3.4|       4.07|           9.7|
+|symfony-6.4        |                   280.83|           3.3|       4.11|           9.8|
 |cakephp-4.5        |                   246.72|           2.9|       4.63|          11.0|
+|cakephp-5.0        |                   243.96|           2.9|       4.74|          11.3|
 |laravel-10.2       |                    84.19|           1.0|      13.06|          31.0|
 
 
 #### OPCache On
 Check out the video for more information.
+
 [![Results with OPCache On/Off & How to add your framework](http://img.youtube.com/vi/Dk8YHQZ6jfY/0.jpg)](http://www.youtube.com/watch?v=Dk8YHQZ6jfY)
 
 
@@ -182,9 +185,7 @@ $ bash benchmark.sh -t laravel-10.2/ slim-4.12/ ...
 
 
 ## Add Your Framework
-Check out the [Benchmarking Policy](#benchmarking-policy), to get more information watch the video 
-
-[OPCache On/Off](#opcache-on).
+Check out the [Benchmarking Policy](#benchmarking-policy), to get more information watch the video [OPCache On/Off](#opcache-on).
 
 
 ## Benchmarking Policy

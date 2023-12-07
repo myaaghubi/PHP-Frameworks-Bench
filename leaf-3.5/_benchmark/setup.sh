@@ -1,2 +1,2 @@
 #!/bin/sh
-composer install --no-dev -o
+composer install --no-dev -o --ansi
