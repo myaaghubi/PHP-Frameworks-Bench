@@ -1,7 +1,7 @@
 #!/bin/sh
 # create project
 rm -rf _benchmark/temp
-composer create-project --prefer-dist kumbia/framework:1.1.* ./_benchmark/temp --ansi
+composer create-project --prefer-dist kumbia/framework:1.2.* ./_benchmark/temp --ansi
 mv ./_benchmark/temp/{.,}* ./
 
 # have the route & controller

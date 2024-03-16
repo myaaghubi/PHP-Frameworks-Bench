@@ -1,6 +1,6 @@
 <?php
 
-class HelloworldController extends AppController
+class HelloController extends AppController
 {
 
     public function index()
