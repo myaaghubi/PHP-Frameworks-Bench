@@ -8,7 +8,7 @@ namespace app\controllers;
 use yii\web\Controller;
 
 // such simple controller
-class HelloworldController extends Controller {
+class HelloController extends Controller {
     public function actionIndex() {
         return 'Hello World!';
     }

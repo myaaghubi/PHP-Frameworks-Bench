@@ -5,7 +5,7 @@
  */
 namespace controllers;
 
-class HelloWorldController extends \Ubiquity\controllers\Controller {
+class HelloController extends \Ubiquity\controllers\Controller {
 	public function index() {
 		echo "Hello World!";
 	}
