@@ -18,14 +18,14 @@ shopt -s extglob
 
 for fw in $param_targets
 do
+    echo -n "> clearing cache: $fw "
     if [ -d "$fw" ]; then
-        echo -n "> clearing cache: $fw "
         cd "$fw"
         . "_benchmark/clear-cache.sh"
         cd ..
     else
         # check for dir
-        echo -e "${RED}Dir $fw/ doesn't exist!"
+        echo -e "${RED}Dir $fw/ doesn't exist!${NC}"
         FAIL=1
     fi
 done

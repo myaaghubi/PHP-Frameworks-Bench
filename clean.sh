@@ -12,14 +12,14 @@ shopt -s extglob
 
 for fw in $param_targets
 do
+    echo "> cleaning $fw "
     if [ -d "$fw" ]; then
-        echo "> cleaning $fw "
         cd "$fw"
         . "_benchmark/clean.sh"
         cd ..
     else
         # check for dir
-        echo -e "${RED}Dir $fw/ doesn't exist!"
+        echo -e "${RED}Dir $fw/ doesn't exist!${NC}"
         FAIL=1
     fi
 done

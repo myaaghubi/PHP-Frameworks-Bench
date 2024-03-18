@@ -21,7 +21,7 @@ do
         cd ..
     else
         # check for dir
-        echo -e "${RED}❌ Dir $fw ${NC} doesn't exist"
+        echo -e "${RED}Dir $fw/ doesn't exist!${NC}"
         FAIL=1
     fi
 done
