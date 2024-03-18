@@ -22,10 +22,15 @@ phpc=`curl -s "$base/libs/php_config.php"`
 echo "/------- PHP Config -------/"
 echo "$phpc"
 
+# Colors
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
 for fw in `echo $param_targets`
 do
+    echo "\n/------- $fw -------/"
     if [ -d "$fw" ]; then
-        echo "\n/------- $fw -------/"
 
         # read -p "Continue to $fw (y/n)?" choice
         # case "$choice" in
@@ -75,6 +80,10 @@ do
 
         # run the benchmark
         benchmark "$fw" "$url"
+    else
+        # check for dir
+        echo "${RED}Dir $fw/ doesn't exist!${NC}"
+        FAIL=1
     fi
 done
 
