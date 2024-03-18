@@ -34,7 +34,7 @@ do
         fi
     else
         # if exist in config, but not exist the dir
-        echo -e "${RED}❌ don't exist dir for $fw ${NC}"
+        echo -e "${RED}❌ Dir $fw ${NC} doesn't exist"
         FAIL=1
     fi
 done
