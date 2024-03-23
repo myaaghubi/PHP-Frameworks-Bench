@@ -32,6 +32,10 @@ do
         else
             printf "%-34b %4s bytes   %s\n" "${GREEN}✔ $fw ${NC}" "${#url_output}" "$url"
         fi
+    else
+        # if exist in config, but not exist the dir
+        echo -e "${RED}❌ Dir $fw ${NC} doesn't exist"
+        FAIL=1
     fi
 done
 
