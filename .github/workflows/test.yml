@@ -23,7 +23,7 @@ jobs:
     - name: Install Apache mod_php
       run: |
           LC_ALL=C.UTF-8 sudo apt-add-repository http://ppa.launchpad.net/ondrej/php/ubuntu
-          sudo apt install libapache2-mod-php8.3
+          sudo apt install libapache2-mod-php8.4
           sudo a2enmod php8.3 rewrite
       shell: bash
     
