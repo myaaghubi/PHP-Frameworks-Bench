@@ -4,7 +4,7 @@ on: [ push, pull_request ]
 jobs:
   setup:
     name: Check PHP frameworks
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     steps:
     
@@ -16,7 +16,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: 8.3
+        php-version: 8.4
         extensions: dom, curl, libxml, mbstring, zip, pcntl, ctype, iconv, intl
         coverage: none
     
