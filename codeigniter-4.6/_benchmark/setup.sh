@@ -1,7 +1,7 @@
 #!/bin/sh
 # create project
 rm -rf _benchmark/temp
-composer create-project codeigniter4/appstarter:^4.4 --ansi --no-dev ./_benchmark/temp
+composer create-project codeigniter4/appstarter:^4.6 --ansi --no-dev ./_benchmark/temp
 mv ./_benchmark/temp/{.,}* ./
 
 # have the route & controller
