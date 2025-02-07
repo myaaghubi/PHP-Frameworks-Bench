@@ -16,7 +16,6 @@ connections=500
 # Frameworks list
 # Sorted alphabetically
 frameworks_list="
-cakephp-4.5
 cakephp-5.0
 codeigniter-4.6
 fastroute-1.3
