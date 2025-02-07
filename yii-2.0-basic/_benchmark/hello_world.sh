@@ -1,2 +1,2 @@
 #!/bin/sh
-url="$base/$fw/web/index.php?r=helloworld/index"
+url="$base/$fw/web/index.php?r=hello/index"
