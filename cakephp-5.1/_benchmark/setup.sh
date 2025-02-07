@@ -1,7 +1,7 @@
 #!/bin/sh
 # create project
 rm -rf _benchmark/temp
-composer create-project --prefer-dist cakephp/app:5.0.* ./_benchmark/temp --ansi
+composer create-project --prefer-dist cakephp/app:5.1.* ./_benchmark/temp --ansi
 yes|mv ./_benchmark/temp/{.,}* ./
 
 # have the route & controller
