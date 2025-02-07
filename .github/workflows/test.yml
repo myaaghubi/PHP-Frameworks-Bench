@@ -4,11 +4,11 @@ on: [ push, pull_request ]
 jobs:
   setup:
     name: Check PHP frameworks
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     steps:
     
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Install WRK
       run: sudo apt-get install wrk w3m
@@ -16,15 +16,15 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: 8.3
+        php-version: 8.4
         extensions: dom, curl, libxml, mbstring, zip, pcntl, ctype, iconv, intl
         coverage: none
     
     - name: Install Apache mod_php
       run: |
           LC_ALL=C.UTF-8 sudo apt-add-repository http://ppa.launchpad.net/ondrej/php/ubuntu
-          sudo apt install libapache2-mod-php8.3
-          sudo a2enmod php8.3 rewrite
+          sudo apt install libapache2-mod-php8.4
+          sudo a2enmod php8.4 rewrite
       shell: bash
     
     - name: Setup frameworks
