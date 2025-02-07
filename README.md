@@ -33,12 +33,13 @@ Benchmarking on components like template engines or ORM/Database libraries is ou
 
 #### Environment
 
+For `PHP 8.3` check out [this link](https://github.com/myaaghubi/PHP-Frameworks-Bench/tree/v2.4.1).
 For `PHP 8.2` check out [this link](https://github.com/myaaghubi/PHP-Frameworks-Bench/tree/v2.3.1).
 
-* Ubuntu 22.04 LTS x86_64
-  * PHP 8.3.0
+* Ubuntu 24.04 LTS x86_64
+  * PHP 8.4.3
   * OPCache Off
-  * Apache 2.4.52
+  * Apache 2.4.58
   * WRK 4.2.0 (5 min)
   * CPU Core i7-3770K/4.4Ghz
   * Memory 16G 
@@ -55,25 +56,23 @@ These are my benchmarks, not yours. **I encourage you to run on your -production
 
 |framework          |requests per second (rps)|relative (rps)|peak memory|relative (mem)|
 |-------------------|------------------------:|-------------:|----------:|-------------:|
-|pure-php           |                27,077.31|         321.6|       0.42|           1.0|
-|kumbia-1.1         |                 5,921.29|          70.3|       0.54|           1.3|
-|fastroute-1.3      |                 4,516.12|          53.6|       0.56|           1.3|
-|phroute-2.2        |                 4,198.83|          49.9|       0.58|           1.4|
-|leaf-3.5           |                 1,487.36|          17.7|       1.11|           2.6|
-|fatfree-3.8        |                 1,453.82|          17.3|       1.72|           4.1|
-|slim-4.12          |                   798.17|           9.5|       1.57|           3.7|
-|ubiquity-2.4.x.dev |                   705.12|           8.4|       1.64|           3.9|
-|silex-2.3          |                   543.66|           6.5|       2.20|           5.2|
-|yii-2.0-basic      |                   503.76|           6.0|       2.56|           6.1|
-|fuelphp-1.9        |                   429.18|           5.1|       2.61|           6.2|
-|lumen-10.0         |                   325.27|           3.9|       3.61|           8.6|
-|symfony-5.4        |                   309.74|           3.7|       3.77|           9.0|
-|codeigniter-4.4    |                   302.21|           3.6|       3.62|           8.6|
-|symfony-7.0        |                   286.46|           3.4|       4.07|           9.7|
-|symfony-6.4        |                   280.83|           3.3|       4.11|           9.8|
-|cakephp-4.5        |                   246.72|           2.9|       4.63|          11.0|
-|cakephp-5.0        |                   243.96|           2.9|       4.74|          11.3|
-|laravel-10.2       |                    84.19|           1.0|      13.06|          31.0|
+|pure-php           |                25,833.28|         409.4|       0.42|           1.0|
+|kumbia-1.2         |                 5,681.12|          90.0|       0.54|           1.3|
+|fastroute-1.3      |                 4,262.94|          67.6|       0.56|           1.3|
+|phroute-2.2        |                 3,949.48|          62.6|       0.58|           1.4|
+|fatfree-3.9        |                 1,364.24|          21.6|       1.72|           4.1|
+|leaf-3.11          |                 1,298.60|          20.6|       1.18|           2.8|
+|slim-4.14          |                   741.19|          11.7|       1.59|           3.8|
+|yii-2.0-basic      |                   527.72|           8.4|       2.60|           6.2|
+|silex-2.3          |                   512.44|           8.1|       2.28|           5.4|
+|lumen-10.0         |                   301.01|           4.8|       3.78|           9.0|
+|symfony-5.4        |                   281.95|           4.5|       3.84|           9.1|
+|codeigniter-4.6    |                   274.93|           4.4|       3.93|           9.4|
+|symfony-7.0        |                   261.52|           4.1|       4.20|          10.0|
+|symfony-6.4        |                   254.35|           4.0|       4.26|          10.1|
+|cakephp-5.1        |                   222.48|           3.5|       4.96|          11.8|
+|laravel-10.3       |                    76.35|           1.2|      13.82|          32.9|
+|laravel-11.0       |                    63.10|           1.0|      16.19|          38.5|
 
 
 #### OPCache On
@@ -246,4 +245,4 @@ Note: This project is based on
 
 You are allowed to use this plugin/project under the terms of the GNU General Public License version 2.
 
-Copyright (C) 2024 [Mohammad Yaaghubi](https://github.com/myaaghubi)
+Copyright (C) 2025 [Mohammad Yaaghubi](https://github.com/myaaghubi)
