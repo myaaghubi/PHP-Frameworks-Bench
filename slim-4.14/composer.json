@@ -1,0 +1,12 @@
+{
+    "require": {
+        "slim/slim": "4.14.*",
+        "slim/psr7": "1.7.*",
+        "slim/http": "1.4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "Controllers/"
+        }
+    }
+}
