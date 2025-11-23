@@ -9,5 +9,11 @@ yes|cp -rf _benchmark/maravel/. ./
 
 # some enhancements
 composer install --no-dev -o --ansi
+
+cat >> .env << EOF
+APP_ENV=production
+APP_DEBUG=false
+EOF
+
 chmod -R o+w storage
 rm ./public/.htaccess
