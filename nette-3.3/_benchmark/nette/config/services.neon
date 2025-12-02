@@ -1,0 +1,11 @@
+services:
+	- App\Core\RouterFactory::createRouter
+
+
+search:
+	-	in: %appDir%
+		classes:
+			- *Facade
+			- *Factory
+			- *Repository
+			- *Service
