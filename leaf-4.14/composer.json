@@ -1,6 +1,6 @@
 {
     "require": {
-        "leafs/leaf": "3.11.*"
+        "leafs/leaf": "4.14.*"
     },
     "autoload": {
         "psr-4": {
