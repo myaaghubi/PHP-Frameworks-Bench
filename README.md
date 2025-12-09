@@ -39,7 +39,7 @@ For `PHP 8.2` check out [this link](https://github.com/myaaghubi/PHP-Frameworks-
 
 * Ubuntu 24.04 LTS x86_64
   * PHP 8.4.3
-  * OPCache Off
+  * OPCache Off ([Why Not??](https://github.com/myaaghubi/PHP-Frameworks-Bench/wiki/Why-not-OPcache-ON%3F%3F))
   * Apache 2.4.58
   * WRK 4.2.0 (5 min)
   * CPU Core i7-3770K/4.4Ghz
