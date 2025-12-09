@@ -49,6 +49,10 @@ For `PHP 8.2` check out [this link](https://github.com/myaaghubi/PHP-Frameworks-
 #### Results (2025/2/7)
 
 These are my benchmarks, not yours. **I encourage you to run on your -production equivalent- environments.**
+```bash
+# the command used for the results below
+$ bash benchmark.sh -f -rapache
+```
 
 ![Frameworks Benchmark Results Graph Throughput](screenshots/php-frameworks-bench-throughput.png)
 ![Frameworks Benchmark Results Graph Memory](screenshots/php-frameworks-bench-memory.png)
