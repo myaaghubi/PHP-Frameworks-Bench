@@ -28,7 +28,7 @@ leaf-4.4
 lumen-10.0
 phroute-2.2
 pure-php
-slim-4.14
+slim-4.15
 symfony-5.4
 symfony-6.4
 symfony-7.4
