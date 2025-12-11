@@ -45,7 +45,7 @@ return function (RouteBuilder $routes): void {
     $routes->setRouteClass(DashedRoute::class);
 
     /* *** PHP-Frameworks-Bench *** */
-    $routes->connect('/hello/index', ['controller' => 'HelloWorld', 'action' => 'display', 'home']);
+    $routes->connect('/hello/index', ['controller' => 'HelloWorld', 'action' => 'display']);
 
     $routes->scope('/', function (RouteBuilder $builder) {
         /*
