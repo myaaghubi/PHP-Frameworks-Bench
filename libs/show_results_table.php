@@ -14,7 +14,7 @@ if (!empty($results[$argv[1]])) {
 }
 
 if (preg_match("/output\/(\S+)/", @$results[$index], $match)) {
-    echo " Results:\t\t" . @$match[1] . PHP_EOL;
+    echo " Results:\t\t" . date("Y-m-d H:i:s", strtotime(@$match[1])) . PHP_EOL;
 }
 
 $compareTo = -1;
@@ -26,7 +26,7 @@ if (!empty($results[$argv[2]])) {
 }
 
 if ($compareTo>=0 && preg_match("/output\/(\S+)/", @$results[$compareTo], $match)) {
-    echo " Compare to:\t\t" . @$match[1] . PHP_EOL;
+    echo " Compare to:\t\t" . date("Y-m-d H:i:s", @strtotime(@$match[1])) . PHP_EOL;
 }
 
 echo '|-------------------|------------------------:|-------------:|----------:|-------------:|'.PHP_EOL;
