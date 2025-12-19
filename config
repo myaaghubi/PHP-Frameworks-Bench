@@ -23,7 +23,8 @@ fatfree-3.9
 kumbia-1.2
 laravel-10.3
 laravel-11.0
-leaf-3.11
+laravel-12.10
+leaf-4.4
 lumen-10.0
 maravel-10.51
 phroute-2.2
@@ -31,6 +32,7 @@ pure-php
 slim-4.14
 symfony-5.4
 symfony-6.4
-symfony-7.0
+symfony-7.4
+symfony-8.0
 yii-2.0-basic
 "
