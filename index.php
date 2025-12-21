@@ -115,12 +115,20 @@
 
     <ul>
         <?php
-        $urls = file($resultsDir . '/urls.log');
-        foreach ($urls as $url) {
-            $urlArray = explode('/', $url);
-            // to make it shorter
-            $urlArray_ = array_slice($urlArray, 5);
-            echo "<li><B>" . $urlArray[4] . ": </B><a href=\"$url\">/" . implode('/', $urlArray_) . "</a></li>";
+        $urlsLog = $resultsDir . '/urls.log';
+        if (!file_exists($urlsLog)) {
+            echo "File <i>$urlsLog</i> does not exists!";
+        } else if (count($urls = file($urlsLog))<1) {
+            echo "File <i>$urlsLog</i> is empty!";
+        } else {
+
+            // $urls = file($urlsLog);
+            foreach ($urls as $url) {
+                $urlArray = explode('/', $url);
+                // to make it shorter
+                $urlArray_ = array_slice($urlArray, 5);
+                echo "<li><B>" . $urlArray[4] . ": </B><a href=\"$url\">/" . implode('/', $urlArray_) . "</a></li>";
+            }
         }
         ?>
     </ul>
