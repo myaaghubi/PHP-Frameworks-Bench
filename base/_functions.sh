@@ -16,6 +16,7 @@ benchmark () {
     # and there is no point to run the benchmark
     if [ ${#status} -eq ${#url_status} ]; then
         echo "Error! $fw: Hello World! ... not reachable"
+        echo "$url"
         echo "$fw: 0: 0: 0: 0" >> "$results_file"
         return 1
     fi
