@@ -1,0 +1,33 @@
+# see https://doc.nette.org/en/configuring
+
+parameters:
+
+
+application:
+	mapping: App\Presentation\*\**Presenter
+
+
+database:
+	dsn: 'sqlite::memory:'
+	user:
+	password:
+
+
+latte:
+	strictTypes: yes
+	strictParsing: yes
+	extensions:
+		- App\Presentation\Accessory\LatteExtension
+
+
+assets:
+	mapping:
+		default:
+			path: assets
+			# type: vite  # Uncomment to activate Vite for asset building
+
+
+di:
+	export:
+		parameters: no
+		tags: no
