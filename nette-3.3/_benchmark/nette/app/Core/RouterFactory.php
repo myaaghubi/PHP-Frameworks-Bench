@@ -21,7 +21,7 @@ final class RouterFactory
         $router
             ->withPath('index.php')
             ->addRoute('hello/index', function () {
-                echo 'Hello World!';
+                printf('Hello World!');
             });
 
         return $router;
