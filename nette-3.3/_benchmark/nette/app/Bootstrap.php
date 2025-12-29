@@ -32,8 +32,8 @@ class Bootstrap
 
 	public function initializeEnvironment(): void
 	{
-		//$this->configurator->setDebugMode('secret@23.75.345.200'); // enable for your remote IP
-		$this->configurator->enableTracy($this->rootDir . '/log');
+		// $this->configurator->setDebugMode('secret@23.75.345.200'); // enable for your remote IP
+		// $this->configurator->enableTracy($this->rootDir . '/log'); // disabled for benchmark
 
 		$this->configurator->createRobotLoader()
 			->addDirectory(__DIR__)
