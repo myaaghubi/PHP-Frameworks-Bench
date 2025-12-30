@@ -12,8 +12,9 @@ class HelloWorldController extends AppController {
 
     public function display()
     {
-        echo $this->response->withStringBody('Hello World!');
-        require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';
-        return "";
+        return $this->response->withStringBody('Hello World!');
+        // uncomment this line for php-fpm
+        // require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';
+        // return "";
     }
 }
