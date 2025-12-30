@@ -18,6 +18,7 @@ require __DIR__.'/../vendor/autoload.php';
 
 
 /* *** PHP-Frameworks-Bench *** */
-// for php-fpm, comment this line and uncomment it in HelloWorldController.php
+// for php-fpm: 
+// comment this line and uncomment it in HelloWorldController.php
 // make sure to run sudo bash disable-fastcgi.sh
 require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';
