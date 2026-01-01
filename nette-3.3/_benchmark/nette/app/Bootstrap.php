@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app;
+namespace App;
 
 use Nette;
 use Nette\Bootstrap\Configurator;

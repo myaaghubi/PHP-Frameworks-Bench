@@ -28,6 +28,7 @@ assets:
 
 
 di:
+	lazy: yes
 	export:
 		parameters: no
 		tags: no
