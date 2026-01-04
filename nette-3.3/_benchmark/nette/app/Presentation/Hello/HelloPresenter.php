@@ -15,8 +15,5 @@ final class HelloPresenter extends Nette\Application\UI\Presenter
     public function actionDefault(): void
     {
         echo 'Hello World!';
-
-        /* *** PHP-Frameworks-Bench *** */
-        require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';
     }
 }
