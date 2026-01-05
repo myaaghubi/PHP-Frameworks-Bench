@@ -10,3 +10,4 @@ yes|cp -r _benchmark/nette/* ./
 # some enhancement
 composer install --no-dev --optimize-autoloader --ansi
 chmod -R o+w log temp
+chown $USER: -R temp
