@@ -239,6 +239,7 @@ Note: This project is based on
 * [Leaf](https://github.com/leafsphp/leaf)
 * [Lumen](https://github.com/laravel/lumen)
 * [Maravel](https://github.com/macropay-solutions/maravel)
+* [Maravelith](https://github.com/macropay-solutions/maravelith)
 * [Nette](https://github.com/nette/web-project)
 * [PhRoute](https://github.com/mrjgreen/phroute)
 * [Silex](https://github.com/silexphp/Silex)
