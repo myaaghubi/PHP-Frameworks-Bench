@@ -21,19 +21,18 @@ $compareTo = -1;
 
 if (!empty($results[$argv[2]])) {
     $compareTo = $argv[2];
-} else if (!empty($results[$index+1])) {
-    $compareTo = $index+1;
+} else if (!empty($results[$index + 1])) {
+    $compareTo = $index + 1;
 }
 
-if ($compareTo>=0 && preg_match("/output\/(\S+)/", @$results[$compareTo], $match)) {
+if ($compareTo >= 0 && preg_match("/output\/(\S+)/", @$results[$compareTo], $match)) {
     echo " Compare to:\t\t" . date("Y-m-d H:i:s", @strtotime(@$match[1])) . PHP_EOL;
 }
 
-echo '|-------------------|------------------------:|-------------:|----------:|-------------:|'.PHP_EOL;
 
 $pr = parse_results(@$results[$index] . '/results.log');
 
-if ($compareTo<0) {
+if ($compareTo < 0) {
     echo build_table($pr);
 } else {
     $prComp = parse_results(@$results[$compareTo] . '/results.log');

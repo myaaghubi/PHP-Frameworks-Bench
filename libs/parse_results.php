@@ -3,45 +3,54 @@
 function parse_results($file)
 {
     if (!file_exists($file))
-    return;
+        return;
     $lines = file($file);
-    
+
     $results = [];
     $min_rps    = INF;
     $min_memory = INF;
     $min_time   = INF;
     $min_file   = INF;
-    
+
     foreach ($lines as $line) {
         $column = explode(':', $line);
-        $fw = $column[0];
+
+        $fw     = $column[0];
         $rps    = (float) trim($column[1]);
-        $memory = (float) trim($column[2])/1024/1024;
-        $time   = (float) trim($column[3])*1000;
+        $memory = (float) trim($column[2]) / 1024 / 1024;
+        $time   = (float) trim($column[3]) * 1000;
         $file   = (int) trim($column[4]);
-        
+        $duration   = (int) trim($column[5]);
+
+        $errors = 0;
+        for ($i = 6; $i < count($column); $i++) {
+            $errors += (int) trim($column[$i]);
+        }
+
         $min_rps    = min($min_rps, $rps);
         $min_memory = min($min_memory, $memory);
         $min_time   = min($min_time, $time);
         $min_file   = min($min_file, $file);
-        
+
         $results[$fw] = [
             'rps'    => $rps,
             'memory' => round($memory, 2),
             'time'   => $time,
             'file'   => $file,
+            'duration' => $duration,
+            'errors' => $errors,
         ];
     }
-    
+
     foreach ($results as $fw => $data) {
-        $results[$fw]['rps_relative']    = $min_rps>0?$data['rps'] / ($min_rps): '-';
-        $results[$fw]['memory_relative'] = $min_memory>0?$data['memory'] / ($min_memory): '-';
-        $results[$fw]['time_relative'] = $min_time>0?$data['time'] / ($min_time): '-';
-        $results[$fw]['file_relative'] = $min_file>0?$data['file'] / ($min_file): '-';
+        $results[$fw]['rps_relative']    = $min_rps > 0 ? $data['rps'] / ($min_rps) : '-';
+        $results[$fw]['memory_relative'] = $min_memory > 0 ? $data['memory'] / ($min_memory) : '-';
+        $results[$fw]['time_relative'] = $min_time > 0 ? $data['time'] / ($min_time) : '-';
+        $results[$fw]['file_relative'] = $min_file > 0 ? $data['file'] / ($min_file) : '-';
     }
-    
+
     array_multisort(array_column($results, 'rps'), SORT_DESC, $results);
-//    var_dump($results);
-    
+    //    var_dump($results);
+
     return $results;
 }
