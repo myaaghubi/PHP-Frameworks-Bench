@@ -54,4 +54,4 @@ $response = $kernel->handle(
 $kernel->terminate($request, $response);
 
 /* *** PHP-Frameworks-Bench *** */
-require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/PHP-Frameworks-Bench/libs/output_data.php';
