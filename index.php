@@ -32,14 +32,14 @@
 
         rsort($resultsDirs);
 
-        $resultsDir = @$resultsDirs[0] ;
+        $resultsDir = @$resultsDirs[0];
 
-        if ($target!==null && file_exists('./output/' . $target)) {
+        if ($target !== null && file_exists('./output/' . $target)) {
             $resultsDir = './output/' . $target;
         }
 
-        $resultsDatetime = "";
-        if (preg_match("/output\/(\S+)/", @$resultsDir, $match)) {
+        $resultsDatetime = "-";
+        if (preg_match("/output\/(.*)/", @$resultsDir, $match)) {
             $resultsDatetime = @$match[1];
         }
 
@@ -82,7 +82,7 @@
     </script>
 
     <?php
-    if (!file_exists($resultsDir)) {
+    if (!file_exists($resultsDir ?? '')) {
     ?>
         <b>Results</b> not found!
         <ul style="list-style-type:decimal">
@@ -92,11 +92,13 @@
         </ul>
     <?php
     } else {
-        echo "<h4>" .  @$match[1] . "</h4>";
+
+        require __DIR__ . '/libs/common.php';
+        echo "<h4>" .  dateNameChecker($resultsDatetime) . "</h4>";
 
         foreach ($resultsDirs as $res) {
-            if (preg_match("/output\/(\S+)/", @$res, $match)) {
-                echo "<a href='index.php?t=" .  @$match[1] . "'>" . $match[1] . "</a> | ";
+            if (preg_match("/output\/(.*)/", @$res, $match)) {
+                echo "<a href='index.php?t=" .  @$match[1] . "'>" . dateNameChecker(@$match[1]) . "</a> | ";
             }
         }
     ?>
@@ -116,16 +118,14 @@
     <ul>
         <?php
         $urlsLog = $resultsDir . '/urls.log';
+
         if (!file_exists($urlsLog)) {
             echo "File <i>$urlsLog</i> does not exists!";
-        } else if (count($urls = file($urlsLog))<1) {
+        } else if (count($urls = file($urlsLog)) < 1) {
             echo "File <i>$urlsLog</i> is empty!";
         } else {
-
-            // $urls = file($urlsLog);
             foreach ($urls as $url) {
                 $urlArray = explode('/', $url);
-                // to make it shorter
                 $urlArray_ = array_slice($urlArray, 5);
                 echo "<li><B>" . $urlArray[4] . ": </B><a href=\"$url\">/" . implode('/', $urlArray_) . "</a></li>";
             }

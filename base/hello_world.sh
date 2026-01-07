@@ -10,7 +10,7 @@ cd ..
 
 mkdir -p output
 
-export dir_datetime=`date +%y-%m-%dT%H-%M-%S`
+export dir_datetime=`date +%y-%m-%dT%H:%M:%S`
 mkdir output/$dir_datetime
 
 results_file="output/$dir_datetime/results.log"
