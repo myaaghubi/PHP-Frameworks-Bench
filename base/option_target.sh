@@ -9,7 +9,8 @@ function showHelp()
 {
    cat << HEREDOC
 
-    Usage: bash check.sh [-t pure-php slim-*]
+    Usage: bash setup.sh [-t slim-4 symfony-8.0 ...]
+    Usage: bash check.sh [-t pure-php slim-4 ...]
 
     Optional Arguments:
         -h, --help                  Show this help message and exit
