@@ -1,5 +1,12 @@
 <?php
 
+function removePrefix($string, $prefix="") {
+    if (strpos($string, $prefix)===0) {
+        return substr($string, 0, strlen($prefix));
+    }
+
+    return $string;
+}
 
 function dateNameChecker($string, $format="y/m/d H:i") {
     $date = validateDate($string);
