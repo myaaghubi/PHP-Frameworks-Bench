@@ -1,35 +1,36 @@
 <?php
 
-function build_table($res1, $res2 = null, $header = true)
+function build_table($res1, $res2 = null, $headerGenerate = true)
 {
     $table = '';
-    $line = '|-------------------|--------------------:|-------------:|------------:|-------------:|-------------:|' . PHP_EOL;
+    $line = '|-----------------------|----------------------:|---------------:|-----------------:|---------------:|-------------:|' . PHP_EOL;
 
-    if ($header) {
-        $table .= $line . '|framework          |requests/second (rps)|relative (rps)| peak memory |relative (mem)|  error&fail  |' . PHP_EOL . $line;
+    if ($headerGenerate) {
+        $table .= $line . '| framework             | requests/second (rps) | relative (rps) | memory peak (mb) | relative (mem) | error & fail |' . PHP_EOL . $line;
     }
 
     if (!$res1) {
-        $text = 'Table is empty!';
-        $lLen = 87;
-        $lELen = ($lLen - strlen($text)) / 2;
-
-        $table .= sprintf("|%" . $lELen . "s%" . strlen($text) . "s%" . $lELen . "s|\n", '', $text, '');
+        $table .= makeFormattedText('The "output" folder is empty!', $line);
+        $table .= makeFormattedText('Run a benchmark first:', $line);
+        $table .= makeFormattedText('bash setup.sh -h', $line);
+        $table .= makeFormattedText('bash benchmark.sh -h', $line);
         return $table;
     }
 
     foreach ($res1 as $fw => $result) {
         $comp['rps'] = '(-)';
         $comp['memory'] = '(-)';
-        $comp['errors'] = $result['errors'] == 0 ? '0%' : number_format(($result['errors'] / $result['duration']) / $result['rps'] * $result['duration'], 1) . '%';
+        
+        // the percentage of failed requests to the whole requests
+        $comp['errors'] = $result['errors'] <= 0 ? '0.0%' : number_format(($result['errors'] / $result['duration']) * 100 / $result['rps'], 1) . '%';
 
         if (!empty($res2[$fw])) {
-            $comp['rps'] = '(' . culc_percentage($result['rps'], $res2[$fw]['rps']) . ')';
-            $comp['memory'] = '(' . culc_percentage($result['memory'], $res2[$fw]['memory']) . ')';
+            $comp['rps'] = '(' . calcPercentage($result['rps'], $res2[$fw]['rps']) . ')';
+            $comp['memory'] = '(' . calcPercentage($result['memory'], $res2[$fw]['memory']) . ')';
         }
 
         $table .= sprintf(
-            "|%-19s|%20s |%13s |%12s |%13s |%13s |" . PHP_EOL,
+            "| %-22s|%22s |%15s |%17s |%15s |%13s |" . PHP_EOL,
             $fw,
             number_format($result['rps'], 2) . ' ' . @$comp['rps'],
             is_numeric($result['rps_relative']) ? number_format($result['rps_relative'], 1) : $result['rps_relative'],
@@ -42,7 +43,17 @@ function build_table($res1, $res2 = null, $header = true)
     return $table . $line;
 }
 
-function culc_percentage($targetNumber, $baseNumber)
+function makeFormattedText($text, $header="") {
+    $textLen = strlen($text);
+    $textLen += $textLen%2==0?0:1;
+
+    # to fit with the header
+    $sLen = (strlen($header) - $textLen) / 2 - 1;
+
+    return sprintf("|%{$sLen}s%{$textLen}s%{$sLen}s|\n", '', $text, '');
+}
+
+function calcPercentage($targetNumber, $baseNumber)
 {
     if (!is_numeric($targetNumber) || !is_numeric($baseNumber) || $baseNumber <= 0) {
         return '-';
