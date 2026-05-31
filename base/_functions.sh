@@ -39,7 +39,7 @@ benchmark () {
     if [ ${#status} -eq ${#url_status} ]; then
         echo "Error! $fw: Hello World! ... status issue or not reachable"
         echo "$url"
-        echo "$fw: 0: 0: 0: 0" >> "$results_file"
+        echo "$fw: 0: 0: 0: 0: 0" >> "$results_file"
         return 1
     fi
 
