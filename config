@@ -3,27 +3,26 @@ base="http://127.0.0.1/PHP-Frameworks-Bench"
 
 # 30-3000
 # a higher duration provides more reliable results
-duration=60
+duration=30
 
 # for a high-end host you may need to put 
 # a higher number 
 threads=50
-
 # consider your webservers configuration
 # max live connections
-connections=500
+connections=250
 
 # Frameworks list
 # Sorted alphabetically
 frameworks_list="
 cakephp-5.2
+cakephp-5.3
 codeigniter-4.6
 fastroute-1.3
 fatfree-3.9
 kumbia-1.2
-laravel-10.3
-laravel-11.0
-laravel-12.11
+laravel-12
+laravel-13
 leaf-4.4
 lumen-10.0
 maravel-10.51
