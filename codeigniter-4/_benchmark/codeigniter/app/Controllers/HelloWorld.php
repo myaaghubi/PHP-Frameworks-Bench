@@ -5,8 +5,10 @@
  */
 namespace App\Controllers;
 
-class HelloWorldController extends BaseController {
-    public function index() {
-        echo 'Hello World!';
+class HelloWorld extends BaseController
+{
+    public function index(): string
+    {
+        return 'Hello World!';
     }
 }
