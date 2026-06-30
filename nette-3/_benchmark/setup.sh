@@ -1,7 +1,7 @@
 #!/bin/sh
 # create project
 rm -rf _benchmark/temp
-composer create-project nette/web-project:3.3.* ./_benchmark/temp --ansi
+composer create-project nette/web-project:3.* ./_benchmark/temp --ansi
 mv ./_benchmark/temp/* ./
 
 # override the route & controller
