@@ -2,15 +2,10 @@
 base="http://127.0.0.1/PHP-Frameworks-Bench"
 
 # 30-3000
-# a higher duration provides more reliable results
-duration=30
-
-# for a high-end host you may need to put 
-# a higher number 
-threads=50
-# consider your webservers configuration
-# max live connections
+duration=300
+# web servers config max live connections
 connections=250
+threads=50
 
 # Frameworks list
 # Sorted alphabetically
