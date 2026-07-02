@@ -8,9 +8,8 @@ mv ./_benchmark/temp/{.,}* ./
 yes|cp -rf _benchmark/laravel/. ./
 
 # some enhancements
-# at the current time point there are problems with the --no-dev to run the framework
-# composer install --optimize-autoloader --no-dev --ansi
-composer install --optimize-autoloader --ansi
+composer install --optimize-autoloader --no-dev --ansi
+php artisan optimize
 chmod -R o+w storage
 
 rm ./public/.htaccess
