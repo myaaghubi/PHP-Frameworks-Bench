@@ -33,22 +33,26 @@ Benchmarking on components like template engines or ORM/Database libraries is ou
 
 #### Environment
 
+For `PHP 8.4` check out [this link](https://github.com/myaaghubi/PHP-Frameworks-Bench/blob/3aae19405dbe7a93a7438633666d897cfe4586cc).
+
 For `PHP 8.3` check out [this link](https://github.com/myaaghubi/PHP-Frameworks-Bench/tree/92cce05b3f6cf0aa33a06c3f13d8dd0c706f3b6c).
 
 For `PHP 8.2` check out [this link](https://github.com/myaaghubi/PHP-Frameworks-Bench/tree/163d2c0eb7862cf3c14479913435cb90ec7d6f0b).
 
 * Ubuntu 24.04 LTS x86_64
-  * PHP 8.4.3
-  * OPCache Off ([Why Not??](https://github.com/myaaghubi/PHP-Frameworks-Bench/wiki/Why-not-OPcache-ON%3F%3F))
+  * PHP 8.5.7
+  * OPCache On
   * Apache 2.4.58
-  * WRK 4.2.0 (5 min)
+  * WRK 4.2.0-4b2 (5 min)
   * CPU Core i7-3770K/4.4Ghz
   * Memory 16G 
 
 
-#### Results (2025/2/7)
+#### Results (2026/7/2)
 
-These are my benchmarks, not yours. **I encourage you to run on your -production equivalent- environments.**
+> [!NOTE]
+> These are my benchmarks, not yours. **I encourage you to run on your -production equivalent- environments.**
+
 ```bash
 # the command used for the results below
 $ bash benchmark.sh -f -rapache
@@ -59,25 +63,26 @@ $ bash benchmark.sh -f -rapache
 ![Frameworks Benchmark Results Graph Execution Time](screenshots/php-frameworks-bench-exectime.png)
 ![Frameworks Benchmark Results Graph Included Files](screenshots/php-frameworks-bench-includedfiles.png)
 
-|framework          |requests per second (rps)|relative (rps)|peak memory|relative (mem)|
-|-------------------|------------------------:|-------------:|----------:|-------------:|
-|pure-php           |                25,833.28|         409.4|       0.42|           1.0|
-|kumbia-1.2         |                 5,681.12|          90.0|       0.54|           1.3|
-|fastroute-1.3      |                 4,262.94|          67.6|       0.56|           1.3|
-|phroute-2.2        |                 3,949.48|          62.6|       0.58|           1.4|
-|fatfree-3.9        |                 1,364.24|          21.6|       1.72|           4.1|
-|leaf-3.11          |                 1,298.60|          20.6|       1.18|           2.8|
-|slim-4.14          |                   741.19|          11.7|       1.59|           3.8|
-|yii-2.0-basic      |                   527.72|           8.4|       2.60|           6.2|
-|silex-2.3          |                   512.44|           8.1|       2.28|           5.4|
-|lumen-10.0         |                   301.01|           4.8|       3.78|           9.0|
-|symfony-5.4        |                   281.95|           4.5|       3.84|           9.1|
-|codeigniter-4.6    |                   274.93|           4.4|       3.93|           9.4|
-|symfony-7.0        |                   261.52|           4.1|       4.20|          10.0|
-|symfony-6.4        |                   254.35|           4.0|       4.26|          10.1|
-|cakephp-5.1        |                   222.48|           3.5|       4.96|          11.8|
-|laravel-10.3       |                    76.35|           1.2|      13.82|          32.9|
-|laravel-11.0       |                    63.10|           1.0|      16.19|          38.5|
+|framework        |requests/ second|relative (rps)|memory peak (mb)|error&fail|
+|-----------------|---------------:|-------------:|---------------:|---------:|
+|pure-php         |       39,413.81|         584.6|            0.41|      0.0%|
+|kumbia-1.2       |       31,193.60|         462.7|            0.43|      0.0%|
+|leaf-4           |       21,400.76|         317.4|            0.42|      0.0%|
+|fatfree-3        |       19,933.78|         295.7|            0.45|      0.0%|
+|slim-4           |       14,633.07|         217.0|            0.45|      0.0%|
+|yii-2-basic      |       12,254.53|         181.8|            0.76|      0.0%|
+|symfony-7        |        7,289.14|         108.1|            0.49|      0.0%|
+|symfony-8        |        6,847.51|         101.6|            0.51|      0.0%|
+|lumen-10         |        6,203.60|          92.0|            0.45|      0.0%|
+|cakephp-5.2      |        6,061.29|          89.9|            0.58|      0.0%|
+|cakephp-5.3      |        5,960.40|          88.4|            0.58|      0.0%|
+|nette-3          |        4,561.40|          67.7|            0.67|      0.9%|
+|codeigniter-4    |        3,087.41|          45.8|            0.58|      1.0%|
+|laravel-12       |           98.17|           1.5|            0.81|     23.8%|
+|laravel-13       |           92.01|           1.4|            0.81|     25.0%|
+
+> [!TIP]
+> For `Laravel` errors all are `timeout` and it seems the latest updates are not making the most of OPCache.
 
 
 #### OPCache On
@@ -252,4 +257,4 @@ Note: This project is based on
 
 You are allowed to use this plugin/project under the terms of the GNU General Public License version 2.
 
-Copyright (C) 2025 [Mohammad Yaaghubi](https://github.com/myaaghubi)
+Copyright (C) 2026 [Mohammad Yaaghubi](https://github.com/myaaghubi)
