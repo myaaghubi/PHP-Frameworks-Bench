@@ -2,7 +2,7 @@
 base="http://127.0.0.1/PHP-Frameworks-Bench"
 
 # 30-3000
-duration=300
+duration=30
 # web servers config max live connections
 connections=250
 threads=50
