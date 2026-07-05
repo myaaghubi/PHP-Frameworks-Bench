@@ -9,7 +9,7 @@ yes|cp -rf _benchmark/laravel/. ./
 
 # some enhancements
 composer install --optimize-autoloader --no-dev --ansi
-php artisan optimize
+#php artisan optimize #php artisan optimize #conflict with test.yml.
 chmod -R o+w storage
 
 rm ./public/.htaccess
