@@ -10,7 +10,7 @@ cd ..
 
 mkdir -p output
 
-export dir_datetime=`date +%y-%m-%dT%H-%M-%S`
+export dir_datetime=`date +%y-%m-%dT%H:%M:%S`
 mkdir output/$dir_datetime
 
 results_file="output/$dir_datetime/results.log"
@@ -61,12 +61,18 @@ do
         echo "$opcacherest"
 
         if [ "$param_restart_apache" = true ]; then
-            echo 'systemctl restart apache2'
+            echo 'sudo systemctl restart apache2'
             sudo systemctl restart apache2
         fi
 
+        if [ "$param_restart_phpfpm" = true ]; then
+            phpVer=`php -v | head -n 1 | sed -E 's/PHP ([0-9]+\.[0-9]+).*/\1/'`
+            echo "sudo systemctl restart \"php$phpVer-fpm\""
+            sudo systemctl restart "php$phpVer-fpm"
+        fi
+
         if [ "$param_restart_nginx" = true ]; then
-            echo 'systemctl restart nginx'
+            echo 'sudo systemctl restart nginx'
             sudo systemctl restart nginx
         fi
         

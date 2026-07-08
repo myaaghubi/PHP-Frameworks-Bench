@@ -32,9 +32,9 @@ params=(`php ./libs/strreplace.php " -" ";-" " ${paramsin}"`)
 IFS=$oldIFS
 
 
-results=(`ls ./output/`)
-index=0
-compare_to=1
+results=($(ls -lt --time=mod --group-directories-first ./output/ | grep '^d' | awk '{print $9}'))
+index=-1
+compare_to=-1
 for option in "${params[@]}"
 do
 	case "$option" in
@@ -66,7 +66,8 @@ do
         -l|--list)
             echo "List of results: "
             for i in "${!results[@]}"; do
-                echo "$i) ${results[$i]}"
+                datetime=$(date -d "@$(stat -c '%Y' "./output/$dir")" '+%Y/%m/%d %H:%M:%S')
+                echo "$i) ${results[$i]} / ${datetime}"
             done
             exit 1
             ;;
@@ -75,7 +76,7 @@ do
             top=${option//-t /}
             if [ ${#top} -ge 0 ]; then
                 index="$top"
-                compare_to=$index+1
+                # compare_to=$index+1
             fi
             ;;
         -h|--help)

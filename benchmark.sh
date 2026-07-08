@@ -27,7 +27,8 @@ function showHelp()
         -f, --fresh                 Clean all frameworks and install the target framework -fresh install- before benchmark.
         -h, --help                  Show this help message and exit
         -rapache, --restart-apache  Restart apache "sudo systemctl restart apache2" before each benchmark.
-        -rnginx, --restart-nginx    Restart apache "sudo systemctl restart nginx" before each benchmark.
+        -rfpm, --restart-fpm   Restart php-fpm "sudo systemctl restart php{current-version}-fpm" before each benchmark.
+        -rnginx, --restart-nginx    Restart nginx "sudo systemctl restart nginx" before each benchmark.
         -t, --target                Specify your target framework/s for benchmarking
                                     Separate them via space.
 
@@ -37,6 +38,7 @@ HEREDOC
 export param_targets="$frameworks_list"
 export param_fresh=false
 export param_restart_apache=false
+export param_restart_phpfpm=false
 export param_restart_nginx=false
 
 oldIFS="$IFS"
@@ -57,6 +59,9 @@ do
             ;;
         -rapache|--restart-apache)
             param_restart_apache=true
+            ;;
+        -rfpm|--restart-fpm)
+            param_restart_phpfpm=true
             ;;
         -rnginx|--restart-nginx)
             param_restart_nginx=true
