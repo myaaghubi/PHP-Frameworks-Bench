@@ -22,7 +22,7 @@ function build_table($res1, $res2 = null, $headerGenerate = true)
         $comp['memory'] = '(-)';
         
         // the percentage of failed requests to the whole requests
-        $comp['errors'] = $result['errors'] <= 0 ? '0.0%' : number_format(($result['errors'] / $result['duration']) * 100 / $result['rps'], 1) . '%';
+        $comp['errors'] = $result['error'] <= 0 ? '0.0%' : number_format(($result['error'] / $result['duration']) * 100 / $result['rps'], 1) . '%';
 
         if (!empty($res2[$fw])) {
             $comp['rps'] = '(' . calcPercentage($result['rps'], $res2[$fw]['rps']) . ')';
