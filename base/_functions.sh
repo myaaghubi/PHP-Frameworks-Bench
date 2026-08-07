@@ -19,7 +19,6 @@ benchmark () {
         curl -sS "$url" > "$output"
         t=`tail -1 "$output" | cut -f 2 -d ':'`
         total=`php ./libs/sum_ms.php $t $total`
-        echo ">>> $t"
         i=$(( $i + 1 ))
     done
     time=`php ./libs/avg_ms.php $total $count`
