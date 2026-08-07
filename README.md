@@ -62,6 +62,7 @@ $ bash benchmark.sh -f -rapache
 ![Frameworks Benchmark Results Graph Memory](screenshots/php-frameworks-bench-memory.png)
 ![Frameworks Benchmark Results Graph Execution Time](screenshots/php-frameworks-bench-exectime.png)
 ![Frameworks Benchmark Results Graph Included Files](screenshots/php-frameworks-bench-includedfiles.png)
+![Frameworks Benchmark Results Graph Included Files](screenshots/php-frameworks-bench-error.png)
 
 |framework        |requests/ second|relative (rps)|memory peak (mb)|error&fail|
 |-----------------|---------------:|-------------:|---------------:|---------:|

@@ -22,9 +22,9 @@ function parse_results($file)
         $file   = (int) trim($column[4]);
         $duration   = (int) trim($column[5]);
 
-        $errors = 0;
+        $error = 0;
         for ($i = 6; $i < count($column); $i++) {
-            $errors += (int) trim($column[$i]);
+            $error += (int) trim($column[$i]);
         }
 
         $min_rps    = min($min_rps, $rps);
@@ -38,7 +38,7 @@ function parse_results($file)
             'time'   => $time,
             'file'   => $file,
             'duration' => $duration,
-            'errors' => $errors,
+            'error' => $error,
         ];
     }
 

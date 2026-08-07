@@ -22,6 +22,7 @@
         $dataMemory = [];
         $dataTime = [];
         $dataFile = [];
+        $dataError = [];
 
         $dataCompRPS = [];
         $dataCompMemory = [];
@@ -55,6 +56,7 @@
                 $dataMemory[] = $params['memory'];
                 $dataTime[] = $params['time'];
                 $dataFile[] = $params['file'];
+                $dataError[] = number_format($params['error']/$params['duration']*100/$params['rps'], 2);
 
                 if (empty($resultsDirs[1]))
                     continue;
@@ -75,6 +77,7 @@
         const dataMemory = [" . implode(",", $dataMemory) . "];
         const dataTime = [" . implode(",", $dataTime) . "];
         const dataFile = [" . implode(",", $dataFile) . "];
+        const dataError = [" . implode(",", $dataError) . "];
 
         const resultsDatetime = '$resultsDatetime';
         ";
@@ -111,6 +114,9 @@
         <canvas id="timeChart" height="90"></canvas>
         <br>
         <canvas id="fileChart" height="90"></canvas>
+        <br>
+        <canvas id="errorChart" height="90"></canvas>
+        <br>
     <?php
     }
     ?>

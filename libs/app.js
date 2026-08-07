@@ -125,3 +125,25 @@ new Chart(fileChart, {
     ],
   },
 });
+
+new Chart(errorChart, {
+  type: "bar",
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Error & Timeout & Fail (%)'
+      },
+    }
+  },
+  data: {
+    labels: dataLabels,
+    datasets: [
+      {
+        label: resultsDatetime,
+        data: dataError,
+        backgroundColor: COLORS,
+      },
+    ],
+  },
+});
