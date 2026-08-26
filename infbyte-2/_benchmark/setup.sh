@@ -1,7 +1,7 @@
 #!/bin/sh
 # create project
 rm -rf _benchmark/temp
-composer create-project --prefer-dist --no-dev infocyph/infbyte:1.* ./_benchmark/temp --ansi
+composer create-project --prefer-dist --no-dev infocyph/infbyte:2.* ./_benchmark/temp --ansi
 mv ./_benchmark/temp/{.,}* ./
 
 # add the benchmark route and controller
