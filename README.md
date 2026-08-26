@@ -243,6 +243,7 @@ Note: This project is based on
 * [FastRoute](https://github.com/nikic/FastRoute)
 * [FatFree](https://github.com/bcosca/fatfree)
 * [FuelPHP](https://github.com/fuelphp/fuelphp)
+* [Infbyte](https://github.com/infocyph/infbyte)
 * [KumbiaPHP](https://github.com/KumbiaPHP/KumbiaPHP)
 * [Laminas](https://github.com/laminas)
 * [Laravel](https://github.com/laravel/laravel)
