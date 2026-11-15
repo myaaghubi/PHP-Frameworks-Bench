@@ -17,6 +17,5 @@ $app->get('/hello/index', Controllers\HelloWorldController::class . ':index');
 
 $app->run();
 
-
 /* *** PHP-Frameworks-Bench *** */
 require $_SERVER['DOCUMENT_ROOT'].'/PHP-Frameworks-Bench/libs/output_data.php';
