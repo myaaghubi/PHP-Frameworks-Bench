@@ -1,8 +1,7 @@
 #!/bin/sh
 # create project
 rm -rf _benchmark/temp
-composer create-project --prefer-dist laravel/laravel:12.* ./_benchmark/temp --ansi
-mv ./_benchmark/temp/{.,}* ./
+composer create-project --prefer-dist laravel/laravel:12.* ./ --ansi
 
 # have the route & controller
 yes|cp -rf _benchmark/laravel/. ./
