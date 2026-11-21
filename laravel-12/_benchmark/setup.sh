@@ -1,15 +1,14 @@
 #!/bin/sh
 # create project
 rm -rf _benchmark/temp
-composer create-project --prefer-dist laravel/laravel:12.* ./_benchmark/temp --ansi
-mv ./_benchmark/temp/{.,}* ./
+composer create-project --prefer-dist laravel/laravel:12.* ./ --ansi
 
 # have the route & controller
 yes|cp -rf _benchmark/laravel/. ./
 
 # some enhancements
 composer install --optimize-autoloader --no-dev --ansi
-#php artisan optimize #conflict with test.yml.
+php artisan optimize
 chmod -R o+w storage
 
 rm ./public/.htaccess
